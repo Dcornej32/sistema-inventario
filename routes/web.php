@@ -14,3 +14,20 @@
 Route::get('/', function () {
     return view('contenido/contenido');
 });
+//listar todos los datos de la tabla
+Route::get('/categoria', 'CategoriaController@index');
+
+//insertar registros en la tabla
+Route::post('/categoria/registrar', 'CategoriaController@store');
+
+//insertar registros en la tabla
+Route::put('/categoria/actualizar', 'CategoriaController@update');
+
+//desactivar registros en la tabla
+Route::put('/categoria/desactivar', 'CategoriaController@desactivar');
+
+//activar registros en la tabla
+Route::put('/categoria/activar', 'CategoriaController@activar');
+
+//para seleccionar categoria
+Route::put('/categoria/selectCategoria', 'CategoriaController@selectCategoria');
