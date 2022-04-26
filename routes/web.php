@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('contenido/contenido');
 });
+
 //listar todos los datos de la tabla
 Route::get('/categoria', 'CategoriaController@index');
 
@@ -30,4 +31,21 @@ Route::put('/categoria/desactivar', 'CategoriaController@desactivar');
 Route::put('/categoria/activar', 'CategoriaController@activar');
 
 //para seleccionar categoria
-Route::put('/categoria/selectCategoria', 'CategoriaController@selectCategoria');
+Route::get('/categoria/selectCategoria', 'CategoriaController@selectCategoria');
+
+
+///   RUTAS DE PRODUCTO ////
+//listar todos los datos de la tabla
+Route::get('/producto', 'ProductoController@index');
+
+//insertar registros en la tabla
+Route::post('/producto/registrar', 'ProductoController@store');
+
+//insertar registros en la tabla
+Route::put('/producto/actualizar', 'ProductoController@update');
+
+//desactivar registros en la tabla
+Route::put('/producto/desactivar', 'ProductoController@desactivar');
+
+//activar registros en la tabla
+Route::put('/producto/activar', 'ProductoController@activar');
