@@ -50,6 +50,7 @@ Route::put('/producto/desactivar', 'ProductoController@desactivar');
 //activar registros en la tabla
 Route::put('/producto/activar', 'ProductoController@activar');
 
+
 //RUTAS DE LOS CLIENTES
 //tabla clientes listar,registrar y actualizar
 Route::get('/cliente', 'ClienteController@index');
