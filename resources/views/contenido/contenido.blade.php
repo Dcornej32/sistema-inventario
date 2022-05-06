@@ -16,10 +16,21 @@
         <H1>Contenido Menú 4</H1>
     </template>
     <template v-if="menu==5">
-        <H1>Contenido Menú 5</H1>
+        <proveedor></proveedor>
     </template>
     <template v-if="menu==6">
-        <H1>Contenido Menú 6</H1>
+        <cliente></cliente>
+    </template>
+
+    <template v-if="menu==7">
+        <user></user>
+    </template>
+    <template v-if="menu==8">
+        <rol></rol>
+    </template>
+
+    <template v-if="menu==12">
+        <informacion></informacion>
     </template>
         
     @endsection

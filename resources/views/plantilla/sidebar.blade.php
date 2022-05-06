@@ -14,7 +14,7 @@
                                 <a class="nav-link" href="#"><i class="icon-bag"></i> Categorías</a>
                             </li>
                             <li @click="menu=2" class="nav-item">
-                                <a class="nav-link" href="#"><i class="icon-bag"></i> Artículos</a>
+                                <a class="nav-link" href="#"><i class="icon-bag"></i>   Productos</a>
                             </li>
                         </ul>
                     </li>
@@ -65,7 +65,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Ayuda <span class="badge badge-danger">PDF</span></a>
                     </li>
-                    <li class="nav-item">
+                    <li @click="menu=12" class="nav-item">
                         <a class="nav-link" href="#"><i class="icon-info"></i> Acerca de...<span class="badge badge-info">IT</span></a>
                     </li>
                 </ul>
