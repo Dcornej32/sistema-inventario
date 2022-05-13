@@ -22,21 +22,21 @@
                                       <option value="descripcion">Descripción</option>
                                     </select>
                                     <input type="text" v-model="buscar" @keyup.enter="listarProducto(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
-                                    <button type="submit"  @click="listarProducto(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+                                    <button type="submit"  @click="listarProducto(1,buscar,criterio)" class="btn btn-outline-info"><i class="fa fa-search"></i> Buscar</button>
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-bordered table-striped table-sm">
+                        <table class="table table-responsive table-borderless table-sm">
                             <thead>
                                 <tr>
-                                    <th>Opciones</th>
-                                    <th>SKU</th>
-                                    <th>Nombre</th>
-                                    <th>Categoria</th>
-                                    <th>Precio Actual</th>
-                                    <th>Stock</th>
-                                    <th>Descripción</th>
-                                    <th>Estado</th>
+                                    <th scope="col">Opciones</th>
+                                    <th scope="col">SKU</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Categoria</th>
+                                    <th scope="col">Precio Actual</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Estado</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -113,77 +113,77 @@
                         </div>
                         <div class="modal-body">
                             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                    <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <div>
+                                            <input type="text" v-model="nombre" class="form-control" placeholder="Nombre del articulo">
+                                            <!-- Se eliminar la siguiente linea de codigo -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-3 form-control-label" for="text-input">Descripción</label>
+                                        <div>
+                                            <textarea type="text" v-model="descripcion" class="form-control" placeholder="Ingrese la descripcion">
+                                            <!-- Se eliminar la siguiente linea de codigo -->
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                             <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-6 form-control-label" for="text-input">Precio Actual</label>
+                                    <div>
+                                        <input type="number" v-model="precio_actual"  class="form-control" placeholder="Precio">
+                                         <!-- Se eliminar la siguiente linea de codigo -->
+                                    </div>
+                                </div>
 
-                            
-                            
-                            
-                             <div class="form-group row">
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-3 form-control-label" for="text-input">stock</label>
+                                    <div>
+                                        <input type="number" v-model="stock" class="form-control" placeholder="Stock">
+                                         <!-- Se eliminar la siguiente linea de codigo -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">SKU</label>
-                                    <div class="col-md-9">
+                                    <div>
                                         <input type="text" v-model="codigo" class="form-control" placeholder="Codigo">
                                         <barcode :value="codigo" :options="{ format: 'EAN-13' }"> </barcode>
                                         Generando un código
                                          <!-- Se eliminar la siguiente linea de codigo -->
                                     </div>
-                             </div>
-
-                            <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="nombre" class="form-control" placeholder="Nombre del articulo">
-                                         <!-- Se eliminar la siguiente linea de codigo -->
-                                    </div>
-                            </div>
-
-                            <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Precio_Actual</label>
-                                    <div class="col-md-9">
-                                        <input type="number" v-model="precio_actual" class="form-control" placeholder="Precio">
-                                         <!-- Se eliminar la siguiente linea de codigo -->
-                                    </div>
-                            </div>
-
-                            <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">stock</label>
-                                    <div class="col-md-9">
-                                        <input type="number" v-model="stock" class="form-control" placeholder="Stock">
-                                         <!-- Se eliminar la siguiente linea de codigo -->
-                                    </div>
-                            </div>
-
-                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Descripción</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="descripcion" class="form-control" placeholder="Ingrese la descripcion">
-                                         <!-- Se eliminar la siguiente linea de codigo -->
-                                    </div>
                                 </div>
-
-                                <div class="form-group row">
+                                <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Categorías</label>
-                                    <div class="col-md-9">
+                                    <div>
                                         <select class="form-control" v-model="idcategorias" > 
                                             <option value="0" disabled> Seleccione </option>
                                             <option v-for="categoria in arrayCategoria" :key="categoria.id" :value="categoria.id" v-text="categoria.nombre"> 
-                                               </option>
+                                            </option>
                                         </select>
-                                         <!-- Se eliminar la siguiente linea de codigo -->
+                                            <!-- Se eliminar la siguiente linea de codigo -->
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+
+                            <div v-show="errorProducto" class="form-group row div-error">
+                                    <div class="text-center text-error">
+                                        <div v-for="error in errorMostrarMsjProducto" :key="error" v-text="error">
+                                        </div>
                                     </div>
                             </div>
-
-        
-                                 <div v-show="errorProducto" class="form-group row div-error">
-                                        <div class="text-center text-error">
-                                            <div v-for="error in errorMostrarMsjProducto" :key="error" v-text="error">
-                                            </div>
-                                        </div>
-                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">
                               <!-- Se agregar el tipo de acciòn que realizara cada boton -->
                             <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                            <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="registrarProducto()">Guardar</button>
+                            <button type="button" v-if="tipoAccion==1" class="btn btn-success rounded-pill" @click="registrarProducto()">Guardar</button>
                             <button type="button" v-if="tipoAccion==2" class="btn btn-primary" @click="actualizarProducto()">Actualizar</button>
 
                         </div>

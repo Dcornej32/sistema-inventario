@@ -24,23 +24,23 @@
                                       <option value="telefono">Teléfono</option>
                                     </select>
                                     <input type="text" v-model="buscar" @keyup.enter="listarPersona(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
-                                    <button type="submit" @click="listarPersona(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+                                    <button type="submit" @click="listarPersona(1,buscar,criterio)" class="btn btn-outline-info"><i class="fa fa-search"></i> Buscar</button>
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-bordered table-striped table-sm">
+                        <table class="table table-responsive table-borderless table-sm">
                             <thead>
                                 <tr>
-                                    <th>Opciones</th>
-                                    <th>Nombre</th>
-                                    <th>Tipo Documento</th>
-                                    <th>Número</th>
-                                    <th>Dirección</th>
-                                    <th>Teléfono</th>
-                                    <th>Email</th>
-                                    <th>Contacto</th>
-                                    <th>Tel: Contacto</th>
-                                    <th>Estado</th>
+                                    <th scope="col">Opciones</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Tipo Documento</th>
+                                    <th scope="col">Número</th>
+                                    <th scope="col">Dirección</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Contacto</th>
+                                    <th scope="col">Tel: Contacto</th>
+                                    <th scope="col">Estado</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -140,13 +140,13 @@
                                  <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="email-input">Teléfono</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="telefono" class="form-control" placeholder="Teléfono">
+                                        <input type="text" v-model="telefono" class="form-control" pattern="[0-9]+" placeholder="Teléfono">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="email-input">Email</label>
                                     <div class="col-md-9">
-                                        <input type="email" v-model="email" class="form-control" placeholder="Email">
+                                        <input type="email" v-model="email" class="form-control"  placeholder="Email">
                                     </div>
                                 </div>
                                  <div class="form-group row">

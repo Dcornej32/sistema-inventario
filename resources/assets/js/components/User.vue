@@ -24,30 +24,31 @@
                                       <option value="telefono">Teléfono</option>
                                     </select>
                                     <input type="text" v-model="buscar" @keyup.enter="listarPersona(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
-                                    <button type="submit" @click="listarPersona(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+                                    <button type="submit" @click="listarPersona(1,buscar,criterio)" class="btn btn-outline-info"><i class="fa fa-search"></i> Buscar</button>
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-bordered table-striped table-sm">
+                         
+                        <table class="table table-responsive table-borderless table-sm">
                             <thead>
                                 <tr>
-                                    <th>Opciones</th>
-                                    <th>Nombre</th>
-                                    <th>Tipo Documento</th>
-                                    <th>Número</th>
-                                    <th>Dirección</th>
-                                    <th>Teléfono</th>
-                                    <th>Email</th>
-                                    <th>Usuario</th>
-                                    <th>Rol</th>
-                                    <th>Estado</th>
+                                    <th scope="col">Opciones</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Tipo Documento</th>
+                                    <th scope="col">Número</th>
+                                    <th scope="col">Dirección</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Usuario</th>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col">Estado</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="persona in arrayPersona" :key="persona.id">
                                     <td>
                                         <button type="button" @click="abrirModal('persona','actualizar',persona)" class="btn btn-warning btn-sm">
-                                          <i class="icon-pencil"></i>
+                                        <i class="icon-pencil"></i>
                                         </button> &nbsp;
                                         <template v-if="persona.condicion">
                                             <button type="button" class="btn btn-danger btn-sm" @click="desactivarUsuario(persona.id)">
@@ -80,6 +81,7 @@
                                 </tr>      
                             </tbody>
                         </table>
+                       
                         <nav>
                             <ul class="pagination">
                                 <li class="page-item" v-if="pagination.current_page > 1">
@@ -110,73 +112,81 @@
                         </div>
                         <div class="modal-body">
                             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="nombre" class="form-control" placeholder="Nombre de la persona">
+                                <div class="form-row ">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <div>
+                                            <input type="text" v-model="nombre" class="form-control" placeholder="Nombre de la persona" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-3 form-control-label" for="email-input">Dirección</label>
+                                        <div>
+                                            <input type="text" v-model="direccion" class="form-control" placeholder="Dirección">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Tipo Documento</label>
-                                    <div class="col-md-9">
-                                        <select v-model="tipo_documento" class="form-control">
-                                        <option value="DNI">DNI</option>
-                                        <option value="RUC">RUC</option>
-                                        <option value="PASS">PASS</option>
-                                        </select>
+                                <div class="form-row"> 
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-3 form-control-label" for="email-input">Teléfono</label>
+                                        <div>
+                                            <input type="text" v-model="telefono" class="form-control" placeholder="Teléfono">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-3 form-control-label" for="email-input">Email</label>
+                                        <div>
+                                            <input type="email" v-model="email" class="form-control" placeholder="Email">
+                                        </div>
                                     </div>
                                 </div>
-                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Número</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="numero_documento" class="form-control" placeholder="Número de documento">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-6 form-control-label" for="text-input">Tipo Documento</label>
+                                        <div>
+                                            <select v-model="tipo_documento" class="form-control">
+                                            <option value="DNI">DNI</option>
+                                            <option value="RUC">RUC</option>
+                                            <option value="PASS">PASS</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div> <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="email-input">Dirección</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="direccion" class="form-control" placeholder="Dirección">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-3 form-control-label" for="text-input">Número</label>
+                                        <div>
+                                            <input type="number" v-model="numero_documento" class="form-control" placeholder="Número de documento">
+                                        </div>
                                     </div>
-                                </div>
-                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="email-input">Teléfono</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="telefono" class="form-control" placeholder="Teléfono">
+                                </div>  
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label class="col-md-3 form-control-label" for="email-input">Rol (*)</label>
+                                        <div>
+                                            <select class="form-control" v-model="idrol" > 
+                                                <option value="0" > Seleccine un Rol </option>
+                                                <option v-for="rol in arrayRol" :key="rol.id" :value="rol.id" v-text="rol.nombre"> Seleccine un Rol </option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="email-input">Email</label>
-                                    <div class="col-md-9">
-                                        <input type="email" v-model="email" class="form-control" placeholder="Email">
+                                    <div class="form-group col-md-4">
+                                        <label class="col-md-3 form-control-label" for="email-input">Usuario (*)</label>
+                                        <div>
+                                            <input type="text" v-model="usuario" id="validationDefaultUsername" class="form-control" placeholder="Nombre de usuario" required>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="email-input">Rol (*)</label>
-                                    <div class="col-md-9">
-                                    <select class="form-control" v-model="idrol"> 
-                                    <option value="0"> Seleccine un Rol </option>
-                                    <option v-for="rol in arrayRol" :key="rol.id" :value="rol.id" v-text="rol.nombre"> Seleccine un Rol </option>
-                                    </select>
-                                    </div>
-                                    </div>
-                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="email-input">Usuario (*)</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="usuario" class="form-control" placeholder="Nombre de usuario">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="email-input">password (*)</label>
-                                    <div class="col-md-9">
-                                        <input type="password" v-model="password" class="form-control" placeholder="Password de acceso">
+                                    <div class="form-group col-md-6row">
+                                        <label class="col-md-3 form-control-label" for="email-input">password (*)</label>
+                                        <div>
+                                            <input type="password" v-model="password" class="form-control" placeholder="Password de acceso" required>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div v-show="errorPersona" class="form-group row div-error">
-                                 <div class="text-center text-error">
-                                 <div v-for="error in errorMostrarMsjPersona" :key="error" v-text="error">
-                                 </div>
-                                 </div>
+                                    <div class="text-center text-error">
+                                        <div v-for="error in errorMostrarMsjPersona" :key="error" v-text="error">
+                                        </div>
+                                    </div>
                                 </div>
 
 
