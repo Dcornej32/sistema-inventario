@@ -53542,7 +53542,7 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [_c("i", { staticClass: "icon-cib-500px-5" })]
+                                [_c("i", { staticClass: "icon-trash" })]
                               )
                             ]
                           : [
