@@ -56486,7 +56486,7 @@ var render = function() {
                         _c(
                           "label",
                           {
-                            staticClass: "col-md-3 form-control-label",
+                            staticClass: "col-md-6 form-control-label",
                             attrs: { for: "email-input" }
                           },
                           [_vm._v("Rol (*)")]
@@ -56550,7 +56550,7 @@ var render = function() {
                         _c(
                           "label",
                           {
-                            staticClass: "col-md-3 form-control-label",
+                            staticClass: "col-md-6 form-control-label",
                             attrs: { for: "email-input" }
                           },
                           [_vm._v("Usuario (*)")]
@@ -56590,7 +56590,7 @@ var render = function() {
                         _c(
                           "label",
                           {
-                            staticClass: "col-md-3 form-control-label",
+                            staticClass: "col-md-9 form-control-label",
                             attrs: { for: "email-input" }
                           },
                           [_vm._v("password (*)")]

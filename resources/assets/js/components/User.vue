@@ -160,7 +160,7 @@
                                 </div>  
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
-                                        <label class="col-md-3 form-control-label" for="email-input">Rol (*)</label>
+                                        <label class="col-md-6 form-control-label" for="email-input">Rol (*)</label>
                                         <div>
                                             <select class="form-control" v-model="idrol" > 
                                                 <option value="0" > Seleccine un Rol </option>
@@ -169,13 +169,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="col-md-3 form-control-label" for="email-input">Usuario (*)</label>
+                                        <label class="col-md-6 form-control-label" for="email-input">Usuario (*)</label>
                                         <div>
                                             <input type="text" v-model="usuario" id="validationDefaultUsername" class="form-control" placeholder="Nombre de usuario" required>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6row">
-                                        <label class="col-md-3 form-control-label" for="email-input">password (*)</label>
+                                        <label class="col-md-9 form-control-label" for="email-input">password (*)</label>
                                         <div>
                                             <input type="password" v-model="password" class="form-control" placeholder="Password de acceso" required>
                                         </div>
