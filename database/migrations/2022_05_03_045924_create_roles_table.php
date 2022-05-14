@@ -23,9 +23,8 @@ class CreateRolesTable extends Migration
             $table->timestamps();
             
         });
-        //DB::table('roles')->insert(array('id'=>'1','nombre'=>'Administrador', 'descripcion'=>'Administrador de área'));
-        //DB::table('roles')->insert(array('id'=>'2','nombre'=>'Gerente', 'descripcion'=>'Gerente de área'));
-        //DB::table('roles')->insert(array('id'=>'3','nombre'=>'Bodeguero', 'descripcion'=>'Almacenero de área '));
+        DB::table('roles')->insert(array('id'=>'1','nombre'=>'Administrador', 'descripcion'=>'Administrador del sistema'));
+        DB::table('roles')->insert(array('id'=>'2','nombre'=>'Almacenero', 'descripcion'=>'Almacenero del sistema'));
 
     }
 

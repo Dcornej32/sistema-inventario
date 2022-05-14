@@ -1,36 +1,71 @@
 @extends('principal')
 @section('contenido')
-    <template v-if="menu==0">
-        
-    </template>
-    <template v-if="menu==1">
-        <categoria></categoria>
-    </template>
-    <template v-if="menu==2">
-        <producto></producto>
-    </template>
-    <template v-if="menu==3">
-        <H1>Contenido Menú 3</H1>
-    </template>
-    <template v-if="menu==4">
-        <H1>Contenido Menú 4</H1>
-    </template>
-    <template v-if="menu==5">
-        <proveedor></proveedor>
-    </template>
-    <template v-if="menu==6">
-        <cliente></cliente>
-    </template>
 
-    <template v-if="menu==7">
-        <user></user>
-    </template>
-    <template v-if="menu==8">
-        <rol></rol>
-    </template>
+    @if(Auth::check())
+        @if(Auth::user()->idrol == 1)
+            <template v-if="menu==0">
+                
+            </template>
+            <template v-if="menu==1">
+                <categoria></categoria>
+            </template>
+            <template v-if="menu==2">
+                <producto></producto>
+            </template>
+            <template v-if="menu==3">
+                <h1>Entradas</h1>
+            </template>
+            <template v-if="menu==4">
+                <h1>Salidas</H1>
+            </template>
+            <template v-if="menu==5">
+                <proveedor></proveedor>
+            </template>
+            <template v-if="menu==6">
+                <cliente></cliente>
+            </template>
 
-    <template v-if="menu==12">
-        <informacion></informacion>
-    </template>
+            <template v-if="menu==7">
+                <user></user>
+            </template>
+            <template v-if="menu==8">
+                <rol></rol>
+            </template>
+
+            <template v-if="menu==12">
+                <informacion></informacion>
+            </template>
+
+        @elseif(Auth::user()->idrol == 2)
+            <template v-if="menu==0">
+                    
+            </template>
+            <template v-if="menu==1">
+                <categoria></categoria>
+            </template>
+            <template v-if="menu==2">
+                <producto></producto>
+            </template>
+            <template v-if="menu==3">
+                <h1>Entradas</h1>
+            </template>
+            <template v-if="menu==4">
+                <h1>Salidas</H1>
+            </template>
+            <template v-if="menu==5">
+                <proveedor></proveedor>
+            </template>
+            <template v-if="menu==6">
+                <cliente></cliente>
+            </template>
+            <template v-if="menu==12">
+                <informacion></informacion>
+            </template>
+        @else
+
+        @endif
+    @endif
+
+   
         
     @endsection

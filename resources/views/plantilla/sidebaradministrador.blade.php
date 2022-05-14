@@ -39,7 +39,7 @@
                                 <a class="nav-link" href="#"><i class="icon-user"></i> Clientes</a>
                             </li>
                             <li @click="menu=7" class="nav-item">
-                                <a class="nav-link" href="i#"><i class="icon-user-follow "></i> Usuarios</a>
+                                <a class="nav-link" href="#"><i class="icon-user-follow "></i> Usuarios</a>
                             </li>
                         </ul>
                     </li>
