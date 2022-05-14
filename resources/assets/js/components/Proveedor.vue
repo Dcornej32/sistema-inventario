@@ -110,66 +110,72 @@
                         </div>
                         <div class="modal-body">
                             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="nombre" class="form-control" placeholder="Nombre de la persona">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-6 form-control-label" for="text-input">Nombre</label>
+                                        <div >
+                                            <input type="text" v-model="nombre" class="form-control" placeholder="Nombre de la persona">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-3 form-control-label" for="email-input">Dirección</label>
+                                        <div>
+                                            <input type="text" v-model="direccion" class="form-control" placeholder="Dirección">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Tipo Documento</label>
-                                    <div class="col-md-9">
-                                        <select v-model="tipo_documento" class="form-control">
-                                        <option value="DNI">DNI</option>
-                                        <option value="RUC">RUC</option>
-                                        <option value="PASS">PASS</option>
-                                        </select>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-3 form-control-label" for="email-input">Teléfono</label>
+                                        <div>
+                                            <input type="text" v-model="telefono" class="form-control" pattern="[0-9]+" placeholder="Teléfono">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-3 form-control-label" for="email-input">Email</label>
+                                        <div>
+                                            <input type="email" v-model="email" class="form-control"  placeholder="Email">
+                                        </div>
                                     </div>
                                 </div>
-                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Número</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="numero_documento" class="form-control" placeholder="Número de documento">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-6 form-control-label" for="text-input">Tipo Documento</label>
+                                        <div>
+                                            <select v-model="tipo_documento" class="form-control">
+                                                <option value="DNI">DUI</option>
+                                                <option value="NIT">NIT</option>
+                                                <option value="PASSAPORTE">PASAPORTE</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div> <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="email-input">Dirección</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="direccion" class="form-control" placeholder="Dirección">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-6 form-control-label" for="text-input">Número</label>
+                                        <div>
+                                            <input type="text" v-model="numero_documento" class="form-control" placeholder="Número de documento">
+                                        </div>
                                     </div>
-                                </div>
-                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="email-input">Teléfono</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="telefono" class="form-control" pattern="[0-9]+" placeholder="Teléfono">
+                                </div>    
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-6 form-control-label" for="email-input">Contacto</label>
+                                        <div>
+                                            <input type="text" v-model="nombre_contacto" class="form-control" placeholder="Nombre del contacto">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="email-input">Email</label>
-                                    <div class="col-md-9">
-                                        <input type="email" v-model="email" class="form-control"  placeholder="Email">
-                                    </div>
-                                </div>
-                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="email-input">Contacto</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="nombre_contacto" class="form-control" placeholder="Nombre del contacto">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="email-input">Teléfono de Contacto</label>
-                                    <div class="col-md-9">
-                                        <input type="text" v-model="telefono_contacto" class="form-control" placeholder="Teléfono del contacto">
+                                    <div class="form-group col-md-6">
+                                        <label class="col-md-6 form-control-label" for="email-input">Teléfono de Contacto</label>
+                                        <div>
+                                            <input type="text" v-model="telefono_contacto" class="form-control" placeholder="Teléfono del contacto">
+                                        </div>
                                     </div>
                                 </div>
-
                                 <div v-show="errorPersona" class="form-group row div-error">
-                                 <div class="text-center text-error">
-                                 <div v-for="error in errorMostrarMsjPersona" :key="error" v-text="error">
-                                 </div>
-                                 </div>
+                                    <div class="text-center text-error">
+                                        <div v-for="error in errorMostrarMsjPersona" :key="error" v-text="error">
+                                        </div>
+                                    </div>
                                 </div>
-
-
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -330,9 +336,15 @@
             this.errorMostrarMsjPersona =[];
 
             if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre de la persona no puede estar vacío");
+            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("El Email debe der ser valido");
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
             return this.errorPersona;
         },
+        validEmail (email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        },
+    
         cerrarModal(){
             this.modal=0;
             this.tituloModal='';
