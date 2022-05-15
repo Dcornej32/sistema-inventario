@@ -2456,7 +2456,6 @@ window.Vue = __webpack_require__(53);
 //Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('categoria', __webpack_require__(57));
 Vue.component('producto', __webpack_require__(63));
-
 Vue.component('cliente', __webpack_require__(104));
 Vue.component('proveedor', __webpack_require__(109));
 Vue.component('rol', __webpack_require__(114));
@@ -47255,7 +47254,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
+              _c("div", { staticClass: "modal-header verde" }, [
                 _c("h4", {
                   staticClass: "modal-title",
                   domProps: { textContent: _vm._s(_vm.tituloModal) }
@@ -47403,7 +47402,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-primary",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -47418,7 +47417,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn verde",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
@@ -47434,7 +47433,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn verde",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
@@ -51092,7 +51091,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
+              _c("div", { staticClass: "modal-header verde" }, [
                 _c("h4", {
                   staticClass: "modal-title",
                   domProps: { textContent: _vm._s(_vm.tituloModal) }
@@ -51435,7 +51434,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-primary",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -51450,7 +51449,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-success rounded-pill",
+                        staticClass: "btn verde rounded-pill",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
@@ -51466,7 +51465,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn verde",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
@@ -52409,7 +52408,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
+              _c("div", { staticClass: "modal-header verde" }, [
                 _c("h4", {
                   staticClass: "modal-title",
                   domProps: { textContent: _vm._s(_vm.tituloModal) }
@@ -52718,7 +52717,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-primary",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -52733,7 +52732,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn verde",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
@@ -52749,7 +52748,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn verde",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
@@ -53739,7 +53738,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
+              _c("div", { staticClass: "modal-header verde" }, [
                 _c("h4", {
                   staticClass: "modal-title",
                   domProps: { textContent: _vm._s(_vm.tituloModal) }
@@ -54137,7 +54136,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-primary",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -54152,7 +54151,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn verde",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
@@ -54168,7 +54167,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn verde",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
@@ -55013,7 +55012,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
+              _c("div", { staticClass: "modal-header verde" }, [
                 _c("h4", {
                   staticClass: "modal-title",
                   domProps: { textContent: _vm._s(_vm.tituloModal) }
@@ -55161,7 +55160,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-primary",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -55176,7 +55175,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn verde",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
@@ -55192,7 +55191,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn verde",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
@@ -56203,7 +56202,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
+              _c("div", { staticClass: "modal-header verde" }, [
                 _c("h4", {
                   staticClass: "modal-title",
                   domProps: { textContent: _vm._s(_vm.tituloModal) }
@@ -56661,7 +56660,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-primary",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -56676,7 +56675,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn verde",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
@@ -56692,7 +56691,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn verde",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
@@ -57566,7 +57565,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
+              _c("div", { staticClass: "modal-header verde" }, [
                 _c("h4", {
                   staticClass: "modal-title",
                   domProps: { textContent: _vm._s(_vm.tituloModal) }
@@ -58017,7 +58016,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-primary",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -58032,7 +58031,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn verde",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
@@ -58048,7 +58047,7 @@ var render = function() {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn verde",
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
