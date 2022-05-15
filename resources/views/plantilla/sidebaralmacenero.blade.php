@@ -59,5 +59,5 @@
                     </li>
                 </ul>
             </nav>
-            <button class="sidebar-minimizer brand-minimizer verde borde-b borde-t" type="button"></button>
+            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
         </div>
