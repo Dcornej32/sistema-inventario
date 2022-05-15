@@ -24,6 +24,7 @@ Vue.component('rol', require('./components/Rol.vue'));
 Vue.component('user', require('./components/User.vue'));
 Vue.component('informacion', require('./components/Informacion.vue'));
 
+
 const app = new Vue({
     el: '#app',
     data: {

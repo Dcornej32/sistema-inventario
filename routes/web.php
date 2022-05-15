@@ -88,7 +88,7 @@ Route::group(['middleware' => ['auth']], function(){
 
         Route::group(['middleware' => ['Almacenero']], function(){
 
-            //RUTAS DE LAS CATEGORIAS
+            //  RUTAS DE LAS CATEGORIAS
             Route::get('/categoria', 'CategoriaController@index');
             Route::post('/categoria/registrar', 'CategoriaController@store');
             Route::put('/categoria/actualizar', 'CategoriaController@update');
