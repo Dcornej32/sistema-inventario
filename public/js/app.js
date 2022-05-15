@@ -2456,7 +2456,6 @@ window.Vue = __webpack_require__(53);
 //Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('categoria', __webpack_require__(57));
 Vue.component('producto', __webpack_require__(63));
-
 Vue.component('cliente', __webpack_require__(104));
 Vue.component('proveedor', __webpack_require__(109));
 Vue.component('rol', __webpack_require__(114));
@@ -53245,8 +53244,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return this.errorPersona;
         },
         validEmail: function validEmail(email) {
-            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(email);
+            if (!this.email == '') {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            } else {
+                return true;
+            }
         },
         cerrarModal: function cerrarModal() {
             this.modal = 0;
