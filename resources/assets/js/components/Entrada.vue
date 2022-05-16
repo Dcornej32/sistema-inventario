@@ -21,6 +21,7 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="fecha_entrada">Fecha Entrada</option>
+                                        <option value="nombre">Proveedor</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarEntrada(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarEntrada(1,buscar,criterio)" class="btn btn-outline-info"><i class="fa fa-search"></i> Buscar</button>
@@ -369,7 +370,7 @@
                     'to' : 0,
                 },
                 offset : 3,
-                criterio : 'nombre',
+                criterio : 'fecha_entrada',
                 buscar : '',
                 criterioP:'nombre',
                 buscarP:'',

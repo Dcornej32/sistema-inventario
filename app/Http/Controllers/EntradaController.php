@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 use App\Entrada;
 use App\DetalleEntrada;
 use Exception;
+use Carbon\Carbon;
 
 class EntradaController extends Controller
 {
@@ -84,12 +84,12 @@ class EntradaController extends Controller
         try{
             DB::beginTransaction();
 
-            $mytime = Carbon::now('America/El_Salvador');
+            $fecha = Carbon::now();
 
             $entrada = new Entrada();
             $entrada->idproveedores = $request->idproveedores;
             $entrada->idusuarios = \Auth::user()->id;
-            $entrada->fecha_entrada = $mytime->toDateString();
+            $entrada->fecha_entrada = $fecha;
             $entrada->total_compra = $request->total_compra;
             $entrada->condicion = '1';//activo
             $entrada->save();

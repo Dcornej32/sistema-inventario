@@ -58586,6 +58586,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -58615,7 +58616,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 'to': 0
             },
             offset: 3,
-            criterio: 'nombre',
+            criterio: 'fecha_entrada',
             buscar: '',
             criterioP: 'nombre',
             buscarP: '',
@@ -59503,7 +59504,11 @@ var render = function() {
                               "option",
                               { attrs: { value: "fecha_entrada" } },
                               [_vm._v("Fecha Entrada")]
-                            )
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "nombre" } }, [
+                              _vm._v("Proveedor")
+                            ])
                           ]
                         ),
                         _vm._v(" "),
