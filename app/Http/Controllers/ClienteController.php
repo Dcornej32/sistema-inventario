@@ -37,6 +37,18 @@ class ClienteController extends Controller
         ];
     }
 
+    public function selectCliente(Request $request){
+        if (!$request->ajax()) return redirect('/');
+
+            $filtro = $request->filtro;
+            $clientes = Persona::where('nombre','like','%'. $filtro . '%')
+            ->orWhere('numero_documento','like','%'. $filtro . '%')
+            ->select('id','nombre','numero_documento')
+            ->orderBy('nombre','asc')->get();
+
+            return ['clientes'  => $clientes];
+    }
+
     public function store(Request $request)
     {
         if (!$request->ajax()) return redirect('/');

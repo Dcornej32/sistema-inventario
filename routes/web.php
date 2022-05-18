@@ -48,6 +48,9 @@ Route::group(['middleware' => ['auth']], function(){
             Route::put('/producto/activar', 'ProductoController@activar');
             Route::get('/producto/buscarProducto', 'ProductoController@buscarProducto');
             Route::get('/producto/listarProducto', 'ProductoController@listarProducto');
+            Route::get('/producto/buscarProductoSalida', 'ProductoController@buscarProductoSalida');
+            Route::get('/producto/listarProductoSalida', 'ProductoController@listarProductoSalida');
+            
             
             //RUTAS DE LOS CLIENTES
             //tabla clientes listar,registrar y actualizar
@@ -56,6 +59,7 @@ Route::group(['middleware' => ['auth']], function(){
             Route::put('/cliente/actualizar', 'ClienteController@update');
             Route::put('/cliente/desactivar', 'ClienteController@desactivar');
             Route::put('/cliente/activar', 'ClienteController@activar');
+            Route::get('/cliente/selectCliente', 'ClienteController@selectCliente');
             
             //RUTAS DE LOS PROVEEDORES
             //tabla proveedores listar, registrar y actualizar
@@ -93,6 +97,14 @@ Route::group(['middleware' => ['auth']], function(){
             Route::put('/entrada/desactivar', 'EntradaController@desactivar');
             Route::get('/entrada/obtenerCabecera', 'EntradaController@obtenerCabecera');
             Route::get('/entrada/obtenerDetalle', 'EntradaController@obtenerDetalle');
+
+            //RUTAS PARA LA TABLA DE SALIDAS 
+            Route::get('/salida', 'SalidaController@index');
+            Route::post('/salida/registrar', 'SalidaController@store');
+            Route::put('/salida/desactivar', 'SalidaController@desactivar');
+            Route::get('/salida/obtenerCabecera', 'SalidaController@obtenerCabecera');
+            Route::get('/salida/obtenerDetalle', 'SalidaController@obtenerDetalle');
+
         });
 
         Route::group(['middleware' => ['Almacenero']], function(){
@@ -115,6 +127,9 @@ Route::group(['middleware' => ['auth']], function(){
             Route::put('/producto/activar', 'ProductoController@activar');
             Route::get('/producto/buscarProducto', 'ProductoController@buscarProducto');
             Route::get('/producto/listarProducto', 'ProductoController@listarProducto');
+            Route::get('/producto/buscarProductoSalida', 'ProductoController@buscarProductoSalida');
+            Route::get('/producto/listarProductoSalida', 'ProductoController@listarProductoSalida');
+            
             
             //RUTAS DE LOS CLIENTES
             //tabla clientes listar,registrar y actualizar
@@ -123,6 +138,7 @@ Route::group(['middleware' => ['auth']], function(){
             Route::put('/cliente/actualizar', 'ClienteController@update');
             Route::put('/cliente/desactivar', 'ClienteController@desactivar');
             Route::put('/cliente/activar', 'ClienteController@activar');
+            Route::get('/cliente/selectCliente', 'ClienteController@selectCliente');
             
             //RUTAS DE LOS PROVEEDORES
             //tabla proveedores listar, registrar y actualizar
@@ -143,6 +159,14 @@ Route::group(['middleware' => ['auth']], function(){
             Route::put('/entrada/desactivar', 'EntradaController@desactivar');
             Route::get('/entrada/obtenerCabecera', 'EntradaController@obtenerCabecera');
             Route::get('/entrada/obtenerDetalle', 'EntradaController@obtenerDetalle');
+
+            //RUTAS PARA LA TABLA DE SALIDAS 
+            Route::get('/salida', 'SalidaController@index');
+            Route::post('/salida/registrar', 'SalidaController@store');
+            Route::put('/salida/desactivar', 'SalidaController@desactivar');
+            Route::get('/salida/obtenerCabecera', 'SalidaController@obtenerCabecera');
+            Route::get('/salida/obtenerDetalle', 'SalidaController@obtenerDetalle');
+
 
 
         });

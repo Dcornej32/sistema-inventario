@@ -24,6 +24,8 @@ Vue.component('rol', require('./components/Rol.vue'));
 Vue.component('user', require('./components/User.vue'));
 Vue.component('informacion', require('./components/Informacion.vue'));
 Vue.component('entrada', require('./components/Entrada.vue'));
+Vue.component('salida', require('./components/Salida.vue'));
+
 
 
 
