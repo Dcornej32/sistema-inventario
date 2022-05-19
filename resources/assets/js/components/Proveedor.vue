@@ -112,15 +112,15 @@
                             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label class="col-md-6 form-control-label" for="text-input">Nombre</label>
+                                        <label class="col-md-6 form-control-label" for="text-input">Nombre Empresa</label>
                                         <div >
-                                            <input type="text" v-model="nombre" class="form-control" placeholder="Nombre de la persona">
+                                            <input type="text" v-model="nombre" class="form-control" placeholder=" Ej.Hewlett Packard">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="col-md-3 form-control-label" for="email-input">Dirección</label>
                                         <div>
-                                            <input type="text" v-model="direccion" class="form-control" placeholder="Dirección">
+                                            <input type="text" v-model="direccion" class="form-control" placeholder=" Ej. Calle La Mascota 923b, San Salvador, El Salvador">
                                         </div>
                                     </div>
                                 </div>
@@ -128,13 +128,13 @@
                                     <div class="form-group col-md-6">
                                         <label class="col-md-3 form-control-label" for="email-input">Teléfono</label>
                                         <div>
-                                            <input type="text" v-model="telefono" class="form-control" pattern="[0-9]+" placeholder="Teléfono">
+                                            <input type="tel" v-model="telefono" class="form-control" maxlength="8" placeholder="Ej. 22223333 ó 77778888">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="col-md-3 form-control-label" for="email-input">Email</label>
                                         <div>
-                                            <input type="email" v-model="email" class="form-control"  placeholder="Email">
+                                            <input type="email" v-model="email" class="form-control"  placeholder="name@example.com">
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +152,7 @@
                                     <div class="form-group col-md-6">
                                         <label class="col-md-6 form-control-label" for="text-input">Número</label>
                                         <div>
-                                            <input type="text" v-model="numero_documento" class="form-control" placeholder="Número de documento">
+                                            <input type="text" v-model="numero_documento" class="form-control" placeholder="Ej. 000000000" minlength="9" maxlength="15">
                                         </div>
                                     </div>
                                 </div>    
@@ -160,13 +160,13 @@
                                     <div class="form-group col-md-6">
                                         <label class="col-md-6 form-control-label" for="email-input">Contacto</label>
                                         <div>
-                                            <input type="text" v-model="nombre_contacto" class="form-control" placeholder="Nombre del contacto">
+                                            <input type="text" v-model="nombre_contacto" class="form-control" placeholder="Ej. David Cornejo">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="col-md-6 form-control-label" for="email-input">Teléfono de Contacto</label>
                                         <div>
-                                            <input type="text" v-model="telefono_contacto" class="form-control" placeholder="Teléfono del contacto">
+                                            <input type="tel" v-model="telefono_contacto" class="form-control" maxlength="8" placeholder="Ej. 22223333 ó 77778888">
                                         </div>
                                     </div>
                                 </div>
@@ -335,8 +335,10 @@
             this.errorPersona=0,
             this.errorMostrarMsjPersona =[];
 
-            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre de la persona no puede estar vacío");
-            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("El Email debe der ser valido");
+            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre de la empresa no puede estar vacío");
+            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un email valido, ej. name@example.com");
+            if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            if (!this.validTelefonoContacto(this.telefono_contacto)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
             return this.errorPersona;
         },
@@ -344,6 +346,28 @@
             if (!this.email == ''){
                 var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 return re.test(email);
+   
+            }else{
+                return true;
+            }
+       
+        },
+        
+        
+        validTelefono (telefono) {
+            if (!this.telefono == ''){
+               var  re = /^\d{8}$/;
+                return re.test(telefono);
+   
+            }else{
+                return true;
+            }
+       
+        },
+        validTelefonoContacto (telefono_contacto) {
+            if (!this.telefono_contacto == ''){
+                var  re = /^\d{8}$/;
+                return re.test(telefono_contacto);
    
             }else{
                 return true;

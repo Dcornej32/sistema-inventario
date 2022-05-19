@@ -117,7 +117,7 @@
                                     <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div>
-                                            <input type="text" v-model="nombre" class="form-control" placeholder="Nombre del articulo">
+                                            <input type="text" v-model="nombre" class="form-control" placeholder="Nombre del Producto">
                                             <!-- Se eliminar la siguiente linea de codigo -->
                                         </div>
                                     </div>
@@ -134,7 +134,7 @@
                                 <div class="form-group col-md-6">
                                     <label class="col-md-6 form-control-label" for="text-input">Precio Actual</label>
                                     <div>
-                                        <input type="number" v-model="precio_actual"  class="form-control" placeholder="Precio">
+                                        <input type="number" v-model="precio_actual"  class="form-control" placeholder="Precio '10.99'">
                                          <!-- Se eliminar la siguiente linea de codigo -->
                                     </div>
                                 </div>
@@ -142,7 +142,7 @@
                                 <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">stock</label>
                                     <div>
-                                        <input type="number" v-model="stock" class="form-control" placeholder="Stock">
+                                        <input type="number" v-model="stock" class="form-control" placeholder="Stock '100'">
                                          <!-- Se eliminar la siguiente linea de codigo -->
                                     </div>
                                 </div>
@@ -151,7 +151,7 @@
                                 <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">SKU</label>
                                     <div>
-                                        <input type="text" v-model="codigo" class="form-control" placeholder="Codigo">
+                                        <input type="text" v-model="codigo" class="form-control" placeholder="Codigo 'sv000000'">
                                         <barcode :value="codigo" :options="{ format: 'EAN-13' }"> </barcode>
                                         Generando un código
                                          <!-- Se eliminar la siguiente linea de codigo -->
@@ -467,8 +467,8 @@
 
                 if (this.idcategorias==0) this.errorMostrarMsjProducto.push("Seleccione una categoria.");
                 if (!this.nombre) this.errorMostrarMsjProducto.push("El nombre del producto, no puede estar vacio.");
-                if (!this.stock) this.errorMostrarMsjProducto.push("El stock del producto debe ser un numero y no puede estar vacio. ");
-                if (!this.precio_actual) this.errorMostrarMsjProducto.push("El precio de venta del producto,debe ser un numero y no puede estar vacio.");
+                if (!this.stock) this.errorMostrarMsjProducto.push("El stock del producto debe ser un numero y no puede estar vacio.");
+                if (!this.precio_actual) this.errorMostrarMsjProducto.push("El precio del producto, debe ser un numero y no puede estar vacio.");
 
                 if (this.errorMostrarMsjProducto.length) this.errorProducto = 1; 
 
