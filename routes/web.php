@@ -46,6 +46,8 @@ Route::group(['middleware' => ['auth']], function(){
             Route::put('/producto/actualizar', 'ProductoController@update');
             Route::put('/producto/desactivar', 'ProductoController@desactivar');
             Route::put('/producto/activar', 'ProductoController@activar');
+            Route::get('/producto/listarPdf', 'ProductoController@listarPdf')->name('productos_pdf');
+            
             
             //RUTAS DE LOS CLIENTES
             //tabla clientes listar,registrar y actualizar
@@ -104,6 +106,7 @@ Route::group(['middleware' => ['auth']], function(){
             Route::put('/producto/actualizar', 'ProductoController@update');
             Route::put('/producto/desactivar', 'ProductoController@desactivar');
             Route::put('/producto/activar', 'ProductoController@activar');
+            Route::get('/producto/listarPdf', 'ProductoController@listarPdf')->name('productos_pdf');
             
             //RUTAS DE LOS CLIENTES
             //tabla clientes listar,registrar y actualizar

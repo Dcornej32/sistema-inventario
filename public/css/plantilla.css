@@ -9115,11 +9115,6 @@ hr.transparent {
 .b-l-2 {
   border-left: 2px solid #c2cfd6 !important; }
 
-.verde{
-  background-color: #32be8f!important;
-  color:white!important;
-}
-
 @media (max-width: 575px) {
   .d-down-none {
     display: none !important; } }
