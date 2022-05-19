@@ -45,6 +45,19 @@ class ProveedorController extends Controller
         ];
     }
 
+    public function selectProveedor(Request $request){
+        if (!$request->ajax()) return redirect('/');
+
+            $filtro = $request->filtro;
+            $proveedores = Proveedor::join('personas','proveedores.id','=','personas.id')
+            ->where('personas.nombre','like','%'. $filtro . '%')
+            ->orWhere('personas.numero_documento','like','%'. $filtro . '%')
+            ->select('personas.id','personas.nombre','personas.numero_documento')
+            ->orderBy('personas.nombre','asc')->get();
+
+            return ['proveedores'  => $proveedores];
+    }
+
     public function store(Request $request)
     {
         if (!$request->ajax()) return redirect('/');
