@@ -12,6 +12,10 @@
                         <button type="button"  @click="abrirModal('producto','registrar')" class="btn btn-secondary">
                             <i class="icon-plus"></i>&nbsp;Nuevo
                         </button>
+                        <button type="button"  @click="cargarPdf()" class="btn btn-info">
+                            <i class="icon-doc"></i>&nbsp;Reporte
+                        </button>
+
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
@@ -105,7 +109,7 @@
             <div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true" :class="{'mostrar': modal}">
                 <div class="modal-dialog modal-primary modal-lg" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header verde">
                             <h4 class="modal-title" v-text="tituloModal"></h4>
                             <button type="button" class="close" @click="cerrarModal()" aria-label="Close">
                               <span aria-hidden="true">×</span>
@@ -182,9 +186,9 @@
                         </div>
                         <div class="modal-footer">
                               <!-- Se agregar el tipo de acciòn que realizara cada boton -->
-                            <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
-                            <button type="button" v-if="tipoAccion==1" class="btn btn-success rounded-pill" @click="registrarProducto()">Guardar</button>
-                            <button type="button" v-if="tipoAccion==2" class="btn btn-primary" @click="actualizarProducto()">Actualizar</button>
+                            <button type="button" class="btn btn-primary" @click="cerrarModal()">Cerrar</button>
+                            <button type="button" v-if="tipoAccion==1" class="btn verde rounded-pill" @click="registrarProducto()">Guardar</button>
+                            <button type="button" v-if="tipoAccion==2" class="btn verde" @click="actualizarProducto()">Actualizar</button>
 
                         </div>
                     </div>
@@ -292,6 +296,11 @@
                     // handle error
                     console.log(error);
                 })
+            },
+
+            //Metodo para cargar el pdf
+            cargarPdf(){
+                window.open('http://127.0.0.1:8000/producto/listarPdf', '_blank');
             },
 
 

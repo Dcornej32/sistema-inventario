@@ -13,7 +13,7 @@
                 <producto></producto>
             </template>
             <template v-if="menu==3">
-                <h1>Entradas</h1>
+            <entrada></entrada>
             </template>
             <template v-if="menu==4">
                 <h1>Salidas</H1>
@@ -47,7 +47,7 @@
                 <producto></producto>
             </template>
             <template v-if="menu==3">
-                <h1>Entradas</h1>
+            <entrada></entrada>
             </template>
             <template v-if="menu==4">
                 <h1>Salidas</H1>

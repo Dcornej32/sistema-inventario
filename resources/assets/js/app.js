@@ -23,6 +23,8 @@ Vue.component('proveedor', require('./components/Proveedor.vue'));
 Vue.component('rol', require('./components/Rol.vue'));
 Vue.component('user', require('./components/User.vue'));
 Vue.component('informacion', require('./components/Informacion.vue'));
+Vue.component('entrada', require('./components/Entrada.vue'));
+
 
 
 const app = new Vue({

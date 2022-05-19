@@ -9,11 +9,7 @@ use App\Producto;
 
 class ProductoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index(Request $request)
     {
         if (!$request->ajax()) return redirect('/');
@@ -48,12 +44,42 @@ class ProductoController extends Controller
     }
 
 
-     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function listarProducto(Request $request)
+    {
+        if (!$request->ajax()) return redirect('/');
+
+        $buscar = $request->buscar;
+        $criterio = $request->criterio;
+        
+        if ($buscar == '') {
+            $productos = Producto::join('categorias', 'productos.idcategorias', '=','categorias.id')
+            ->select('productos.id','productos.codigo',
+            'productos.nombre', 'categorias.nombre as nombre_categoria','productos.precio_actual',
+            'productos.stock','productos.descripcion','productos.condicion','productos.idcategorias')
+            ->orderBy('productos.id', 'desc')->paginate(10);
+        }
+        else {
+            $productos = Producto::join('categorias', 'productos.idcategorias', '=','categorias.id')
+            ->select('productos.id','productos.codigo',
+            'productos.nombre', 'categorias.nombre as nombre_categoria','productos.precio_actual',
+            'productos.stock','productos.descripcion','productos.condicion','productos.idcategorias')
+            ->where('productos.'.$criterio, 'like', '%'. $buscar .'%')
+            ->orderBy('productos.id', 'desc')->paginate(10);
+        }
+        return['productos' => $productos];
+    }
+
+    public function buscarProducto(Request $request){
+        if (!$request->ajax()) return redirect('/');
+        
+        $filtro = $request->filtro;
+        $productos = Producto::where('codigo','=', $filtro)
+        ->select('id','nombre')->orderBy('nombre','asc')->take(1)->get();
+
+        return ['productos' => $productos];
+    }
+
+
     public function store(Request $request)
     {
         //
@@ -116,5 +142,21 @@ class ProductoController extends Controller
           $producto =  Producto::findOrfail($request->id);
           $producto->condicion = 1; //activo
           $producto->save();
+    }
+
+
+    public function listarPdf(){
+        
+        $productos = Producto::join('categorias', 'productos.idcategorias', '=','categorias.id')
+            ->select('productos.id','productos.codigo',
+            'productos.nombre', 'categorias.nombre as nombre_categoria','productos.precio_actual',
+            'productos.stock','productos.descripcion','productos.condicion','productos.idcategorias')
+            ->orderBy('productos.nombre', 'desc')->get();
+
+        $cont = Producto::count();
+
+        $pdf = \PDF::loadView('pdf.productospdf', ['productos' => $productos, 'cont'=> $cont]);
+        return $pdf->download('productos.pdf');
+
     }
 }

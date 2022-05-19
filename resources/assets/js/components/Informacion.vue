@@ -20,24 +20,24 @@
                                       <option value="nombre">Nombre</option>
                                     </select>
                                     <input type="text" v-model="buscar" @keyup.enter="listarInformacion(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
-                                    <button type="submit" @click="listarInformacion(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+                                    <button type="submit" @click="listarInformacion(1,buscar,criterio)" class="btn btn-outline-info"><i class="fa fa-search"></i> Buscar</button>
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-bordered table-striped table-sm">
+                        <table class="table table-responsive table-borderless">
                             <thead>
                                 <tr>
-                                    <th>Opciones</th>
-                                    <th>Nombre</th>
-                                    <th>Dirección</th>
-                                    <th>Email</th>
-                                    <th>Teléfono</th>
-                                    <th>Núm-Tributario</th>
-                                    <th>Núm-Registro</th>
-                                    <th>Giro</th>
-                                    <th>Contacto</th>
-                                    <th>TeléfonoContacto</th>
-                                    <th>Cargo</th>
+                                    <th scope="col">Opciones</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Dirección</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Teléfono</th>
+                                    <th scope="col">Núm-Tributario</th>
+                                    <th scope="col">Núm-Registro</th>
+                                    <th scope="col">Giro</th>
+                                    <th scope="col">Contacto</th>
+                                    <th scope="col">TeléfonoContacto</th>
+                                    <th scope="col">Cargo</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -90,75 +90,87 @@
                         </div>
                         <div class="modal-body">
                             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                <div class="form-group row">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
-                                    <div class="col-md-9">
+                                    <div>
                                         <input type="text" v-model="nombre" class="form-control" placeholder="Ingrese nombre.">
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
+
+                                <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Dirección</label>
-                                    <div class="col-md-9">
+                                    <div>
                                         <input type="text" v-model="direccion" class="form-control" placeholder="Ingrese la dirección">
                                     </div>
                                 </div>
+                                  </div>
 
-                                 <div class="form-group row">
+                            <div class="form-row">
+                                 <div class="form-group  col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Email</label>
-                                    <div class="col-md-9">
+                                    <div>
                                         <input type="text" v-model="email" class="form-control" placeholder="Ingrese E-mail">
                                     </div>
                                 </div>
 
-                                 <div class="form-group row">
+                                 <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Teléfono</label>
-                                    <div class="col-md-9">
+                                    <div>
                                         <input type="text" v-model="telefono" class="form-control" placeholder="Ingrese teléfono ">
                                     </div>
                                 </div>
+                            </div>
 
-                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Número Tributario</label>
-                                    <div class="col-md-9">
+                             <div class="form-row">
+                                 <div class="form-group col-md-6">
+                                    <label class="col-md-3 form-control-label" for="text-input">Número_Tributario</label>
+                                    <div>
                                         <input type="text" v-model="numero_tributario" class="form-control" placeholder="Ingrese el número tributario">
                                     </div>
                                 </div>
 
-                                 <div class="form-group row">
+                                 <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Número_registro</label>
-                                    <div class="col-md-9">
+                                    <div>
                                         <input type="text" v-model="numero_registro" class="form-control" placeholder="Ingrese Número de registro">
                                     </div>
                                 </div>
+                            </div>
 
-                                 <div class="form-group row">
+
+                             <div class="form-row">
+                                 <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Giro</label>
-                                    <div class="col-md-9">
+                                    <div>
                                         <input type="text" v-model="giro" class="form-control" placeholder="Ingrese Giro">
                                     </div>
                                 </div>
 
-                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Nombre Contacto</label>
-                                    <div class="col-md-9">
+                                 <div class="form-group col-md-6">
+                                    <label class="col-md-3 form-control-label" for="text-input">Nombre_Contacto</label>
+                                    <div>
                                         <input type="text" v-model="nombre_contacto" class="form-control" placeholder="Ingrese nombre del contacto.">
                                     </div>
                                 </div>
+                             </div>
 
-                                 <div class="form-group row">
+                             <div class="form-row">
+                                 <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Teléfono</label>
-                                    <div class="col-md-9">
+                                    <div>
                                         <input type="text" v-model="telefono_contacto" class="form-control" placeholder="Ingrese teléfono del contacto">
                                     </div>
                                 </div>
                                 
-                                <div class="form-group row">
+                                <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="email-input">Cargo</label>
-                                    <div class="col-md-9">
+                                    <div>
                                         <input type="email" v-model="cargo" class="form-control" placeholder="Cargo que del contacto.">
                                     </div>
                                 </div>
+                              </div>
 
                                 <div v-show="errorInformacion" class="form-group row div-error">
                                     <div class="text-center text-error">

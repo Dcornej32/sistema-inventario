@@ -176,6 +176,21 @@ a:not([href]):not([tabindex]) {
   a:not([href]):not([tabindex]):focus {
     outline: 0; }
 
+.verde{
+  background-color: #32be8f!important; 
+  color:white!important;
+}
+.borde-b{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1)!important;
+}
+.borde-t{
+  border-top: 1px solid rgba(0, 0, 0, 0.1)!important;
+}
+.negro{
+  background-color: #29363d!important;
+}
+
+
 pre,
 code,
 kbd,
@@ -9260,3 +9275,5 @@ hr.transparent {
       float: left; }
   *[dir="rtl"] .callout-default {
     border-right-color: #536c79; }
+
+    

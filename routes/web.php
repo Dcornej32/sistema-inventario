@@ -46,6 +46,9 @@ Route::group(['middleware' => ['auth']], function(){
             Route::put('/producto/actualizar', 'ProductoController@update');
             Route::put('/producto/desactivar', 'ProductoController@desactivar');
             Route::put('/producto/activar', 'ProductoController@activar');
+            Route::get('/producto/listarPdf', 'ProductoController@listarPdf')->name('productos_pdf');
+            Route::get('/producto/buscarProducto', 'ProductoController@buscarProducto');
+            Route::get('/producto/listarProducto', 'ProductoController@listarProducto');
             
             //RUTAS DE LOS CLIENTES
             //tabla clientes listar,registrar y actualizar
@@ -62,6 +65,7 @@ Route::group(['middleware' => ['auth']], function(){
             Route::put('/proveedor/actualizar', 'ProveedorController@update');
             Route::put('/proveedor/desactivar', 'ProveedorController@desactivar');
             Route::put('/proveedor/activar', 'ProveedorController@activar');
+            Route::get('/proveedor/selectProveedor', 'ProveedorController@selectProveedor');
             
             //RUTAS DE LOS ROLES
             //roles
@@ -84,6 +88,12 @@ Route::group(['middleware' => ['auth']], function(){
             Route::get('/informacion', 'InformacionController@index');
             Route::post('/informacion/registrar', 'InformacionController@store');
             Route::put('/informacion/actualizar', 'InformacionController@update');
+
+            Route::get('/entrada', 'EntradaController@index');
+            Route::post('/entrada/registrar', 'EntradaController@store');
+            Route::put('/entrada/desactivar', 'EntradaController@desactivar');
+            Route::get('/entrada/obtenerCabecera', 'EntradaController@obtenerCabecera');
+            Route::get('/entrada/obtenerDetalle', 'EntradaController@obtenerDetalle');
         });
 
         Route::group(['middleware' => ['Almacenero']], function(){
@@ -104,6 +114,9 @@ Route::group(['middleware' => ['auth']], function(){
             Route::put('/producto/actualizar', 'ProductoController@update');
             Route::put('/producto/desactivar', 'ProductoController@desactivar');
             Route::put('/producto/activar', 'ProductoController@activar');
+            Route::get('/producto/listarPdf', 'ProductoController@listarPdf')->name('productos_pdf');
+            Route::get('/producto/buscarProducto', 'ProductoController@buscarProducto');
+            Route::get('/producto/listarProducto', 'ProductoController@listarProducto');
             
             //RUTAS DE LOS CLIENTES
             //tabla clientes listar,registrar y actualizar
@@ -120,11 +133,18 @@ Route::group(['middleware' => ['auth']], function(){
             Route::put('/proveedor/actualizar', 'ProveedorController@update');
             Route::put('/proveedor/desactivar', 'ProveedorController@desactivar');
             Route::put('/proveedor/activar', 'ProveedorController@activar');
+            Route::get('/proveedor/selectProveedor', 'ProveedorController@selectProveedor');
             
             //////******* Rutas para la tabla de informaciones  *******/////
             Route::get('/informacion', 'InformacionController@index');
             Route::post('/informacion/registrar', 'InformacionController@store');
             Route::put('/informacion/actualizar', 'InformacionController@update');
+
+            Route::get('/entrada', 'EntradaController@index');
+            Route::post('/entrada/registrar', 'EntradaController@store');
+            Route::put('/entrada/desactivar', 'EntradaController@desactivar');
+            Route::get('/entrada/obtenerCabecera', 'EntradaController@obtenerCabecera');
+            Route::get('/entrada/obtenerDetalle', 'EntradaController@obtenerDetalle');
 
 
         });
