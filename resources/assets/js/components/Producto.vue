@@ -12,6 +12,10 @@
                         <button type="button"  @click="abrirModal('producto','registrar')" class="btn btn-secondary">
                             <i class="icon-plus"></i>&nbsp;Nuevo
                         </button>
+                        <button type="button"  @click="cargarPdf()" class="btn btn-info">
+                            <i class="icon-doc"></i>&nbsp;Reporte
+                        </button>
+
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
@@ -292,6 +296,11 @@
                     // handle error
                     console.log(error);
                 })
+            },
+
+            //Metodo para cargar el pdf
+            cargarPdf(){
+                window.open('http://127.0.0.1:8000/producto/listarPdf', '_blank');
             },
 
 
