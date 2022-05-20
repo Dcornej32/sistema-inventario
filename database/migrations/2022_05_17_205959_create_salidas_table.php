@@ -15,10 +15,10 @@ class CreateSalidasTable extends Migration
     {
         Schema::create('salidas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idcliente')->unsigned();
-            $table->foreign('idcliente')->references('id')->on('personas');
-            $table->integer('idusuario')->unsigned();
-            $table->foreign('idusuario')->references('id')->on('users');
+            $table->integer('idclientes')->unsigned();
+            $table->foreign('idclientes')->references('id')->on('personas');
+            $table->integer('idusuarios')->unsigned();
+            $table->foreign('idusuarios')->references('id')->on('users');
             $table->date('fecha_salida');
             $table->decimal('total', 11,2);
             $table->boolean('condicion')->default(1);

@@ -46,6 +46,9 @@
                                             <button type="button" @click="verEntrada(entrada.id)" class="btn btn-success btn-sm">
                                             <i class="icon-eye"></i>
                                             </button> &nbsp;
+                                            <button type="button" @click="pdfEntrada(entrada.id)" class="btn btn-info btn-sm">
+                                            <i class="icon-doc"></i>
+                                            </button> &nbsp;
                                             <template v-if="entrada.condicion">
                                                 <button type="button" class="btn btn-danger btn-sm" @click="desactivarEntrada(entrada.id)">
                                                     <i class="icon-trash"></i>
@@ -477,6 +480,9 @@
                  .catch(function(error){
                      console.log(error);
                   });
+            },
+            pdfEntrada(id){
+                window.open('/entrada/pdf/'+ id ,'_blank');
             },
 
             cambiarPagina(page,buscar,criterio){

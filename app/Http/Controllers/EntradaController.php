@@ -77,6 +77,30 @@ class EntradaController extends Controller
         return ['detalles' => $detalles];
     }
 
+
+    public function pdf(Request $request,$id){
+        $entrada = Entrada::join('personas','entradas.idproveedores','=','personas.id')
+        ->join('users','entradas.idusuarios','users.id')
+        ->select('entradas.id','entradas.fecha_entrada','entradas.total_compra',
+        'entradas.condicion',
+        'personas.nombre','personas.tipo_documento',
+        'personas.numero_documento','personas.direccion','personas.email',
+        'personas.telefono','users.usuario')
+        ->where('entradas.id', '=',$id)
+        ->orderBy('entradas.id', 'desc')->take(1)->get();
+
+        $detalles = DetalleEntrada::join('productos','detalle_entradas.idproductos','=','productos.id')
+        ->select('detalle_entradas.cantidad','detalle_entradas.precio_compra',
+        'productos.nombre as producto')
+        ->where('detalle_entradas.identradas','=',$id)
+        ->orderBy('detalle_entradas.id', 'desc')->get();
+
+        $numentrada=Entrada::select('id')->where('id',$id)->get();
+
+        $pdf = \PDF::loadView('pdf.entrada',['entrada'=>$entrada,'detalles'=>$detalles]);
+        return $pdf->download('entrada-'.$numentrada[0]->id.'.pdf');
+    }
+
     public function store(Request $request)
     {
         if (!$request->ajax()) return redirect('/');

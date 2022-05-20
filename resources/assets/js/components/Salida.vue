@@ -46,6 +46,9 @@
                                             <button type="button" @click="verSalida(salida.id)" class="btn btn-success btn-sm">
                                             <i class="icon-eye"></i>
                                             </button> &nbsp;
+                                            <button type="button" @click="pdfSalida(salida.id)" class="btn btn-info btn-sm">
+                                            <i class="icon-doc"></i>
+                                            </button> &nbsp;
                                             <template v-if="salida.condicion">
                                                 <button type="button" class="btn btn-danger btn-sm" @click="desactivarSalida(salida.id)">
                                                     <i class="icon-trash"></i>
@@ -438,6 +441,9 @@
                 .catch(function (error) {
                     console.log(error);
                 });
+            },
+            pdfSalida(id){
+                window.open('/salida/pdf/'+ id ,'_blank');
             },
             selectCliente(search,loading){
                 let me=this;

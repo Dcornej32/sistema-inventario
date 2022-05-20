@@ -62,7 +62,6 @@ class SalidaController extends Controller
     }
 
 
-
     public function obtenerDetalle(Request $request){
         if (!$request->ajax()) return redirect('/');
 
@@ -73,6 +72,29 @@ class SalidaController extends Controller
         ->orderBy('detalle_salidas.id', 'desc')->get();
         
         return ['detalles' => $detalles];
+    }
+
+
+    public function pdf(Request $request,$id){
+        $salida = Salida::join('personas','salidas.idclientes','=','personas.id')
+        ->join('users','salidas.idusuarios','users.id')
+        ->select('salidas.id','salidas.fecha_salida','salidas.total',
+        'salidas.condicion','personas.nombre','personas.tipo_documento',
+        'personas.numero_documento','personas.direccion','personas.email',
+        'personas.telefono','users.usuario')
+        ->where('salidas.id','=',$id)
+        ->orderBy('salidas.id', 'desc')->take(1)->get();
+
+        $detalles = DetalleSalida::join('productos','detalle_salidas.idproductos','=','productos.id')
+        ->select('detalle_salidas.cantidad','detalle_salidas.precio_actual',
+        'productos.nombre as producto')
+        ->where('detalle_salidas.idsalidas','=',$id)
+        ->orderBy('detalle_salidas.id', 'desc')->get();
+
+        $numsalida=Salida::select('id')->where('id',$id)->get();
+
+        $pdf = \PDF::loadView('pdf.salida',['salida'=>$salida,'detalles'=>$detalles]);
+        return $pdf->download('salida-'.$numsalida[0]->id.'.pdf');
     }
 
     public function store(Request $request)
