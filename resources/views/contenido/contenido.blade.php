@@ -16,7 +16,7 @@
             <entrada></entrada>
             </template>
             <template v-if="menu==4">
-                <h1>Salidas</H1>
+                <salida></salida>
             </template>
             <template v-if="menu==5">
                 <proveedor></proveedor>
@@ -50,7 +50,7 @@
             <entrada></entrada>
             </template>
             <template v-if="menu==4">
-                <h1>Salidas</H1>
+            <salida></salida>
             </template>
             <template v-if="menu==5">
                 <proveedor></proveedor>

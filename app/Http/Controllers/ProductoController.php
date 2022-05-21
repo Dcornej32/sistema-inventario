@@ -69,6 +69,8 @@ class ProductoController extends Controller
         return['productos' => $productos];
     }
 
+    
+
     public function buscarProducto(Request $request){
         if (!$request->ajax()) return redirect('/');
         
@@ -78,6 +80,46 @@ class ProductoController extends Controller
 
         return ['productos' => $productos];
     }
+
+    public function listarProductoSalida(Request $request)
+    {
+        if (!$request->ajax()) return redirect('/');
+
+        $buscar = $request->buscar;
+        $criterio = $request->criterio;
+        
+        if ($buscar == '') {
+            $productos = Producto::join('categorias', 'productos.idcategorias', '=','categorias.id')
+            ->select('productos.id','productos.codigo',
+            'productos.nombre', 'categorias.nombre as nombre_categoria','productos.precio_actual',
+            'productos.stock','productos.descripcion','productos.condicion','productos.idcategorias')
+            ->where('productos.stock','>','0')
+            ->orderBy('productos.id', 'desc')->paginate(10);
+        }
+        else {
+            $productos = Producto::join('categorias', 'productos.idcategorias', '=','categorias.id')
+            ->select('productos.id','productos.codigo',
+            'productos.nombre', 'categorias.nombre as nombre_categoria','productos.precio_actual',
+            'productos.stock','productos.descripcion','productos.condicion','productos.idcategorias')
+            ->where('productos.'.$criterio, 'like', '%'. $buscar .'%')
+            ->where('productos.stock','>','0')
+            ->orderBy('productos.id', 'desc')->paginate(10);
+        }
+        return['productos' => $productos];
+    }
+
+    public function buscarProductoSalida(Request $request){
+        if (!$request->ajax()) return redirect('/');
+        
+        $filtro = $request->filtro;
+        $productos = Producto::where('codigo','=', $filtro)
+        ->select('id','nombre','stock','precio_actual')
+        ->where('stock','>','0')
+        ->orderBy('nombre','asc')
+        ->take(1)->get();
+        return ['productos' => $productos];
+    }
+
 
 
     public function store(Request $request)

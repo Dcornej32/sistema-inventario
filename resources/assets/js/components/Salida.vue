@@ -1,3 +1,4 @@
+
 <template>
      <main class="main">
             <!-- Breadcrumb -->
@@ -8,7 +9,7 @@
                 <!-- Ejemplo de tabla Listado -->
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> Entradas
+                        <i class="fa fa-align-justify"></i> Salida
                         <button type="button" @click="mostrarDetalle()" class="btn btn-secondary">
                             <i class="icon-plus"></i>&nbsp;Nuevo
                         </button>
@@ -20,11 +21,10 @@
                                 <div class="col-md-6">
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
-                                        <option value="fecha_entrada">Fecha Entrada</option>
-                                        <option value="nombre">Proveedor</option>
+                                        <option value="fecha_salida">Fecha Salida</option>
                                         </select>
-                                        <input type="text" v-model="buscar" @keyup.enter="listarEntrada(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
-                                        <button type="submit" @click="listarEntrada(1,buscar,criterio)" class="btn btn-outline-info"><i class="fa fa-search"></i> Buscar</button>
+                                        <input type="text" v-model="buscar" @keyup.enter="listarSalida(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
+                                        <button type="submit" @click="listarSalida(1,buscar,criterio)" class="btn btn-outline-info"><i class="fa fa-search"></i> Buscar</button>
                                     </div>
                                 </div>
                             </div>
@@ -34,33 +34,33 @@
                                     <tr>
                                         <th scope="col">Opciones</th>
                                         <th scope="col">Usuario</th>
-                                        <th scope="col">Proveedor</th>
-                                        <th scope="col">Fecha_Entrada</th>
-                                        <th scope="col">Total_Compra</th>
+                                        <th scope="col">Cliente</th>
+                                        <th scope="col">Fecha Salida</th>
+                                        <th scope="col">Total</th>
                                         <th scope="col">Condicion</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="entrada in arrayEntrada" :key="entrada.id">
+                                    <tr v-for="salida in arraySalida" :key="salida.id">
                                         <td>
-                                            <button type="button" @click="verEntrada(entrada.id)" class="btn btn-success btn-sm">
+                                            <button type="button" @click="verSalida(salida.id)" class="btn btn-success btn-sm">
                                             <i class="icon-eye"></i>
                                             </button> &nbsp;
-                                            <button type="button" @click="pdfEntrada(entrada.id)" class="btn btn-info btn-sm">
+                                            <button type="button" @click="pdfSalida(salida.id)" class="btn btn-info btn-sm">
                                             <i class="icon-doc"></i>
                                             </button> &nbsp;
-                                            <template v-if="entrada.condicion">
-                                                <button type="button" class="btn btn-danger btn-sm" @click="desactivarEntrada(entrada.id)">
+                                            <template v-if="salida.condicion">
+                                                <button type="button" class="btn btn-danger btn-sm" @click="desactivarSalida(salida.id)">
                                                     <i class="icon-trash"></i>
                                                 </button>
                                             </template>
                                         </td>
-                                        <td v-text="entrada.usuario"></td>
-                                        <td v-text="entrada.nombre"></td>
-                                        <td v-text="entrada.fecha_entrada"></td>
-                                        <td v-text="entrada.total_compra"></td>
+                                        <td v-text="salida.usuario"></td>
+                                        <td v-text="salida.nombre"></td>
+                                        <td v-text="salida.fecha_salida"></td>
+                                        <td v-text="salida.total"></td>
                                         <td>
-                                        <div v-if="entrada.condicion">
+                                        <div v-if="salida.condicion">
                                             <span class="badge badge-success">Registrada</span>
                                         </div>
 
@@ -88,27 +88,27 @@
                             </nav>
                         </div>
                     </template>
-                    <!-- Detalle de entrada -->
+                    <!-- Detalle de salida -->
                     <template v-else-if="listado==0">
                         <div class="card-body">
                             <div class="form-group row border">
                                 <div class="col-md-9">  
                                     <div class="form-group">
-                                        <label for="">Proveedor(*)</label>
+                                        <label for="">Cliente(*)</label>
                                         <v-select
-                                            @search="selectProveedor"
+                                            @search="selectCliente"
                                             label="nombre"
-                                            :options="arrayProveedor"
-                                            placeholder="Buscar Proveedores...."
-                                            @input="getDatosProveedor"
+                                            :options="arrayCliente"
+                                            placeholder="Buscar Clientes...."
+                                            @input="getDatosClientes"
                                         >
                                         </v-select>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div v-show="errorEntrada" class="form-group row div-error">
+                                    <div v-show="errorSalida" class="form-group row div-error">
                                         <div class="text-center text-error">
-                                            <div v-for="error in errorMostrarMsjEntrada" :key="error" v-text="error">
+                                            <div v-for="error in errorMostrarMsjSalida" :key="error" v-text="error">
                                             </div>
                                         </div>
                                      </div>
@@ -130,8 +130,8 @@
 
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="">Precio <span style="color:red;" v-show="precio_compra==0">(*Ingrese)</span> </label>
-                                        <input type="number" value="0" step="any" class="form-control" v-model="precio_compra">
+                                        <label for="">Precio <span style="color:red;" v-show="precio_actual==0">(*Ingrese)</span> </label>
+                                        <input type="number" value="0" step="any" class="form-control" v-model="precio_actual">
                                     </div>
                                 </div>
 
@@ -159,7 +159,7 @@
                                     <tr>
                                         <th>Opciones</th>
                                         <th>Producto</th>
-                                        <th>Precio</th>
+                                        <th>Precio </th>
                                         <th>Cantidad</th>
                                         <th>SubTotal</th>
                                     </tr>
@@ -171,19 +171,21 @@
                                                 <i class="icon-close"></i>
                                             </button>
                                         </td>
+
                                         <td v-text="detalle.producto">
                                                
                                         <td>
-                                            <input v-model="detalle.precio_compra" type="number" value="3" class="form-control">
+                                            <input v-model="detalle.precio_actual" type="number"  class="form-control">
                                         </td>
                                         <td>
-                                            <input v-model="detalle.cantidad" type="number" value="2" class="form-control">
+                                            <span style="color:red;" v-show="detalle.cantidad>detalle.stock">Stock: {{detalle.stock}}</span>
+                                            <input v-model="detalle.cantidad" type="number"  class="form-control">
                                         </td>
-                                        <td>${{detalle.precio_compra*detalle.cantidad}}</td>
+                                        <td>${{detalle.precio_actual*detalle.cantidad}}</td>
                                     </tr>
                                     <tr style="background-color:#B0C4DE;">
-                                        <td colspan="4" align="right"><strong>Total_Compra:</strong></td>
-                                        <td>${{total_compra=calcularTotal}}</td>
+                                        <td colspan="4" align="right"><strong>Total:</strong></td>
+                                        <td>${{total=calcularTotal}}</td>
                                     </tr>
                                 </tbody>
                                 <tbody v-else>
@@ -197,7 +199,7 @@
                     <div class="form-group row ">
                         <div class="col-md-12">
                             <button type="button" @click="ocultarDetalle()" class="btn btn-dark">Cerrar</button>
-                            <button type="button" class="btn btn-primary" @click="registrarEntrada()" >Registrar Entrada</button>
+                            <button type="button" class="btn btn-primary" @click="registrarSalida()" >Registrar Salida</button>
 
                         </div>
                     </div>
@@ -210,8 +212,8 @@
                             <div class="form-group row border">
                                 <div class="col-md-9">  
                                     <div class="form-group">
-                                        <label for=""> <strong>Proveedor()</strong> </label>
-                                        <p v-text="proveedor"></p>
+                                        <label for=""> <strong>Cliente()</strong> </label>
+                                        <p v-text="cliente"></p>
                                     </div>
                                 </div>
                                
@@ -231,19 +233,19 @@
                                     <tr v-for="detalle in arrayDetalle" :key="detalle.id">
                                         <td v-text="detalle.producto">
                                                
-                                        <td v-text="detalle.precio_compra">
+                                        <td v-text="detalle.precio_actual">
                                         </td>
                                         <td v-text="detalle.cantidad">
                                         </td>
-                                        <td>${{detalle.precio_compra*detalle.cantidad}}</td>
+                                        <td>${{detalle.precio_actual*detalle.cantidad}}</td>
                                     </tr>
                                     <tr style="background-color:	#90EE90;">
-                                        <td colspan="3" align="right"><strong>Total_Compra:</strong></td>
-                                        <td>${{total_compra}}</td>
+                                        <td colspan="3" align="right"><strong>Total:</strong></td>
+                                        <td>${{total=calcularTotal}}</td>
                                     </tr>
                                 </tbody>
                                 <tbody v-else>
-                                    <tr colspan="5">
+                                    <tr colspan="6">
                                         <td>No hay productos agregados</td>
                                     </tr>
                                 </tbody>
@@ -350,20 +352,19 @@
     export default {
         data (){
             return {
-                entrada_id: 0,
-                idproveedores : 0,
-                proveedor:'',
-                nombre : '',
-                total_compra : 0.0,
-                arrayEntrada : [],
+                salida_id: 0,
+                idclientes : 0,
+                cliente:'',
+                total_salida:0.0,
+                arraySalida : [],
                 arrayDetalle : [],
-                arrayProveedor : [],
+                arrayCliente : [],
                 listado:1,
                 modal : 0,
                 tituloModal : '',
                 tipoAccion : 0,
-                errorEntrada : 0,
-                errorMostrarMsjEntrada : [],
+                errorSalida : 0,
+                errorMostrarMsjSalida : [],
                 pagination : {
                     'total' : 0,
                     'current_page' : 0,
@@ -373,7 +374,7 @@
                     'to' : 0,
                 },
                 offset : 3,
-                criterio : 'fecha_entrada',
+                criterio : 'fecha_salida',
                 buscar : '',
                 criterioP:'nombre',
                 buscarP:'',
@@ -381,8 +382,10 @@
                 idproductos:0,
                 codigo:'',
                 producto:'',
-                precio_compra:0,
-                cantidad:0
+                precio_actual:0,
+                cantidad:0,
+                stock:0
+                
 
             }
         },
@@ -420,49 +423,52 @@
             calcularTotal:function(){
                 var resultado=0.0;
                 for (var i = 0; i<this.arrayDetalle.length; i++) {
-                   resultado=resultado+(this.arrayDetalle[i].precio_compra*this.arrayDetalle[i].cantidad)
+                   resultado=resultado+(this.arrayDetalle[i].precio_actual*this.arrayDetalle[i].cantidad)
                     
                 }
                 return resultado;
             }
         },
         methods : {
-            listarEntrada (page,buscar,criterio){
+            listarSalida (page,buscar,criterio){
                 let me=this;
-                var url= '/entrada?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
+                var url= 'salida/?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
-                    me.arrayEntrada = respuesta.entradas.data;
+                    me.arraySalida = respuesta.salidas.data;
                     me.pagination= respuesta.pagination;
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
             },
-            selectProveedor(search,loading){
+            pdfSalida(id){
+                window.open('/salida/pdf/'+ id ,'_blank');
+            },
+            selectCliente(search,loading){
                 let me=this;
                 loading(true)
 
-                var url= '/proveedor/selectProveedor?filtro='+search;
+                var url= '/cliente/selectCliente?filtro='+search;
                 axios.get(url).then(function (response) {
                     let  respuesta = response.data;
                     q:search
-                    me.arrayProveedor=respuesta.proveedores;
+                    me.arrayCliente=respuesta.clientes;
                     loading(false)
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
             },
-            getDatosProveedor(val1) {
+            getDatosClientes(val1) {
                 let me =this;
                 me.loading = true;
-                me.idproveedores = val1.id;
+                me.idclientes = val1.id;
             },
             buscarProducto()
             { 
                 let me=this;
-                var url= '/producto/buscarProducto?filtro=' + me.codigo;
+                var url= '/producto/buscarProductoSalida?filtro=' + me.codigo;
 
                 axios.get(url).then(function (response){ 
                     var respuesta=response.data;
@@ -471,7 +477,10 @@
                     if (me.arrayProducto.length>0){ 
                         me.producto=me.arrayProducto[0]['nombre'];
                         me.idproductos=me.arrayProducto[0]['id'];
+                        me.precio_actual=me.arrayProducto[0]['precio_actual'];
+                        me.stock=me.arrayProducto[0]['stock'];
                     }
+
                     else{ 
                         me.producto="No existe producto";
                         me.idproductos=0;
@@ -481,16 +490,13 @@
                      console.log(error);
                   });
             },
-            pdfEntrada(id){
-                window.open('/entrada/pdf/'+ id ,'_blank');
-            },
 
             cambiarPagina(page,buscar,criterio){
                 let me = this;
                 //Actualiza la página actual
                 me.pagination.current_page = page;
                 //Envia la petición para visualizar la data de esa página
-                me.listarEntrada(page,buscar,criterio);
+                me.listarSalida(page,buscar,criterio);
             },
             encuentra(id){
                 var sw=0;
@@ -503,7 +509,7 @@
             },
             agregarDetalle(){
                 let me= this;
-                if(me.idproductos==0 || me.cantidad==0 || me.precio_compra==0){   
+                if(me.idproductos==0 || me.cantidad==0 || me.precio_actual==0){   
                 }
                 else{
                     if (me.encuentra(me.idproductos)) {
@@ -515,18 +521,30 @@
                         
                     }
                    else{
+                       if (me.cantidad>me.stock) {
+                           swal({
+                            type: 'error',
+                            title: 'Error.....',
+                            text:'No hay Stock disponible!',
+                        })
+                       }
+                       else{
+                        me.arrayDetalle.push({
+                            idproductos: me.idproductos,
+                            producto: me.producto,
+                            cantidad: me.cantidad,
+                            precio_actual: me.precio_actual,
+                            stock: me.stock
+                        });
+                        me.codigo="";
+                        me.idproductos=0;
+                        me.producto="";
+                        me.cantidad=0;
+                        me.precio_actual=0;
+                        me.stock=0
+                       }
 
-                    me.arrayDetalle.push({
-                        idproductos: me.idproductos,
-                        producto: me.producto,
-                        cantidad: me.cantidad,
-                        precio_compra: me.precio_compra
-                     });
-                    me.codigo="";
-                    me.idproductos=0;
-                    me.producto="";
-                    me.cantidad=0;
-                    me.precio_compra=0;
+                 
                    }
                 }
                
@@ -547,14 +565,15 @@
                         idproductos: data['id'],
                         producto: data['nombre'],
                         cantidad: 1,
-                        precio_compra: 1
+                        precio_actual: data['precio_actual'],
+                        stock:data['stock']
                      });
                    }
 
             },
             listarProducto(buscar,criterio){
                 let me=this;
-                var url = '/producto/listarProducto?buscar=' + buscar + '&criterio=' + criterio;
+                var url = '/producto/listarProductoSalida?buscar=' + buscar + '&criterio=' + criterio;
                 axios.get(url).then(function (response) {
                   var respuesta = response.data;
                   me.arrayProducto = respuesta.productos.data;
@@ -567,74 +586,86 @@
                 let me = this;
                 me.arrayDetalle.splice(index, 1);
             },   
-            registrarEntrada(){
-                if (this.validarEntrada()){
+            registrarSalida(){
+                if (this.validarSalida()){
                     return;
                 }
                 
                 let me = this;
 
-                axios.post('/entrada/registrar',{
-                    'idproveedores': this.idproveedores,
-                    'total_compra': this.total_compra,
+                axios.post('/salida/registrar',{
+                    'idclientes': this.idclientes,
+                    'total': this.total,
                     'data': this.arrayDetalle
 
                 }).then(function (response) {
                     me.listado=1;
-                    me.listarEntrada(1,'','nombre');
-                    me.idproveedores=0;
-                    me.total_compra=0;
+                    me.listarSalida(1,'','nombre');
+                    me.idclientes=0;
+                    me.total=0;
                     me.idproductos=0;
                     me.producto='';
                     me.cantidad=0;
-                    me.precio_compra=0;
+                    me.precio_actual=0;
+                    me.stock=0;
+                    me.codigo='';
                     me.arrayDetalle=[];
                 }).catch(function (error) {
                     console.log(error);
                 });
             },
-            validarEntrada(){
-                this.errorEntrada=0;
-                this.errorMostrarMsjEntrada =[];
+            validarSalida(){
+                let me=this;
+                me.errorSalida=0;
+                me.errorMostrarMsjSalida =[];
 
-                if (this.idproveedores==0) this.errorMostrarMsjEntrada.push("Seleccione un proveedor.");
-                if (this.arrayDetalle.length<=0) this.errorMostrarMsjEntrada.push("Ingrese Detalles.");
+                var art;
+                
+                me.arrayDetalle.map(function(x){
+                    if (x.cantidad>x.stock){
+                        art=x.producto + " con stock insuficiente";
+                        me.errorMostrarMsjSalida.push(art);
+                    }
+                });
 
-                if (this.errorMostrarMsjEntrada.length) this.errorEntrada = 1;
+                if (me.idclientes==0) me.errorMostrarMsjSalida.push("Seleccione un Cliente.");
+                if (me.arrayDetalle.length<=0) me.errorMostrarMsjSalida.push("Ingrese Detalles.");
 
-                return this.errorEntrada;
+                if (me.errorMostrarMsjSalida.length) me.errorSalida = 1;
+
+                return me.errorSalida;
             },
             mostrarDetalle(){
                 let me=this;
                 this.listado=0;
 
-                me.idproveedores=0;
-                me.total_compra=0;
+                me.idclientes=0;
+                me.total=0;
                 me.idproductos=0;
                 me.producto='';
                 me.cantidad=0;
-                me.precio_compra=0;
-                 me.arrayDetalle=[];
+                me.precio_actual=0;
+                me.arrayDetalle=[];
 
             },
              ocultarDetalle(){
                   this.listado=1;
             },
-            verEntrada(id){
+            verSalida(id){
                 let me=this;
                 this.listado=2;
 
-                //Obtener los datos del ingreso++++
-                var arrayEntradaT=[];
+                //Obtener los datos de salida++++
+                var arraySalidaT=[];
 
-                var url= '/entrada/obtenerCabecera?id=' + id;
+                var url= '/salida/obtenerCabecera?id=' + id;
 
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
-                    arrayEntradaT = respuesta.entrada;
+                    arraySalidaT = respuesta.salida;
 
-                    me.proveedor = arrayEntradaT[0]['nombre'];
-                    me.total_compra = arrayEntradaT[0]['total_compra'];
+                    me.cliente = arraySalidaT[0]['nombre'];
+                    me.total = arraySalidaT[0]['total'];
 
                 })
                 .catch(function (error) {
@@ -643,7 +674,7 @@
 
                 //Obtener los datos del detalle++++
 
-                var url= '/entrada/obtenerDetalle?id=' + id;
+                var url= '/salida/obtenerDetalle?id=' + id;
 
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
@@ -666,9 +697,9 @@
                 this.modal = 1;
                 this.tituloModal = 'Seleccione uno o varios Productos';
             },
-            desactivarEntrada(id){
+            desactivarSalida(id){
                swal({
-                title: 'Esta seguro de anular la entrada?.',
+                title: 'Esta seguro de anular la salida?.',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -683,13 +714,13 @@
                 if (result.value) {
                     let me = this;
 
-                    axios.put('/entrada/desactivar',{
+                    axios.put('/salida/desactivar',{
                         'id': id
                     }).then(function (response) {
-                        me.listarEntrada(1,'','nombre');
+                        me.listarSalida(1,'','nombre');
                         swal(
                         'Anulado!',
-                        'La entrada ha sido anulada con éxito.',
+                        'La salida ha sido anulada con éxito.',
                         'success'
                         )
                     }).catch(function (error) {
@@ -707,7 +738,7 @@
             },
         },
         mounted() {
-            this.listarEntrada(1,this.buscar,this.criterio);
+            this.listarSalida(1,this.buscar,this.criterio);
         }
     }
 </script>
