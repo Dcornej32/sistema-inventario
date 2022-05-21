@@ -1,5 +1,5 @@
 <div class="sidebar">
-            <nav class="sidebar-nav verde">
+            <nav class="sidebar-nav negro">
                 <ul class="nav">
                     <li @click="menu=0" class="nav-item negro">
                         <a class="nav-link active" href="#"><i class="icon-speedometer"></i> Panel Principal</a>
@@ -7,7 +7,7 @@
                     <li class="nav-title negro">
                         Módulos del Sistema
                     </li>
-                    <li class="nav-item nav-dropdown verde borde-b">
+                    <li class="nav-item nav-dropdown negro borde-b">
                         <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-bag"></i> Almacén</a>
                         <ul class="nav-dropdown-items">
                             <li @click="menu=1" class="nav-item">
@@ -18,7 +18,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item nav-dropdown verde borde-b">
+                    <li class="nav-item nav-dropdown negro borde-b">
                         <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-note"></i> Inventario</a>
                         <ul class="nav-dropdown-items">
                             <li @click="menu=3" class="nav-item">
@@ -29,7 +29,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item nav-dropdown verde borde-b">
+                    <li class="nav-item nav-dropdown negro borde-b">
                         <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-people"></i> Personas</a>
                         <ul class="nav-dropdown-items">
                             <li @click="menu=5" class="nav-item">
@@ -40,7 +40,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item nav-dropdown verde borde-b">
+                    <li class="nav-item nav-dropdown negro borde-b">
                         <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-pie-chart"></i> Reportes</a>
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
@@ -51,10 +51,10 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item verde borde-b">
+                    <li class="nav-item negro borde-b">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Ayuda <span class="badge badge-danger">PDF</span></a>
                     </li>
-                    <li @click="menu=12" class="nav-item verde borde-b">
+                    <li @click="menu=12" class="nav-item negro borde-b">
                         <a class="nav-link" href="#"><i class="icon-info"></i> Acerca de...<span class="badge badge-danger">IT</span></a>
                     </li>
                 </ul>

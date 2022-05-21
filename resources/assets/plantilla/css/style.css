@@ -176,6 +176,10 @@ a:not([href]):not([tabindex]) {
   a:not([href]):not([tabindex]):focus {
     outline: 0; }
 
+.negro{
+  background-color: #000!important; 
+  color:white!important;
+}
 .verde{
   background-color: #32be8f!important; 
   color:white!important;
