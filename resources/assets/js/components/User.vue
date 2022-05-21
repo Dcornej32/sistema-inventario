@@ -116,7 +116,7 @@
                                     <div class="form-group col-md-6">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div>
-                                            <input type="text" v-model="nombre" class="form-control" placeholder="Ej. David Cornejo" required>
+                                            <input type="text" v-model="nombre" class="form-control" placeholder="Ej. Juan Pérez" required>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -145,8 +145,8 @@
                                         <label class="col-md-6 form-control-label" for="text-input">Tipo Documento</label>
                                         <div>
                                             <select v-model="tipo_documento" class="form-control">
-                                            <option value="DNI">DUI</option>
-                                            <option value="RUC">NIT</option>
+                                            <option value="DUI">DUI</option>
+                                            <option value="NIT">NIT</option>
                                             <option value="PASS">PASAPORTE</option>
                                             </select>
                                         </div>
@@ -171,7 +171,7 @@
                                     <div class="form-group col-md-4">
                                         <label class="col-md-6 form-control-label" for="email-input">Usuario (*)</label>
                                         <div>
-                                            <input type="text" v-model="usuario" id="validationDefaultUsername" class="form-control" placeholder="Ej. dave_cornejo" required>
+                                            <input type="text" v-model="usuario" id="validationDefaultUsername" class="form-control" placeholder="Ej. juan_perez" required>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6row">
@@ -216,7 +216,7 @@
             return {
                 persona_id: 0,
                 nombre : '',
-                tipo_documento : '',
+                tipo_documento : 'DUI',
                 numero_documento : '',
                 direccion : '',
                 telefono : '',
@@ -395,7 +395,7 @@
                 this.modal=0;
                 this.tituloModal='';
                 this.nombre='';
-                this.tipo_documento='DNI';
+                this.tipo_documento='DUI';
                 this.numero_documento='';
                 this.direccion='';
                 this.telefono='';
@@ -416,7 +416,7 @@
                                 this.modal = 1;
                                 this.tituloModal = 'Registrar Usuario';
                                 this.nombre= '';
-                                this.tipo_documento='DNI';
+                                this.tipo_documento='DUI';
                                 this.numero_documento='';
                                 this.direccion='';
                                 this.telefono='';

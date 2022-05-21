@@ -46492,7 +46492,7 @@ var content = __webpack_require__(59);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("3aed04c7", content, false, {});
+var update = __webpack_require__(3)("29c0b732", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47459,13 +47459,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("ol", { staticClass: "breadcrumb" }, [
-      _c("li", { staticClass: "breadcrumb-item" }, [_vm._v("Home")]),
-      _vm._v(" "),
       _c("li", { staticClass: "breadcrumb-item" }, [
         _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "breadcrumb-item active" }, [_vm._v("Dashboard")])
+      ])
     ])
   },
   function() {
@@ -47556,7 +47552,7 @@ var content = __webpack_require__(65);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("cf5dedfa", content, false, {});
+var update = __webpack_require__(3)("e508153a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -51628,7 +51624,7 @@ var content = __webpack_require__(106);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("47fc4540", content, false, {});
+var update = __webpack_require__(3)("ccd03600", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -51844,7 +51840,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             persona_id: 0,
             nombre: '',
-            tipo_documento: 'DNI',
+            tipo_documento: 'DUI',
             numero_documento: '',
             direccion: '',
             telefono: '',
@@ -51988,8 +51984,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.modal = 0;
             this.tituloModal = '';
             this.nombre = '';
-            this.descripcion = '';
-            this.tipo_documento = 'DNI';
+            this.tipo_documento = 'DUI';
             this.numero_documento = '';
             this.direccion = '';
             this.telefono = '';
@@ -52008,7 +52003,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     this.modal = 1;
                                     this.tituloModal = 'Registrar Cliente';
                                     this.nombre = '';
-                                    this.tipo_documento = 'DNI';
+                                    this.tipo_documento = 'DUI';
                                     this.numero_documento = '';
                                     this.direccion = '';
                                     this.telefono = '';
@@ -52523,7 +52518,7 @@ var render = function() {
                           staticClass: "form-control",
                           attrs: {
                             type: "text",
-                            placeholder: "Ej. David Cornejo"
+                            placeholder: "Ej. Juan Pérez"
                           },
                           domProps: { value: _vm.nombre },
                           on: {
@@ -52578,11 +52573,11 @@ var render = function() {
                             }
                           },
                           [
-                            _c("option", { attrs: { value: "DNI" } }, [
+                            _c("option", { attrs: { value: "DUI" } }, [
                               _vm._v("DUI")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "RUC" } }, [
+                            _c("option", { attrs: { value: "NIT" } }, [
                               _vm._v("NIT")
                             ]),
                             _vm._v(" "),
@@ -52937,7 +52932,7 @@ var content = __webpack_require__(111);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("cc4af172", content, false, {});
+var update = __webpack_require__(3)("4a0d26e7", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -53176,7 +53171,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             persona_id: 0,
             nombre: '',
-            tipo_documento: 'DNI',
+            tipo_documento: 'DUI',
             numero_documento: '',
             direccion: '',
             telefono: '',
@@ -53337,7 +53332,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.tituloModal = '';
             this.nombre = '';
             this.descripcion = '';
-            this.tipo_documento = 'RUC';
+            this.tipo_documento = 'DUI';
             this.numero_documento = '';
             this.direccion = '';
             this.telefono = '';
@@ -53358,7 +53353,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     this.modal = 1;
                                     this.tituloModal = 'Registrar Proveedor';
                                     this.nombre = '';
-                                    this.tipo_documento = 'RUC';
+                                    this.tipo_documento = 'DUI';
                                     this.numero_documento = '';
                                     this.direccion = '';
                                     this.telefono = '';
@@ -54060,7 +54055,7 @@ var render = function() {
                               }
                             },
                             [
-                              _c("option", { attrs: { value: "DNI" } }, [
+                              _c("option", { attrs: { value: "DUI" } }, [
                                 _vm._v("DUI")
                               ]),
                               _vm._v(" "),
@@ -54141,7 +54136,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ej. David Cornejo"
+                              placeholder: "Ej. Juan Pérez"
                             },
                             domProps: { value: _vm.nombre_contacto },
                             on: {
@@ -54392,7 +54387,7 @@ var content = __webpack_require__(116);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("c211b290", content, false, {});
+var update = __webpack_require__(3)("d9fc0350", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55404,7 +55399,7 @@ var content = __webpack_require__(121);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("2c3246de", content, false, {});
+var update = __webpack_require__(3)("7736f8f1", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55657,7 +55652,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             persona_id: 0,
             nombre: '',
-            tipo_documento: '',
+            tipo_documento: 'DUI',
             numero_documento: '',
             direccion: '',
             telefono: '',
@@ -55828,7 +55823,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.modal = 0;
             this.tituloModal = '';
             this.nombre = '';
-            this.tipo_documento = 'DNI';
+            this.tipo_documento = 'DUI';
             this.numero_documento = '';
             this.direccion = '';
             this.telefono = '';
@@ -55851,7 +55846,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     this.modal = 1;
                                     this.tituloModal = 'Registrar Usuario';
                                     this.nombre = '';
-                                    this.tipo_documento = 'DNI';
+                                    this.tipo_documento = 'DUI';
                                     this.numero_documento = '';
                                     this.direccion = '';
                                     this.telefono = '';
@@ -56372,7 +56367,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ej. David Cornejo",
+                              placeholder: "Ej. Juan Pérez",
                               required: ""
                             },
                             domProps: { value: _vm.nombre },
@@ -56549,11 +56544,11 @@ var render = function() {
                               }
                             },
                             [
-                              _c("option", { attrs: { value: "DNI" } }, [
+                              _c("option", { attrs: { value: "DUI" } }, [
                                 _vm._v("DUI")
                               ]),
                               _vm._v(" "),
-                              _c("option", { attrs: { value: "RUC" } }, [
+                              _c("option", { attrs: { value: "NIT" } }, [
                                 _vm._v("NIT")
                               ]),
                               _vm._v(" "),
@@ -56693,7 +56688,7 @@ var render = function() {
                             attrs: {
                               type: "text",
                               id: "validationDefaultUsername",
-                              placeholder: "Ej. dave_cornejo",
+                              placeholder: "Ej. juan_perez",
                               required: ""
                             },
                             domProps: { value: _vm.usuario },
@@ -56945,7 +56940,7 @@ var content = __webpack_require__(126);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("679a5012", content, false, {});
+var update = __webpack_require__(3)("3a3c0f97", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -58328,7 +58323,7 @@ var content = __webpack_require__(131);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("6ea99425", content, false, {});
+var update = __webpack_require__(3)("2c3f9bc5", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags

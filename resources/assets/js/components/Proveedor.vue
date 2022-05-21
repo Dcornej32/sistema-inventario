@@ -143,7 +143,7 @@
                                         <label class="col-md-6 form-control-label" for="text-input">Tipo Documento</label>
                                         <div>
                                             <select v-model="tipo_documento" class="form-control">
-                                                <option value="DNI">DUI</option>
+                                                <option value="DUI">DUI</option>
                                                 <option value="NIT">NIT</option>
                                                 <option value="PASSAPORTE">PASAPORTE</option>
                                             </select>
@@ -160,7 +160,7 @@
                                     <div class="form-group col-md-6">
                                         <label class="col-md-6 form-control-label" for="email-input">Contacto</label>
                                         <div>
-                                            <input type="text" v-model="nombre_contacto" class="form-control" placeholder="Ej. David Cornejo">
+                                            <input type="text" v-model="nombre_contacto" class="form-control" placeholder="Ej. Juan Pérez">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -202,7 +202,7 @@
             return{
                 persona_id: 0,
                 nombre: '',
-                tipo_documento: 'DNI',
+                tipo_documento: 'DUI',
                 numero_documento: '',
                 direccion: '',
                 telefono: '',
@@ -380,7 +380,7 @@
             this.tituloModal='';
             this.nombre='';
             this.descripcion='';
-            this.tipo_documento='RUC';
+            this.tipo_documento='DUI';
             this.numero_documento='';
             this.direccion='';
             this.telefono='';
@@ -400,7 +400,7 @@
                             this.modal = 1;
                             this.tituloModal = 'Registrar Proveedor';
                             this.nombre='';
-                            this.tipo_documento='RUC';
+                            this.tipo_documento='DUI';
                             this.numero_documento='';
                             this.direccion='';
                             this.telefono='';

@@ -108,15 +108,15 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="nombre" class="form-control" placeholder="Ej. David Cornejo">
+                                        <input type="text" v-model="nombre" class="form-control" placeholder="Ej. Juan Pérez">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Tipo Documento</label>
                                     <div class="col-md-9">
                                         <select v-model="tipo_documento" class="form-control">
-                                        <option value="DNI">DUI</option>
-                                        <option value="RUC">NIT</option>
+                                        <option value="DUI">DUI</option>
+                                        <option value="NIT">NIT</option>
                                         <option value="PASS">PASAPORTE</option>
                                         </select>
                                     </div>
@@ -179,7 +179,7 @@
             return{
                 persona_id: 0,
                 nombre: '',
-                tipo_documento: 'DNI',
+                tipo_documento: 'DUI',
                 numero_documento: '',
                 direccion: '',
                 telefono: '',
@@ -307,7 +307,7 @@
 
             if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre del cliente no puede estar vacío, ej. David Cornejo");
             if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un Email valido, ej. name@example.com");
-                if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
             return this.errorPersona;
         },
@@ -336,8 +336,7 @@
             this.modal=0;
             this.tituloModal='';
             this.nombre='';
-            this.descripcion='';
-            this.tipo_documento='DNI';
+            this.tipo_documento='DUI';
             this.numero_documento='';
             this.direccion='';
             this.telefono='';
@@ -355,7 +354,7 @@
                             this.modal = 1;
                             this.tituloModal = 'Registrar Cliente';
                             this.nombre='';
-                            this.tipo_documento='DNI';
+                            this.tipo_documento='DUI';
                             this.numero_documento='';
                             this.direccion='';
                             this.telefono='';
