@@ -186,7 +186,7 @@
                         </div>
                         <div class="modal-footer">
                               <!-- Se agregar el tipo de acciòn que realizara cada boton -->
-                            <button type="button" class="btn btn-primary" @click="cerrarModal()">Cerrar</button>
+                            <button type="button" class="btn btn-dark" @click="cerrarModal()">Cerrar</button>
                             <button type="button" v-if="tipoAccion==1" class="btn verde rounded-pill" @click="registrarProducto()">Guardar</button>
                             <button type="button" v-if="tipoAccion==2" class="btn verde" @click="actualizarProducto()">Actualizar</button>
 
