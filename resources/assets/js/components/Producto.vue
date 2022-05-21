@@ -12,6 +12,10 @@
                         <button type="button"  @click="abrirModal('producto','registrar')" class="btn btn-secondary">
                             <i class="icon-plus"></i>&nbsp;Nuevo
                         </button>
+                        <button type="button"  @click="cargarPdf()" class="btn btn-info">
+                            <i class="icon-doc"></i>&nbsp;Reporte
+                        </button>
+
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
@@ -117,7 +121,7 @@
                                     <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div>
-                                            <input type="text" v-model="nombre" class="form-control" placeholder="Nombre del articulo">
+                                            <input type="text" v-model="nombre" class="form-control" placeholder="Nombre del Producto">
                                             <!-- Se eliminar la siguiente linea de codigo -->
                                         </div>
                                     </div>
@@ -134,7 +138,7 @@
                                 <div class="form-group col-md-6">
                                     <label class="col-md-6 form-control-label" for="text-input">Precio Actual</label>
                                     <div>
-                                        <input type="number" v-model="precio_actual"  class="form-control" placeholder="Precio">
+                                        <input type="number" v-model="precio_actual"  class="form-control" placeholder="Precio '10.99'">
                                          <!-- Se eliminar la siguiente linea de codigo -->
                                     </div>
                                 </div>
@@ -142,7 +146,7 @@
                                 <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">stock</label>
                                     <div>
-                                        <input type="number" v-model="stock" class="form-control" placeholder="Stock">
+                                        <input type="number" v-model="stock" class="form-control" placeholder="Stock '100'">
                                          <!-- Se eliminar la siguiente linea de codigo -->
                                     </div>
                                 </div>
@@ -151,7 +155,7 @@
                                 <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">SKU</label>
                                     <div>
-                                        <input type="text" v-model="codigo" class="form-control" placeholder="Codigo">
+                                        <input type="text" v-model="codigo" class="form-control" placeholder="Codigo 'sv000000'">
                                         <barcode :value="codigo" :options="{ format: 'EAN-13' }"> </barcode>
                                         Generando un código
                                          <!-- Se eliminar la siguiente linea de codigo -->
@@ -292,6 +296,11 @@
                     // handle error
                     console.log(error);
                 })
+            },
+
+            //Metodo para cargar el pdf
+            cargarPdf(){
+                window.open('http://127.0.0.1:8000/producto/listarPdf', '_blank');
             },
 
 
@@ -467,8 +476,8 @@
 
                 if (this.idcategorias==0) this.errorMostrarMsjProducto.push("Seleccione una categoria.");
                 if (!this.nombre) this.errorMostrarMsjProducto.push("El nombre del producto, no puede estar vacio.");
-                if (!this.stock) this.errorMostrarMsjProducto.push("El stock del producto debe ser un numero y no puede estar vacio. ");
-                if (!this.precio_actual) this.errorMostrarMsjProducto.push("El precio de venta del producto,debe ser un numero y no puede estar vacio.");
+                if (!this.stock) this.errorMostrarMsjProducto.push("El stock del producto debe ser un numero y no puede estar vacio.");
+                if (!this.precio_actual) this.errorMostrarMsjProducto.push("El precio del producto, debe ser un numero y no puede estar vacio.");
 
                 if (this.errorMostrarMsjProducto.length) this.errorProducto = 1; 
 

@@ -108,40 +108,40 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="nombre" class="form-control" placeholder="Nombre de la persona">
+                                        <input type="text" v-model="nombre" class="form-control" placeholder="Ej. Juan Pérez">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Tipo Documento</label>
                                     <div class="col-md-9">
                                         <select v-model="tipo_documento" class="form-control">
-                                        <option value="DNI">DNI</option>
-                                        <option value="RUC">RUC</option>
-                                        <option value="PASS">PASS</option>
+                                        <option value="DUI">DUI</option>
+                                        <option value="NIT">NIT</option>
+                                        <option value="PASS">PASAPORTE</option>
                                         </select>
                                     </div>
                                 </div>
                                  <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="text-input">Número</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="numero_documento" class="form-control" placeholder="Número de documento">
+                                        <input type="text" v-model="numero_documento" class="form-control" placeholder="Ej. 000000000">
                                     </div>
                                 </div> <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="email-input">Dirección</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="direccion" class="form-control" placeholder="Dirección">
+                                        <input type="text" v-model="direccion" class="form-control" placeholder="Ej. Calle La Mascota 923b, San Salvador, El Salvador">
                                     </div>
                                 </div>
                                  <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="email-input">Teléfono</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="telefono" class="form-control" placeholder="Teléfono">
+                                        <input type="tel" v-model="telefono" class="form-control" maxlength="8" placeholder="Ej. 22223333 ó 77778888">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="email-input">Email</label>
                                     <div class="col-md-9">
-                                        <input type="email" v-model="email" class="form-control" placeholder="Email">
+                                        <input type="email" v-model="email" class="form-control" placeholder="name@example.com">
                                     </div>
                                 </div>
 
@@ -179,7 +179,7 @@
             return{
                 persona_id: 0,
                 nombre: '',
-                tipo_documento: 'DNI',
+                tipo_documento: 'DUI',
                 numero_documento: '',
                 direccion: '',
                 telefono: '',
@@ -305,16 +305,38 @@
             this.errorPersona=0,
             this.errorMostrarMsjPersona =[];
 
-            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre de la persona no puede estar vacío");
+            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre del cliente no puede estar vacío, ej. David Cornejo");
+            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un Email valido, ej. name@example.com");
+            if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
             return this.errorPersona;
+        },
+        validEmail (email) {
+            if (!this.email == ''){
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+   
+            }else{
+                return true;
+            }
+       
+        },     
+        
+        validTelefono (telefono) {
+            if (!this.telefono == ''){
+               var  re = /^\d{8}$/;
+                return re.test(telefono);
+   
+            }else{
+                return true;
+            }
+       
         },
         cerrarModal(){
             this.modal=0;
             this.tituloModal='';
             this.nombre='';
-            this.descripcion='';
-            this.tipo_documento='DNI';
+            this.tipo_documento='DUI';
             this.numero_documento='';
             this.direccion='';
             this.telefono='';
@@ -332,7 +354,7 @@
                             this.modal = 1;
                             this.tituloModal = 'Registrar Cliente';
                             this.nombre='';
-                            this.tipo_documento='DNI';
+                            this.tipo_documento='DUI';
                             this.numero_documento='';
                             this.direccion='';
                             this.telefono='';

@@ -116,13 +116,13 @@
                                     <div class="form-group col-md-6">
                                         <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                         <div>
-                                            <input type="text" v-model="nombre" class="form-control" placeholder="Nombre de la persona" required>
+                                            <input type="text" v-model="nombre" class="form-control" placeholder="Ej. Juan Pérez" required>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="col-md-3 form-control-label" for="email-input">Dirección</label>
                                         <div>
-                                            <input type="text" v-model="direccion" class="form-control" placeholder="Dirección">
+                                            <input type="text" v-model="direccion" class="form-control" placeholder="Ej. Calle La Mascota 923b, San Salvador, El Salvador">
                                         </div>
                                     </div>
                                 </div>
@@ -130,13 +130,13 @@
                                     <div class="form-group col-md-6">
                                         <label class="col-md-3 form-control-label" for="email-input">Teléfono</label>
                                         <div>
-                                            <input type="text" v-model="telefono" class="form-control" placeholder="Teléfono">
+                                            <input type="tel" v-model="telefono" class="form-control" maxlength="8" placeholder="Ej. 22223333 ó 77778888">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="col-md-3 form-control-label" for="email-input">Email</label>
                                         <div>
-                                            <input type="email" v-model="email" class="form-control" placeholder="Email">
+                                            <input type="email" v-model="email" class="form-control" placeholder="name@example.com">
                                         </div>
                                     </div>
                                 </div>
@@ -145,16 +145,16 @@
                                         <label class="col-md-6 form-control-label" for="text-input">Tipo Documento</label>
                                         <div>
                                             <select v-model="tipo_documento" class="form-control">
-                                            <option value="DNI">DNI</option>
-                                            <option value="RUC">RUC</option>
-                                            <option value="PASS">PASS</option>
+                                            <option value="DUI">DUI</option>
+                                            <option value="NIT">NIT</option>
+                                            <option value="PASS">PASAPORTE</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="col-md-3 form-control-label" for="text-input">Número</label>
                                         <div>
-                                            <input type="number" v-model="numero_documento" class="form-control" placeholder="Número de documento">
+                                            <input type="number" v-model="numero_documento" class="form-control" placeholder="Ej. 000000000">
                                         </div>
                                     </div>
                                 </div>  
@@ -171,13 +171,13 @@
                                     <div class="form-group col-md-4">
                                         <label class="col-md-6 form-control-label" for="email-input">Usuario (*)</label>
                                         <div>
-                                            <input type="text" v-model="usuario" id="validationDefaultUsername" class="form-control" placeholder="Nombre de usuario" required>
+                                            <input type="text" v-model="usuario" id="validationDefaultUsername" class="form-control" placeholder="Ej. juan_perez" required>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6row">
                                         <label class="col-md-9 form-control-label" for="email-input">password (*)</label>
                                         <div>
-                                            <input type="password" v-model="password" class="form-control" placeholder="Password de acceso" required>
+                                            <input type="password" v-model="password" class="form-control" placeholder="********" required>
                                         </div>
                                     </div>
                                 </div>
@@ -216,7 +216,7 @@
             return {
                 persona_id: 0,
                 nombre : '',
-                tipo_documento : '',
+                tipo_documento : 'DUI',
                 numero_documento : '',
                 direccion : '',
                 telefono : '',
@@ -360,19 +360,42 @@
                 this.errorPersona=0;
                 this.errorMostrarMsjPersona =[];
 
-                if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre de la pesona no puede estar vacío.");
-                if (!this.usuario) this.errorMostrarMsjPersona.push("El nombre de usuario no puede estar vacío.");
-                if (!this.password) this.errorMostrarMsjPersona.push("La password del usuario no puede estar vacía.");
+                if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre del usuario no puede estar vacío.");
+                if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un email valido, ej. name@example.com");
+                if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+                if (!this.usuario) this.errorMostrarMsjPersona.push("El nombre del usuario no puede estar vacío, ej. dave_cornejo.");
+                if (!this.password) this.errorMostrarMsjPersona.push("El password del usuario no puede estar vacía.");
                 if (this.idrol==0) this.errorMostrarMsjPersona.push("Seleccione un Rol.");
                 if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
 
                 return this.errorPersona;
             },
+            validEmail (email) {
+            if (!this.email == ''){
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+   
+            }else{
+                return true;
+            }
+       
+        },     
+        
+        validTelefono (telefono) {
+            if (!this.telefono == ''){
+               var  re = /^\d{8}$/;
+                return re.test(telefono);
+   
+            }else{
+                return true;
+            }
+       
+        },
             cerrarModal(){
                 this.modal=0;
                 this.tituloModal='';
                 this.nombre='';
-                this.tipo_documento='DNI';
+                this.tipo_documento='DUI';
                 this.numero_documento='';
                 this.direccion='';
                 this.telefono='';
@@ -393,7 +416,7 @@
                                 this.modal = 1;
                                 this.tituloModal = 'Registrar Usuario';
                                 this.nombre= '';
-                                this.tipo_documento='DNI';
+                                this.tipo_documento='DUI';
                                 this.numero_documento='';
                                 this.direccion='';
                                 this.telefono='';

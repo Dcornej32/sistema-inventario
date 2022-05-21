@@ -185,4 +185,20 @@ class ProductoController extends Controller
           $producto->condicion = 1; //activo
           $producto->save();
     }
+
+
+    public function listarPdf(){
+        
+        $productos = Producto::join('categorias', 'productos.idcategorias', '=','categorias.id')
+            ->select('productos.id','productos.codigo',
+            'productos.nombre', 'categorias.nombre as nombre_categoria','productos.precio_actual',
+            'productos.stock','productos.descripcion','productos.condicion','productos.idcategorias')
+            ->orderBy('productos.nombre', 'desc')->get();
+
+        $cont = Producto::count();
+
+        $pdf = \PDF::loadView('pdf.productospdf', ['productos' => $productos, 'cont'=> $cont]);
+        return $pdf->download('productos.pdf');
+
+    }
 }

@@ -46531,7 +46531,7 @@ var content = __webpack_require__(61);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("3aed04c7", content, false, {});
+var update = __webpack_require__(3)("29c0b732", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47498,13 +47498,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("ol", { staticClass: "breadcrumb" }, [
-      _c("li", { staticClass: "breadcrumb-item" }, [_vm._v("Home")]),
-      _vm._v(" "),
       _c("li", { staticClass: "breadcrumb-item" }, [
         _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "breadcrumb-item active" }, [_vm._v("Dashboard")])
+      ])
     ])
   },
   function() {
@@ -47595,7 +47591,7 @@ var content = __webpack_require__(67);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("cf5dedfa", content, false, {});
+var update = __webpack_require__(3)("e508153a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47632,6 +47628,10 @@ exports.push([module.i, "\n.modal-content{\n     width: 100% !important;\n     p
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_barcode__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_barcode___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_barcode__);
+//
+//
+//
+//
 //
 //
 //
@@ -47927,6 +47927,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
 
+        //Metodo para cargar el pdf
+        cargarPdf: function cargarPdf() {
+            window.open('http://127.0.0.1:8000/producto/listarPdf', '_blank');
+        },
+
+
         //Metodo ṕara listar todos los registros de la tabla
         selectCategoria: function selectCategoria() {
             var me = this;
@@ -48074,8 +48080,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             if (this.idcategorias == 0) this.errorMostrarMsjProducto.push("Seleccione una categoria.");
             if (!this.nombre) this.errorMostrarMsjProducto.push("El nombre del producto, no puede estar vacio.");
-            if (!this.stock) this.errorMostrarMsjProducto.push("El stock del producto debe ser un numero y no puede estar vacio. ");
-            if (!this.precio_actual) this.errorMostrarMsjProducto.push("El precio de venta del producto,debe ser un numero y no puede estar vacio.");
+            if (!this.stock) this.errorMostrarMsjProducto.push("El stock del producto debe ser un numero y no puede estar vacio.");
+            if (!this.precio_actual) this.errorMostrarMsjProducto.push("El precio del producto, debe ser un numero y no puede estar vacio.");
 
             if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
 
@@ -50817,6 +50823,23 @@ var render = function() {
               _c("i", { staticClass: "icon-plus" }),
               _vm._v(" Nuevo\n                    ")
             ]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-info",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.cargarPdf()
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "icon-doc" }),
+              _vm._v(" Reporte\n                    ")
+            ]
           )
         ]),
         _vm._v(" "),
@@ -51192,7 +51215,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Nombre del articulo"
+                              placeholder: "Nombre del Producto"
                             },
                             domProps: { value: _vm.nombre },
                             on: {
@@ -51276,7 +51299,10 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "number", placeholder: "Precio" },
+                            attrs: {
+                              type: "number",
+                              placeholder: "Precio '10.99'"
+                            },
                             domProps: { value: _vm.precio_actual },
                             on: {
                               input: function($event) {
@@ -51311,7 +51337,10 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "number", placeholder: "Stock" },
+                            attrs: {
+                              type: "number",
+                              placeholder: "Stock '100'"
+                            },
                             domProps: { value: _vm.stock },
                             on: {
                               input: function($event) {
@@ -51350,7 +51379,10 @@ var render = function() {
                                 }
                               ],
                               staticClass: "form-control",
-                              attrs: { type: "text", placeholder: "Codigo" },
+                              attrs: {
+                                type: "text",
+                                placeholder: "Codigo 'sv000000'"
+                              },
                               domProps: { value: _vm.codigo },
                               on: {
                                 input: function($event) {
@@ -51631,7 +51663,7 @@ var content = __webpack_require__(108);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("47fc4540", content, false, {});
+var update = __webpack_require__(3)("ccd03600", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -51847,7 +51879,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             persona_id: 0,
             nombre: '',
-            tipo_documento: 'DNI',
+            tipo_documento: 'DUI',
             numero_documento: '',
             direccion: '',
             telefono: '',
@@ -51965,16 +51997,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         validarPersona: function validarPersona() {
             this.errorPersona = 0, this.errorMostrarMsjPersona = [];
 
-            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre de la persona no puede estar vacío");
+            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre del cliente no puede estar vacío, ej. David Cornejo");
+            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un Email valido, ej. name@example.com");
+            if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
             return this.errorPersona;
+        },
+        validEmail: function validEmail(email) {
+            if (!this.email == '') {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            } else {
+                return true;
+            }
+        },
+        validTelefono: function validTelefono(telefono) {
+            if (!this.telefono == '') {
+                var re = /^\d{8}$/;
+                return re.test(telefono);
+            } else {
+                return true;
+            }
         },
         cerrarModal: function cerrarModal() {
             this.modal = 0;
             this.tituloModal = '';
             this.nombre = '';
-            this.descripcion = '';
-            this.tipo_documento = 'DNI';
+            this.tipo_documento = 'DUI';
             this.numero_documento = '';
             this.direccion = '';
             this.telefono = '';
@@ -51993,7 +52042,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     this.modal = 1;
                                     this.tituloModal = 'Registrar Cliente';
                                     this.nombre = '';
-                                    this.tipo_documento = 'DNI';
+                                    this.tipo_documento = 'DUI';
                                     this.numero_documento = '';
                                     this.direccion = '';
                                     this.telefono = '';
@@ -52508,7 +52557,7 @@ var render = function() {
                           staticClass: "form-control",
                           attrs: {
                             type: "text",
-                            placeholder: "Nombre de la persona"
+                            placeholder: "Ej. Juan Pérez"
                           },
                           domProps: { value: _vm.nombre },
                           on: {
@@ -52563,16 +52612,16 @@ var render = function() {
                             }
                           },
                           [
-                            _c("option", { attrs: { value: "DNI" } }, [
-                              _vm._v("DNI")
+                            _c("option", { attrs: { value: "DUI" } }, [
+                              _vm._v("DUI")
                             ]),
                             _vm._v(" "),
-                            _c("option", { attrs: { value: "RUC" } }, [
-                              _vm._v("RUC")
+                            _c("option", { attrs: { value: "NIT" } }, [
+                              _vm._v("NIT")
                             ]),
                             _vm._v(" "),
                             _c("option", { attrs: { value: "PASS" } }, [
-                              _vm._v("PASS")
+                              _vm._v("PASAPORTE")
                             ])
                           ]
                         )
@@ -52600,10 +52649,7 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            placeholder: "Número de documento"
-                          },
+                          attrs: { type: "text", placeholder: "Ej. 000000000" },
                           domProps: { value: _vm.numero_documento },
                           on: {
                             input: function($event) {
@@ -52638,7 +52684,11 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { type: "text", placeholder: "Dirección" },
+                          attrs: {
+                            type: "text",
+                            placeholder:
+                              "Ej. Calle La Mascota 923b, San Salvador, El Salvador"
+                          },
                           domProps: { value: _vm.direccion },
                           on: {
                             input: function($event) {
@@ -52673,7 +52723,11 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { type: "text", placeholder: "Teléfono" },
+                          attrs: {
+                            type: "tel",
+                            maxlength: "8",
+                            placeholder: "Ej. 22223333 ó 77778888"
+                          },
                           domProps: { value: _vm.telefono },
                           on: {
                             input: function($event) {
@@ -52708,7 +52762,10 @@ var render = function() {
                             }
                           ],
                           staticClass: "form-control",
-                          attrs: { type: "email", placeholder: "Email" },
+                          attrs: {
+                            type: "email",
+                            placeholder: "name@example.com"
+                          },
                           domProps: { value: _vm.email },
                           on: {
                             input: function($event) {
@@ -52914,7 +52971,7 @@ var content = __webpack_require__(113);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("cc4af172", content, false, {});
+var update = __webpack_require__(3)("4a0d26e7", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -53153,7 +53210,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             persona_id: 0,
             nombre: '',
-            tipo_documento: 'DNI',
+            tipo_documento: 'DUI',
             numero_documento: '',
             direccion: '',
             telefono: '',
@@ -53278,21 +53335,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         validarPersona: function validarPersona() {
             this.errorPersona = 0, this.errorMostrarMsjPersona = [];
 
-            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre de la persona no puede estar vacío");
-            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("El Email debe der ser valido");
+            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre de la empresa no puede estar vacío");
+            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un email valido, ej. name@example.com");
+            if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            if (!this.validTelefonoContacto(this.telefono_contacto)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
             return this.errorPersona;
         },
         validEmail: function validEmail(email) {
-            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(email);
+            if (!this.email == '') {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            } else {
+                return true;
+            }
+        },
+        validTelefono: function validTelefono(telefono) {
+            if (!this.telefono == '') {
+                var re = /^\d{8}$/;
+                return re.test(telefono);
+            } else {
+                return true;
+            }
+        },
+        validTelefonoContacto: function validTelefonoContacto(telefono_contacto) {
+            if (!this.telefono_contacto == '') {
+                var re = /^\d{8}$/;
+                return re.test(telefono_contacto);
+            } else {
+                return true;
+            }
         },
         cerrarModal: function cerrarModal() {
             this.modal = 0;
             this.tituloModal = '';
             this.nombre = '';
             this.descripcion = '';
-            this.tipo_documento = 'RUC';
+            this.tipo_documento = 'DUI';
             this.numero_documento = '';
             this.direccion = '';
             this.telefono = '';
@@ -53313,7 +53392,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     this.modal = 1;
                                     this.tituloModal = 'Registrar Proveedor';
                                     this.nombre = '';
-                                    this.tipo_documento = 'RUC';
+                                    this.tipo_documento = 'DUI';
                                     this.numero_documento = '';
                                     this.direccion = '';
                                     this.telefono = '';
@@ -53823,7 +53902,7 @@ var render = function() {
                             staticClass: "col-md-6 form-control-label",
                             attrs: { for: "text-input" }
                           },
-                          [_vm._v("Nombre")]
+                          [_vm._v("Nombre Empresa")]
                         ),
                         _vm._v(" "),
                         _c("div", [
@@ -53839,7 +53918,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Nombre de la persona"
+                              placeholder: " Ej.Hewlett Packard"
                             },
                             domProps: { value: _vm.nombre },
                             on: {
@@ -53875,7 +53954,11 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "text", placeholder: "Dirección" },
+                            attrs: {
+                              type: "text",
+                              placeholder:
+                                " Ej. Calle La Mascota 923b, San Salvador, El Salvador"
+                            },
                             domProps: { value: _vm.direccion },
                             on: {
                               input: function($event) {
@@ -53913,9 +53996,9 @@ var render = function() {
                             ],
                             staticClass: "form-control",
                             attrs: {
-                              type: "text",
-                              pattern: "[0-9]+",
-                              placeholder: "Teléfono"
+                              type: "tel",
+                              maxlength: "8",
+                              placeholder: "Ej. 22223333 ó 77778888"
                             },
                             domProps: { value: _vm.telefono },
                             on: {
@@ -53951,7 +54034,10 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "email", placeholder: "Email" },
+                            attrs: {
+                              type: "email",
+                              placeholder: "name@example.com"
+                            },
                             domProps: { value: _vm.email },
                             on: {
                               input: function($event) {
@@ -54008,7 +54094,7 @@ var render = function() {
                               }
                             },
                             [
-                              _c("option", { attrs: { value: "DNI" } }, [
+                              _c("option", { attrs: { value: "DUI" } }, [
                                 _vm._v("DUI")
                               ]),
                               _vm._v(" "),
@@ -54047,7 +54133,9 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Número de documento"
+                              placeholder: "Ej. 000000000",
+                              minlength: "9",
+                              maxlength: "15"
                             },
                             domProps: { value: _vm.numero_documento },
                             on: {
@@ -54087,7 +54175,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Nombre del contacto"
+                              placeholder: "Ej. Juan Pérez"
                             },
                             domProps: { value: _vm.nombre_contacto },
                             on: {
@@ -54124,8 +54212,9 @@ var render = function() {
                             ],
                             staticClass: "form-control",
                             attrs: {
-                              type: "text",
-                              placeholder: "Teléfono del contacto"
+                              type: "tel",
+                              maxlength: "8",
+                              placeholder: "Ej. 22223333 ó 77778888"
                             },
                             domProps: { value: _vm.telefono_contacto },
                             on: {
@@ -54337,7 +54426,7 @@ var content = __webpack_require__(118);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("c211b290", content, false, {});
+var update = __webpack_require__(3)("d9fc0350", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55349,7 +55438,7 @@ var content = __webpack_require__(123);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("2c3246de", content, false, {});
+var update = __webpack_require__(3)("7736f8f1", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55602,7 +55691,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             persona_id: 0,
             nombre: '',
-            tipo_documento: '',
+            tipo_documento: 'DUI',
             numero_documento: '',
             direccion: '',
             telefono: '',
@@ -55743,19 +55832,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.errorPersona = 0;
             this.errorMostrarMsjPersona = [];
 
-            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre de la pesona no puede estar vacío.");
-            if (!this.usuario) this.errorMostrarMsjPersona.push("El nombre de usuario no puede estar vacío.");
-            if (!this.password) this.errorMostrarMsjPersona.push("La password del usuario no puede estar vacía.");
+            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre del usuario no puede estar vacío.");
+            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un email valido, ej. name@example.com");
+            if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            if (!this.usuario) this.errorMostrarMsjPersona.push("El nombre del usuario no puede estar vacío, ej. dave_cornejo.");
+            if (!this.password) this.errorMostrarMsjPersona.push("El password del usuario no puede estar vacía.");
             if (this.idrol == 0) this.errorMostrarMsjPersona.push("Seleccione un Rol.");
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
 
             return this.errorPersona;
         },
+        validEmail: function validEmail(email) {
+            if (!this.email == '') {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            } else {
+                return true;
+            }
+        },
+        validTelefono: function validTelefono(telefono) {
+            if (!this.telefono == '') {
+                var re = /^\d{8}$/;
+                return re.test(telefono);
+            } else {
+                return true;
+            }
+        },
         cerrarModal: function cerrarModal() {
             this.modal = 0;
             this.tituloModal = '';
             this.nombre = '';
-            this.tipo_documento = 'DNI';
+            this.tipo_documento = 'DUI';
             this.numero_documento = '';
             this.direccion = '';
             this.telefono = '';
@@ -55778,7 +55885,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     this.modal = 1;
                                     this.tituloModal = 'Registrar Usuario';
                                     this.nombre = '';
-                                    this.tipo_documento = 'DNI';
+                                    this.tipo_documento = 'DUI';
                                     this.numero_documento = '';
                                     this.direccion = '';
                                     this.telefono = '';
@@ -56299,7 +56406,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Nombre de la persona",
+                              placeholder: "Ej. Juan Pérez",
                               required: ""
                             },
                             domProps: { value: _vm.nombre },
@@ -56336,7 +56443,11 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "text", placeholder: "Dirección" },
+                            attrs: {
+                              type: "text",
+                              placeholder:
+                                "Ej. Calle La Mascota 923b, San Salvador, El Salvador"
+                            },
                             domProps: { value: _vm.direccion },
                             on: {
                               input: function($event) {
@@ -56373,7 +56484,11 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "text", placeholder: "Teléfono" },
+                            attrs: {
+                              type: "tel",
+                              maxlength: "8",
+                              placeholder: "Ej. 22223333 ó 77778888"
+                            },
                             domProps: { value: _vm.telefono },
                             on: {
                               input: function($event) {
@@ -56408,7 +56523,10 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "email", placeholder: "Email" },
+                            attrs: {
+                              type: "email",
+                              placeholder: "name@example.com"
+                            },
                             domProps: { value: _vm.email },
                             on: {
                               input: function($event) {
@@ -56465,16 +56583,16 @@ var render = function() {
                               }
                             },
                             [
-                              _c("option", { attrs: { value: "DNI" } }, [
-                                _vm._v("DNI")
+                              _c("option", { attrs: { value: "DUI" } }, [
+                                _vm._v("DUI")
                               ]),
                               _vm._v(" "),
-                              _c("option", { attrs: { value: "RUC" } }, [
-                                _vm._v("RUC")
+                              _c("option", { attrs: { value: "NIT" } }, [
+                                _vm._v("NIT")
                               ]),
                               _vm._v(" "),
                               _c("option", { attrs: { value: "PASS" } }, [
-                                _vm._v("PASS")
+                                _vm._v("PASAPORTE")
                               ])
                             ]
                           )
@@ -56504,7 +56622,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "number",
-                              placeholder: "Número de documento"
+                              placeholder: "Ej. 000000000"
                             },
                             domProps: { value: _vm.numero_documento },
                             on: {
@@ -56609,7 +56727,7 @@ var render = function() {
                             attrs: {
                               type: "text",
                               id: "validationDefaultUsername",
-                              placeholder: "Nombre de usuario",
+                              placeholder: "Ej. juan_perez",
                               required: ""
                             },
                             domProps: { value: _vm.usuario },
@@ -56648,7 +56766,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "password",
-                              placeholder: "Password de acceso",
+                              placeholder: "********",
                               required: ""
                             },
                             domProps: { value: _vm.password },
@@ -56861,7 +56979,7 @@ var content = __webpack_require__(128);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("679a5012", content, false, {});
+var update = __webpack_require__(3)("3a3c0f97", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -58244,7 +58362,7 @@ var content = __webpack_require__(133);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("6ea99425", content, false, {});
+var update = __webpack_require__(3)("2c3f9bc5", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
