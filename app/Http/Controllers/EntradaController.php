@@ -24,7 +24,7 @@ class EntradaController extends Controller
             ->select('entradas.id','entradas.fecha_entrada','entradas.total_compra',
             'entradas.condicion',
             'personas.nombre','users.usuario')
-            ->orderBy('entradas.id', 'desc')->paginate(3);
+            ->orderBy('entradas.id', 'desc')->paginate(6);
         }
         else{
             $entradas =Entrada::join('personas','entradas.idproveedores','=','personas.id')
@@ -33,7 +33,7 @@ class EntradaController extends Controller
             'entradas.condicion',
             'personas.nombre','users.usuario')     
             ->where('entradas.'.$criterio, 'like', '%'. $buscar . '%')
-            ->orderBy('entradas.id', 'desc')->paginate(3);
+            ->orderBy('entradas.id', 'desc')->paginate(6);
         }
         
 

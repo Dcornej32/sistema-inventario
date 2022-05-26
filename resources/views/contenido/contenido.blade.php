@@ -31,6 +31,13 @@
             <template v-if="menu==8">
                 <rol></rol>
             </template>
+            <template v-if="menu==9">
+                <consultaentrada></consultaentrada>
+            </template>
+
+            <template v-if="menu==10">
+                <consultasalida></consultasalida>
+            </template>
 
             <template v-if="menu==12">
                 <informacion></informacion>
@@ -57,6 +64,13 @@
             </template>
             <template v-if="menu==6">
                 <cliente></cliente>
+            </template>
+
+            <template v-if="menu==9">
+                <consultaentrada></consultaentrada>
+            </template>
+            <template v-if="menu==10">
+                <consultasalida></consultasalida>
             </template>
             <template v-if="menu==12">
                 <informacion></informacion>

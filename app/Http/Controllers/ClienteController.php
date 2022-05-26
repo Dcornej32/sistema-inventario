@@ -16,12 +16,12 @@ class ClienteController extends Controller
 
         if ($buscar ==''){
             //listar todos los registros
-        $personas = Persona::orderBy('id', 'desc')->paginate(3);
+        $personas = Persona::orderBy('id', 'desc')->paginate(6);
 
         }
 
         else{
-            $personas = Persona::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(3);
+            $personas = Persona::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(6);
         }
         
         return [

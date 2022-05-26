@@ -25,7 +25,7 @@ class SalidaController extends Controller
             ->join('users','salidas.idusuarios','=','users.id')
             ->select('salidas.id','salidas.fecha_salida','salidas.total',
             'salidas.condicion','personas.nombre','users.usuario')
-            ->orderBy('salidas.id', 'desc')->paginate(3);
+            ->orderBy('salidas.id', 'desc')->paginate(6);
         }
         else{
             $salidas = Salida::join('personas','salidas.idclientes','=','personas.id')
@@ -33,7 +33,7 @@ class SalidaController extends Controller
             ->select('salidas.id','salidas.fecha_salida','salidas.total',
             'salidas.condicion','personas.nombre','users.usuario')
             ->where('salidas.'.$criterio, 'like', '%'. $buscar . '%')
-            ->orderBy('salidas.id', 'desc')->paginate(3);
+            ->orderBy('salidas.id', 'desc')->paginate(6);
         }
         
         return [

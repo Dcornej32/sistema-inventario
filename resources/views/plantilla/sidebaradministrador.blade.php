@@ -54,16 +54,16 @@
                     <li class="nav-item nav-dropdown negro borde-b">
                         <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-pie-chart"></i> Reportes</a>
                         <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="icon-chart"></i> Reporte</a>
+                            <li @click="menu=9" class="nav-item">
+                                <a class="nav-link" href="#"><i class="icon-chart"></i> R-Entradas <span class="badge badge-danger">PDF</span></a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="icon-chart"></i> Reporte</a>
+                            <li @click="menu=10" class="nav-item">
+                                <a class="nav-link" href="#"><i class="icon-chart"></i> R-Salidas <span class="badge badge-danger">PDF</span></a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item negro borde-b">
-                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Ayuda <span class="badge badge-danger">PDF</span></a>
+                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Ayuda </a>
                     </li>
                     <li class="nav-item negro borde-b"  @click="menu=12">
                         <a class="nav-link" href="#"><i class="icon-info"></i> Acerca de...<span class="badge badge-danger">IT</span></a>
