@@ -84,7 +84,7 @@ body {
 </head>
 <body>
     <div>
-        <h3>Lista de productos <span class="derecha">{{now()}}</span></h3>
+        <h3>Lista de los  productos <span class="derecha">{{now()}}</span></h3>
     </div>
     <div>
         
