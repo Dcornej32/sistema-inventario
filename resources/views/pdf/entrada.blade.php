@@ -136,7 +136,7 @@
                     <p class="encabezado">
                         <b>Nombre de la empresa:</b>
                         <br><b>Dirección de la empresa:</b>
-                        <br><b>Telefono de la empresa:</b>
+                        <br><b>Teléfono de la empresa:</b>
                         <br><b>Email de la empresa: </b>
                     </p>
                 </div>
@@ -200,7 +200,7 @@
                     <thead>
                         <tr id="pd">
                             <th>CANTIDAD</th>
-                            <th >DESCRIPCION</th>
+                            <th >DESCRIPCIÓN</th>
                             <th>PRECIO UNITARIO</th>
                             <th >PRECIO TOTAL</th>
                         </tr>
