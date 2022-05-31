@@ -8,8 +8,7 @@ use App\Entrada;
 use App\DetalleEntrada;
 use Exception;
 use Carbon\Carbon;
-use APP\User;
-use App\Notifications\NotifyAdmin;
+
 
 
 class EntradaController extends Controller
@@ -133,10 +132,6 @@ class EntradaController extends Controller
                 $detalle->save();
             }
 
-           
-
-
-            
             DB::commit();
 
         } catch (Exception $e){

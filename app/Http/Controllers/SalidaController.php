@@ -8,8 +8,7 @@ use Carbon\Carbon;
 use App\Salida;
 use App\DetalleSalida;
 use Exception;
-use APP\User;
-use App\Notifications\NotifyAdmin;
+
 
 class SalidaController extends Controller
 {
@@ -127,7 +126,6 @@ class SalidaController extends Controller
                 $detalle->precio_actual = $det['precio_actual'];          
                 $detalle->save();
             }  
-            
 
             DB::commit();
             return [

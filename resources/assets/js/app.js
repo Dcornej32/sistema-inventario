@@ -5,8 +5,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-const { default: Axios } = require('axios');
-const { default: Echo } = require('laravel-echo');
+//const { default: Axios } = require('axios');
+//const { default: Echo } = require('laravel-echo');
 
 require('./bootstrap');
 //window.$ = window.jQuery = require('jquery');
