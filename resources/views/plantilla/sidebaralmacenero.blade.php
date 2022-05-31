@@ -51,10 +51,10 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item negro borde-b">
+                    <li @click="menu=10" class="nav-item negro borde-b">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Ayuda <span class="badge badge-danger">PDF</span></a>
                     </li>
-                    <li @click="menu=12" class="nav-item negro borde-b">
+                    <li  class="nav-item negro borde-b">
                         <a class="nav-link" href="#"><i class="icon-info"></i> Acerca de...<span class="badge badge-danger">IT</span></a>
                     </li>
                 </ul>

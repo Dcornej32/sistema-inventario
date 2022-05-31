@@ -16,12 +16,16 @@ Route::group(['middleware' => ['guest']], function(){
     //++++ rutas para el login ++++//
     Route::get('/', 'Auth\LoginController@showLoginForm');
     Route::post('/login', 'Auth\LoginController@login')->name('login');
+    
 
 });
 
 Route::group(['middleware' => ['auth']], function(){
 
         Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+        Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+        Route::get('/dashboard', 'DashboardController');
+        //Route::post('/notification/get', 'NotificationController@get');
 
         Route::get('/main', function () {
             return view('contenido/contenido');

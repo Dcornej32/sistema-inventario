@@ -62,7 +62,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item negro borde-b">
+                    <li @click="menu=10" class="nav-item negro borde-b">
                         <a class="nav-link" href="#"><i class="icon-book-open"></i> Ayuda <span class="badge badge-danger">PDF</span></a>
                     </li>
                     <li class="nav-item negro borde-b"  @click="menu=12">

@@ -5,7 +5,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+const { default: Axios } = require('axios');
+const { default: Echo } = require('laravel-echo');
+
 require('./bootstrap');
+//window.$ = window.jQuery = require('jquery');
 
 window.Vue = require('vue');
 
@@ -25,7 +29,9 @@ Vue.component('user', require('./components/User.vue'));
 Vue.component('informacion', require('./components/Informacion.vue'));
 Vue.component('entrada', require('./components/Entrada.vue'));
 Vue.component('salida', require('./components/Salida.vue'));
-
+Vue.component('dashboard', require('./components/Dashboard.vue'));
+Vue.component('ayuda', require('./components/Ayuda.vue'));
+//Vue.component('notification', require('./components/Notification.vue'));
 
 
 
@@ -33,5 +39,7 @@ const app = new Vue({
     el: '#app',
     data: {
         menu : 0
-    }
+        
+    },
+    
 });

@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-responsive table-borderless">
+                        <table class="table table-responsive table-borderless table-sm">
                             <thead>
                                 <tr>
                                     <th scope="col">Opciones</th>
