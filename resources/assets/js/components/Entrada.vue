@@ -37,7 +37,7 @@
                                         <th scope="col">Proveedor</th>
                                         <th scope="col">Fecha_Entrada</th>
                                         <th scope="col">Total_Compra</th>
-                                        <th scope="col">Condicion</th>
+                                        <th scope="col">Condición</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -264,7 +264,7 @@
             <div class="modal fade"  tabindex="-1" :class="{'mostrar' : modal}" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
                 <div class="modal-dialog modal-primary modal-lg" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header verde">
                             <h4 class="modal-title" v-text="tituloModal"></h4>
                             <button type="button" class="close" @click="cerrarModal()" aria-label="Close">
                               <span aria-hidden="true"></span>
@@ -291,7 +291,7 @@
                                     <th>Opciones</th>
                                     <th>SKU</th>
                                     <th>Nombre</th>
-                                    <th>Categoria</th>
+                                    <th>Categoría</th>
                                     <th>Precio Actual</th>
                                     <th>Stock</th>
                                     <th>Estado</th>
@@ -326,7 +326,7 @@
                         </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
+                            <button type="button" class="btn btn-dark" @click="cerrarModal()">Cerrar</button>
                             <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="registrarPersona()">Guardar</button>
                             <button type="button" v-if="tipoAccion==2" class="btn btn-primary" @click="actualizarPersona()">Actualizar</button>
                         </div>

@@ -36,7 +36,7 @@
                                     <th scope="col">Opciones</th>
                                     <th scope="col">SKU</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Categoria</th>
+                                    <th scope="col">Categoría</th>
                                     <th scope="col">Precio Actual</th>
                                     <th scope="col">Stock</th>
                                     <th scope="col">Descripción</th>
@@ -77,7 +77,7 @@
                                       </div>
 
                                       <div v-else>
-                                        <span class="badge badge-danger">Desactivo</span>
+                                        <span class="badge badge-danger">Desactivado</span>
                                       </div>
                                     </td>
                                 </tr>
@@ -128,7 +128,7 @@
                                     <div class="form-group col-md-6">
                                         <label class="col-md-3 form-control-label" for="text-input">Descripción</label>
                                         <div>
-                                            <textarea type="text" v-model="descripcion" class="form-control" placeholder="Ingrese la descripcion">
+                                            <textarea type="text" v-model="descripcion" class="form-control" placeholder="Ingrese la descripción">
                                             <!-- Se eliminar la siguiente linea de codigo -->
                                             </textarea>
                                         </div>
@@ -155,7 +155,7 @@
                                 <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">SKU</label>
                                     <div>
-                                        <input type="text" v-model="codigo" class="form-control" placeholder="Codigo 'sv000000'">
+                                        <input type="text" v-model="codigo" class="form-control" placeholder="Código 'sv000000'">
                                         <barcode :value="codigo" :options="{ format: 'EAN-13' }"> </barcode>
                                         Generando un código
                                          <!-- Se eliminar la siguiente linea de codigo -->
@@ -474,12 +474,62 @@
                 this.errorProducto=0;
                 this.errorMostrarMsjProducto= [];
 
-                if (this.idcategorias==0) this.errorMostrarMsjProducto.push("Seleccione una categoria.");
-                if (!this.nombre) this.errorMostrarMsjProducto.push("El nombre del producto, no puede estar vacio.");
-                if (!this.stock) this.errorMostrarMsjProducto.push("El stock del producto debe ser un numero y no puede estar vacio.");
-                if (!this.precio_actual) this.errorMostrarMsjProducto.push("El precio del producto, debe ser un numero y no puede estar vacio.");
+                 if (this.nombre == '' || this.nombre == null) 
+                {
+                    this.errorMostrarMsjProducto.push("El nombre del producto no puede estar vacío");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                }
+                else if (!/^[a-zA-Z ]+$/.test(this.nombre)){
+                    this.errorMostrarMsjProducto.push("El nombre del producto no debe contener números");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                }
+                else if (!/^[A-Z]/.test(this.nombre)){
+                    this.errorMostrarMsjProducto.push("El nombre del producto debe iniciar con una letra mayúscula");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                } 
+                else if (this.nombre.length<=3){
+                    this.errorMostrarMsjProducto.push("El nombre del producto no es valido");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                }
 
-                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1; 
+                else if (this.precio_actual == '' || this.precio_actual == null){
+                    this.errorMostrarMsjProducto.push("El precio del producto no puede estar vacío.");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+
+                } 
+
+                else if (!/^[0-9]/.test(this.precio_actual)){
+                    this.errorMostrarMsjProducto.push("El precio del producto debe ser en números.");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                } 
+
+                else if (this.stock == '' || this.stock == null){
+                    this.errorMostrarMsjProducto.push("El stock del producto no puede estar vacío.");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+
+                } 
+
+                else if (!/^[0-9]/.test(this.stock)){
+                    this.errorMostrarMsjProducto.push("El stock del producto debe ser en números.");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                } 
+
+                else if (this.codigo == '' || this.codigo == null){
+                    this.errorMostrarMsjProducto.push("El código del producto no puede estar vacío.");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+
+                } 
+
+                else if (!/^[0-9]/.test(this.codigo)){
+                    this.errorMostrarMsjProducto.push("El código del producto debe ser en números.");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                }
+                
+
+                else if (this.idcategorias==0){ 
+                    this.errorMostrarMsjProducto.push("Seleccione una categoría.");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                }
 
                 return this.errorProducto;
             },

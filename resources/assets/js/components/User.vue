@@ -145,6 +145,7 @@
                                         <label class="col-md-6 form-control-label" for="text-input">Tipo Documento</label>
                                         <div>
                                             <select v-model="tipo_documento" class="form-control">
+                                            <option value="">Seleccione</option>
                                             <option value="DUI">DUI</option>
                                             <option value="NIT">NIT</option>
                                             <option value="PASS">PASAPORTE</option>
@@ -154,7 +155,7 @@
                                     <div class="form-group col-md-6">
                                         <label class="col-md-3 form-control-label" for="text-input">Número</label>
                                         <div>
-                                            <input type="number" v-model="numero_documento" class="form-control" placeholder="Ej. 000000000">
+                                            <input type="text" v-model="numero_documento" class="form-control" placeholder="Ej. 000000000">
                                         </div>
                                     </div>
                                 </div>  
@@ -163,8 +164,8 @@
                                         <label class="col-md-6 form-control-label" for="email-input">Rol (*)</label>
                                         <div>
                                             <select class="form-control" v-model="idrol" > 
-                                                <option value="0" > Seleccine un Rol </option>
-                                                <option v-for="rol in arrayRol" :key="rol.id" :value="rol.id" v-text="rol.nombre"> Seleccine un Rol </option>
+                                                <option value="0" > Seleccione un Rol </option>
+                                                <option v-for="rol in arrayRol" :key="rol.id" :value="rol.id" v-text="rol.nombre"> Seleccione un Rol </option>
                                             </select>
                                         </div>
                                     </div>
@@ -360,12 +361,66 @@
                 this.errorPersona=0;
                 this.errorMostrarMsjPersona =[];
 
-                if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre del usuario no puede estar vacío.");
-                if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un email valido, ej. name@example.com");
-                if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
-                if (!this.usuario) this.errorMostrarMsjPersona.push("El nombre del usuario no puede estar vacío, ej. dave_cornejo.");
-                if (!this.password) this.errorMostrarMsjPersona.push("El password del usuario no puede estar vacía.");
-                if (this.idrol==0) this.errorMostrarMsjPersona.push("Seleccione un Rol.");
+            if (this.nombre == '' || this.nombre == null) 
+            {
+                this.errorMostrarMsjPersona.push("El nombre del usuario no puede estar vacío, Ej. Juan Pérez");
+            }
+            else if (!/^[a-zA-Z ]+$/.test(this.nombre)){
+                this.errorMostrarMsjPersona.push("El nombre del usuario no debe contener números");
+            }
+            else if (!/^[A-Z]/.test(this.nombre)){
+                this.errorMostrarMsjPersona.push("El nombre del usuario debe iniciar con una letra mayúscula");
+            }
+            else if (this.direccion == '' || this.direccion == null) 
+            {
+                this.errorMostrarMsjPersona.push("La dirección del usuario no puede estar vacía.");
+            }
+            else if (this.telefono == '') {
+                this.errorMostrarMsjPersona.push("El teléfono del usuario no puede estar vacío, Ej. 22223333 ó 77778888");
+            }
+            else if (!/^\d{8}$/.test(this.telefono)) {
+                this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            }
+            else if (this.email == '' || this.email == null) 
+            {
+                this.errorMostrarMsjPersona.push("El email del usuario no puede estar vacío, Ej. name@example.com");
+            }
+            else if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
+                this.errorMostrarMsjPersona.push("Ingrese un email valido, Ej. name@example.com");
+            }
+            else if (this.idrol==0) {
+                this.errorMostrarMsjPersona.push("Seleccione un Rol.");
+            }
+
+            else if (this.usuario == '' || this.usuario == null) 
+            {
+                this.errorMostrarMsjPersona.push("El usuario no puede estar vacío");
+            }
+            else if (this.password == '' || this.password == null) 
+            {
+                this.errorMostrarMsjPersona.push("El password del usuario no puede estar vacío");
+            }
+
+            else if (!this.tipo_documento == ''){
+
+                if(this.numero_documento == ''){
+                    this.errorMostrarMsjPersona.push("El número de documento del usuario no puede estar vacío.");
+                }
+                else if (!/^[0-9]+$/.test(this.numero_documento)){
+                    this.errorMostrarMsjPersona.push("El número de documento del usuario no debe contener letras.");
+                }
+                else if (this.numero_documento.length<=7){
+                    this.errorMostrarMsjPersona.push("El número de documento del usuario no es valido");
+                }
+            }
+            else if (!this.numero_documento == ''){
+
+                if(this.tipo_documento == ''){
+                    this.errorMostrarMsjPersona.push("Seleccione un tipo de documento.");
+                }
+                    
+            }
+               
                 if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
 
                 return this.errorPersona;
@@ -416,7 +471,7 @@
                                 this.modal = 1;
                                 this.tituloModal = 'Registrar Usuario';
                                 this.nombre= '';
-                                this.tipo_documento='DUI';
+                                this.tipo_documento='';
                                 this.numero_documento='';
                                 this.direccion='';
                                 this.telefono='';
@@ -436,7 +491,7 @@
                                 this.persona_id=data['id'];
                                 this.nombre = data['nombre'];
                                 this.tipo_documento = data['tipo_documento'];
-                                this.numero_documento = data['num_documento'];
+                                this.numero_documento = data['numero_documento'];
                                 this.direccion = data['direccion'];
                                 this.telefono = data['telefono'];
                                 this.email = data['email'];

@@ -46849,7 +46849,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             swal({
-                title: 'Esta seguro de desactivar esta categoria?',
+                title: 'Esta seguro de desactivar esta categoría?',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: 'green',
@@ -46883,7 +46883,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this2 = this;
 
             swal({
-                title: 'Esta seguro de activar esta categoria?',
+                title: 'Esta seguro de activar esta categoría?',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: 'green',
@@ -46916,10 +46916,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         validarCategoria: function validarCategoria() {
             this.errorCategoria = 0, this.errorMostrarMsjCategoria = [];
 
-            if (!this.nombre) this.errorMostrarMsjCategoria.push("El nombre de la categoria no puede estar vacío");
-            if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            if (this.nombre == '' || this.nombre == null) {
+                this.errorMostrarMsjCategoria.push("El nombre de la categoría no puede estar vacío");
+                if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+                this.errorMostrarMsjCategoria.push("El nombre de la categoría no debe contener números");
+                if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            } else if (!/^[A-Z]/.test(this.nombre)) {
+                this.errorMostrarMsjCategoria.push("El nombre de la categoría debe iniciar con una letra mayúscula");
+                if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            } else if (this.nombre.length <= 3) {
+                this.errorMostrarMsjCategoria.push("El nombre de la categoría no es valido");
+                if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            }
+
             return this.errorCategoria;
         },
+
+
+        /*validarNombre(nombre){
+             if (this.nombre == ''){
+                  return nombre;
+              //  var re = /[a-z]/;
+                //return re.test(nombre);
+             }else if(!this.nombre == ''){
+                 var re = /[a-z]/;
+                return re.test(nombre);
+            }
+        },*/
         cerrarModal: function cerrarModal() {
             this.modal = 0;
             this.tituloModal = '';
@@ -46936,7 +46960,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             case 'registrar':
                                 {
                                     this.modal = 1;
-                                    this.tituloModal = 'Registrar Categoria';
+                                    this.tituloModal = 'Registrar Categoría';
                                     this.nombre = '';
                                     this.descripcion = '';
                                     this.tipoAccion = 1;
@@ -46946,7 +46970,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                 {
                                     //console.log(data);
                                     this.modal = 1;
-                                    this.tituloModal = 'Actualizar Categoria';
+                                    this.tituloModal = 'Actualizar Categoría';
                                     this.tipoAccion = 2;
                                     this.categoria_id = data['id'];
                                     this.nombre = data['nombre'];
@@ -47392,7 +47416,7 @@ var render = function() {
                           staticClass: "form-control",
                           attrs: {
                             type: "email",
-                            placeholder: "Ingrese descripción"
+                            placeholder: "Ingrese una descripción"
                           },
                           domProps: { value: _vm.descripcion },
                           on: {
@@ -48078,12 +48102,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.errorProducto = 0;
             this.errorMostrarMsjProducto = [];
 
-            if (this.idcategorias == 0) this.errorMostrarMsjProducto.push("Seleccione una categoria.");
-            if (!this.nombre) this.errorMostrarMsjProducto.push("El nombre del producto, no puede estar vacio.");
-            if (!this.stock) this.errorMostrarMsjProducto.push("El stock del producto debe ser un numero y no puede estar vacio.");
-            if (!this.precio_actual) this.errorMostrarMsjProducto.push("El precio del producto, debe ser un numero y no puede estar vacio.");
-
-            if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            if (this.nombre == '' || this.nombre == null) {
+                this.errorMostrarMsjProducto.push("El nombre del producto no puede estar vacío");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+                this.errorMostrarMsjProducto.push("El nombre del producto no debe contener números");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (!/^[A-Z]/.test(this.nombre)) {
+                this.errorMostrarMsjProducto.push("El nombre del producto debe iniciar con una letra mayúscula");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (this.nombre.length <= 3) {
+                this.errorMostrarMsjProducto.push("El nombre del producto no es valido");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (this.precio_actual == '' || this.precio_actual == null) {
+                this.errorMostrarMsjProducto.push("El precio del producto no puede estar vacío.");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (!/^[0-9]/.test(this.precio_actual)) {
+                this.errorMostrarMsjProducto.push("El precio del producto debe ser en números.");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (this.stock == '' || this.stock == null) {
+                this.errorMostrarMsjProducto.push("El stock del producto no puede estar vacío.");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (!/^[0-9]/.test(this.stock)) {
+                this.errorMostrarMsjProducto.push("El stock del producto debe ser en números.");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (this.codigo == '' || this.codigo == null) {
+                this.errorMostrarMsjProducto.push("El código del producto no puede estar vacío.");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (!/^[0-9]/.test(this.codigo)) {
+                this.errorMostrarMsjProducto.push("El código del producto debe ser en números.");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (this.idcategorias == 0) {
+                this.errorMostrarMsjProducto.push("Seleccione una categoría.");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            }
 
             return this.errorProducto;
         },
@@ -51035,7 +51087,7 @@ var render = function() {
                           ])
                         : _c("div", [
                             _c("span", { staticClass: "badge badge-danger" }, [
-                              _vm._v("Desactivo")
+                              _vm._v("Desactivado")
                             ])
                           ])
                     ])
@@ -51255,7 +51307,7 @@ var render = function() {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
-                                placeholder: "Ingrese la descripcion"
+                                placeholder: "Ingrese la descripción"
                               },
                               domProps: { value: _vm.descripcion },
                               on: {
@@ -51381,7 +51433,7 @@ var render = function() {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
-                                placeholder: "Codigo 'sv000000'"
+                                placeholder: "Código 'sv000000'"
                               },
                               domProps: { value: _vm.codigo },
                               on: {
@@ -51579,7 +51631,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Categoria")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Categoría")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Precio Actual")]),
         _vm._v(" "),
@@ -51698,6 +51750,7 @@ exports.push([module.i, "\n.modal-content{\n    width: 100% !important;\n    pos
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -51997,11 +52050,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         validarPersona: function validarPersona() {
             this.errorPersona = 0, this.errorMostrarMsjPersona = [];
 
-            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre del cliente no puede estar vacío, ej. David Cornejo");
-            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un Email valido, ej. name@example.com");
-            if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            if (this.nombre == '' || this.nombre == null) {
+                this.errorMostrarMsjPersona.push("El nombre del cliente no puede estar vacío, ej. Juan Pérez");
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+                this.errorMostrarMsjPersona.push("El nombre del cliente no debe contener números");
+            } else if (!/^[A-Z]/.test(this.nombre)) {
+                this.errorMostrarMsjPersona.push("El nombre del cliente debe iniciar con una letra mayúscula");
+            } else if (this.nombre.length <= 3) {
+                this.errorMostrarMsjPersona.push("El nombre del cliente no es valido");
+            } else if (!this.validTelefono(this.telefono)) {
+                this.errorMostrarMsjPersona.push("Ingresa un número de teléfono valido, Ej. 22223333 ó 77778888");
+            } else if (!this.validEmail(this.email)) {
+                this.errorMostrarMsjPersona.push("Ingrese un Email valido, ej. name@example.com");
+            } else if (!this.numero_documento == '') {
+                if (!/^[0-9]+$/.test(this.numero_documento)) {
+                    this.errorMostrarMsjPersona.push("El número de documento del cliente no debe contener letras.");
+                } else if (this.numero_documento.length <= 7) {
+                    this.errorMostrarMsjPersona.push("El número de documento del cliente no es valido");
+                }
+            }
+
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
             return this.errorPersona;
+        },
+        cerrarModal: function cerrarModal() {
+            this.modal = 0;
+            this.tituloModal = '';
+            this.nombre = '';
+            this.tipo_documento = '';
+            this.numero_documento = '';
+            this.direccion = '';
+            this.telefono = '';
+            this.email = '';
+            this.errorPersona = 0;
         },
         validEmail: function validEmail(email) {
             if (!this.email == '') {
@@ -52019,17 +52100,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return true;
             }
         },
-        cerrarModal: function cerrarModal() {
-            this.modal = 0;
-            this.tituloModal = '';
-            this.nombre = '';
-            this.tipo_documento = 'DUI';
-            this.numero_documento = '';
-            this.direccion = '';
-            this.telefono = '';
-            this.email = '';
-            this.errorPersona = 0;
-        },
         abrirModal: function abrirModal(modelo, accion) {
             var data = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
 
@@ -52042,7 +52112,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     this.modal = 1;
                                     this.tituloModal = 'Registrar Cliente';
                                     this.nombre = '';
-                                    this.tipo_documento = 'DUI';
+                                    this.tipo_documento = '';
                                     this.numero_documento = '';
                                     this.direccion = '';
                                     this.telefono = '';
@@ -52612,6 +52682,10 @@ var render = function() {
                             }
                           },
                           [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Seleccione")
+                            ]),
+                            _vm._v(" "),
                             _c("option", { attrs: { value: "DUI" } }, [
                               _vm._v("DUI")
                             ]),
@@ -53204,6 +53278,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -53334,44 +53409,57 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         validarPersona: function validarPersona() {
             this.errorPersona = 0, this.errorMostrarMsjPersona = [];
+            if (this.nombre == '' || this.nombre == null) {
+                this.errorMostrarMsjPersona.push("El nombre de la empresa no puede estar vacío, Ej. Hewlett Packard");
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+                this.errorMostrarMsjPersona.push("El nombre de la empresa no debe contener números");
+            } else if (!/^[A-Z]/.test(this.nombre)) {
+                this.errorMostrarMsjPersona.push("El nombre de la empresa debe iniciar con una letra mayúscula");
+            } else if (this.direccion == '' || this.direccion == null) {
+                this.errorMostrarMsjPersona.push("La dirección de la empresa no puede estar vacía.");
+            } else if (this.telefono == '') {
+                this.errorMostrarMsjPersona.push("El teléfono de la empresa no puede estar vacío, Ej. 22223333 ó 77778888");
+            } else if (!/^\d{8}$/.test(this.telefono)) {
+                this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            } else if (this.email == '' || this.email == null) {
+                this.errorMostrarMsjPersona.push("El email de la empresa no puede estar vacío, Ej. name@example.com");
+            } else if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
+                this.errorMostrarMsjPersona.push("Ingrese un email valido, Ej. name@example.com");
+            } else if (this.nombre_contacto == '' || this.nombre_contacto == null) {
+                this.errorMostrarMsjPersona.push("El nombre de contacto de la empresa no puede estar vacío, Ej. Juan Pérez");
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre_contacto)) {
+                this.errorMostrarMsjPersona.push("El nombre de contacto de la empresa no debe contener números");
+            } else if (!/^[A-Z]/.test(this.nombre_contacto)) {
+                this.errorMostrarMsjPersona.push("El nombre de contacto de la empresa debe iniciar con una letra mayúscula");
+            } else if (this.telefono_contacto == '' || this.telefono_contacto == null) {
+                this.errorMostrarMsjPersona.push("El teléfono del contacto de la empresa no puede estar vacío, Ej. 22223333 ó 77778888");
+            } else if (!/^\d{8}$/.test(this.telefono_contacto)) {
+                this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            } else if (!this.tipo_documento == '') {
 
-            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre de la empresa no puede estar vacío");
-            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un email valido, ej. name@example.com");
-            if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
-            if (!this.validTelefonoContacto(this.telefono_contacto)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+                if (this.numero_documento == '') {
+                    this.errorMostrarMsjPersona.push("El número de documento del proveedor no puede estar vacío.");
+                } else if (!/^[0-9]+$/.test(this.numero_documento)) {
+                    this.errorMostrarMsjPersona.push("El número de documento del proveedor no debe contener letras.");
+                } else if (this.numero_documento.length <= 7) {
+                    this.errorMostrarMsjPersona.push("El número de documento del proveedor no es valido");
+                }
+            } else if (!this.numero_documento == '') {
+
+                if (this.tipo_documento == '') {
+                    this.errorMostrarMsjPersona.push("Seleccione un tipo de documento.");
+                }
+            }
+
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
             return this.errorPersona;
-        },
-        validEmail: function validEmail(email) {
-            if (!this.email == '') {
-                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                return re.test(email);
-            } else {
-                return true;
-            }
-        },
-        validTelefono: function validTelefono(telefono) {
-            if (!this.telefono == '') {
-                var re = /^\d{8}$/;
-                return re.test(telefono);
-            } else {
-                return true;
-            }
-        },
-        validTelefonoContacto: function validTelefonoContacto(telefono_contacto) {
-            if (!this.telefono_contacto == '') {
-                var re = /^\d{8}$/;
-                return re.test(telefono_contacto);
-            } else {
-                return true;
-            }
         },
         cerrarModal: function cerrarModal() {
             this.modal = 0;
             this.tituloModal = '';
             this.nombre = '';
             this.descripcion = '';
-            this.tipo_documento = 'DUI';
+            this.tipo_documento = '';
             this.numero_documento = '';
             this.direccion = '';
             this.telefono = '';
@@ -53392,7 +53480,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     this.modal = 1;
                                     this.tituloModal = 'Registrar Proveedor';
                                     this.nombre = '';
-                                    this.tipo_documento = 'DUI';
+                                    this.tipo_documento = '';
                                     this.numero_documento = '';
                                     this.direccion = '';
                                     this.telefono = '';
@@ -54094,6 +54182,10 @@ var render = function() {
                               }
                             },
                             [
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("Seleccione")
+                              ]),
+                              _vm._v(" "),
                               _c("option", { attrs: { value: "DUI" } }, [
                                 _vm._v("DUI")
                               ]),
@@ -54117,7 +54209,7 @@ var render = function() {
                             staticClass: "col-md-6 form-control-label",
                             attrs: { for: "text-input" }
                           },
-                          [_vm._v("Número")]
+                          [_vm._v("Número de Documento")]
                         ),
                         _vm._v(" "),
                         _c("div", [
@@ -54773,7 +54865,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         validarRol: function validarRol() {
             this.errorRol = 0, this.errorMostrarMsjRol = [];
 
-            if (!this.nombre) this.errorMostrarMsjRol.push("El nombre de del Rol no puede estar vacío");
+            if (this.nombre == '' || this.nombre == null) {
+                this.errorMostrarMsjRol.push("El nombre del rol no puede estar vacío");
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+                this.errorMostrarMsjRol.push("El nombre del rol no debe contener números");
+            } else if (!/^[A-Z]/.test(this.nombre)) {
+                this.errorMostrarMsjRol.push("El nombre del rol debe iniciar con una letra mayúscula");
+            } else if (this.nombre.length <= 3) {
+                this.errorMostrarMsjRol.push("El nombre del rol no es valido");
+            }
+
             if (this.errorMostrarMsjRol.length) this.errorRol = 1;
             return this.errorRol;
         },
@@ -55685,6 +55786,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -55832,12 +55934,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.errorPersona = 0;
             this.errorMostrarMsjPersona = [];
 
-            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre del usuario no puede estar vacío.");
-            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un email valido, ej. name@example.com");
-            if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
-            if (!this.usuario) this.errorMostrarMsjPersona.push("El nombre del usuario no puede estar vacío, ej. dave_cornejo.");
-            if (!this.password) this.errorMostrarMsjPersona.push("El password del usuario no puede estar vacía.");
-            if (this.idrol == 0) this.errorMostrarMsjPersona.push("Seleccione un Rol.");
+            if (this.nombre == '' || this.nombre == null) {
+                this.errorMostrarMsjPersona.push("El nombre del usuario no puede estar vacío, Ej. Juan Pérez");
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+                this.errorMostrarMsjPersona.push("El nombre del usuario no debe contener números");
+            } else if (!/^[A-Z]/.test(this.nombre)) {
+                this.errorMostrarMsjPersona.push("El nombre del usuario debe iniciar con una letra mayúscula");
+            } else if (this.direccion == '' || this.direccion == null) {
+                this.errorMostrarMsjPersona.push("La dirección del usuario no puede estar vacía.");
+            } else if (this.telefono == '') {
+                this.errorMostrarMsjPersona.push("El teléfono del usuario no puede estar vacío, Ej. 22223333 ó 77778888");
+            } else if (!/^\d{8}$/.test(this.telefono)) {
+                this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            } else if (this.email == '' || this.email == null) {
+                this.errorMostrarMsjPersona.push("El email del usuario no puede estar vacío, Ej. name@example.com");
+            } else if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
+                this.errorMostrarMsjPersona.push("Ingrese un email valido, Ej. name@example.com");
+            } else if (this.idrol == 0) {
+                this.errorMostrarMsjPersona.push("Seleccione un Rol.");
+            } else if (this.usuario == '' || this.usuario == null) {
+                this.errorMostrarMsjPersona.push("El usuario no puede estar vacío");
+            } else if (this.password == '' || this.password == null) {
+                this.errorMostrarMsjPersona.push("El password del usuario no puede estar vacío");
+            } else if (!this.tipo_documento == '') {
+
+                if (this.numero_documento == '') {
+                    this.errorMostrarMsjPersona.push("El número de documento del usuario no puede estar vacío.");
+                } else if (!/^[0-9]+$/.test(this.numero_documento)) {
+                    this.errorMostrarMsjPersona.push("El número de documento del usuario no debe contener letras.");
+                } else if (this.numero_documento.length <= 7) {
+                    this.errorMostrarMsjPersona.push("El número de documento del usuario no es valido");
+                }
+            } else if (!this.numero_documento == '') {
+
+                if (this.tipo_documento == '') {
+                    this.errorMostrarMsjPersona.push("Seleccione un tipo de documento.");
+                }
+            }
+
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
 
             return this.errorPersona;
@@ -55885,7 +56019,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     this.modal = 1;
                                     this.tituloModal = 'Registrar Usuario';
                                     this.nombre = '';
-                                    this.tipo_documento = 'DUI';
+                                    this.tipo_documento = '';
                                     this.numero_documento = '';
                                     this.direccion = '';
                                     this.telefono = '';
@@ -55905,7 +56039,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     this.persona_id = data['id'];
                                     this.nombre = data['nombre'];
                                     this.tipo_documento = data['tipo_documento'];
-                                    this.numero_documento = data['num_documento'];
+                                    this.numero_documento = data['numero_documento'];
                                     this.direccion = data['direccion'];
                                     this.telefono = data['telefono'];
                                     this.email = data['email'];
@@ -56583,6 +56717,10 @@ var render = function() {
                               }
                             },
                             [
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("Seleccione")
+                              ]),
+                              _vm._v(" "),
                               _c("option", { attrs: { value: "DUI" } }, [
                                 _vm._v("DUI")
                               ]),
@@ -56621,7 +56759,7 @@ var render = function() {
                             ],
                             staticClass: "form-control",
                             attrs: {
-                              type: "number",
+                              type: "text",
                               placeholder: "Ej. 000000000"
                             },
                             domProps: { value: _vm.numero_documento },
@@ -56681,7 +56819,7 @@ var render = function() {
                             },
                             [
                               _c("option", { attrs: { value: "0" } }, [
-                                _vm._v(" Seleccine un Rol ")
+                                _vm._v(" Seleccione un Rol ")
                               ]),
                               _vm._v(" "),
                               _vm._l(_vm.arrayRol, function(rol) {
@@ -56694,7 +56832,7 @@ var render = function() {
                                       textContent: _vm._s(rol.nombre)
                                     }
                                   },
-                                  [_vm._v(" Seleccine un Rol ")]
+                                  [_vm._v(" Seleccione un Rol ")]
                                 )
                               })
                             ],
@@ -57341,12 +57479,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         validarInformacion: function validarInformacion() {
             this.errorInformacion = 0;
             this.errorMostrarMsjInformacion = [];
-            if (!this.nombre) this.errorMostrarMsjInformacion.push("El nombre de la empresa, no puede estar vacio");
-            if (!this.direccion) this.errorMostrarMsjInformacion.push("La dirección, es obligatoio de ingresar.");
-            if (!this.telefono) this.errorMostrarMsjInformacion.push("El teléfono es obligatorio de ingresar.");
-            if (!this.nombre_contacto) this.errorMostrarMsjInformacion.push("El nombre de contacto, no puede quedar vacio");
-            if (!this.telefono_contacto) this.errorMostrarMsjInformacion.push("El teléfono del contacto no puede quedar vacio.");
-            if (!this.cargo) this.errorMostrarMsjInformacion.push("El cargo es obligatorio de ingresar.");
+
+            if (this.nombre == '' || this.nombre == null) {
+                this.errorMostrarMsjInformacion.push("El nombre de la empresa no puede estar vacío, Ej. Hewlett Packard");
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+                this.errorMostrarMsjInformacion.push("El nombre de la empresa no debe contener números");
+            } else if (!/^[A-Z]/.test(this.nombre)) {
+                this.errorMostrarMsjInformacion.push("El nombre de la empresa debe iniciar con una letra mayúscula");
+            } else if (this.direccion == '' || this.direccion == null) {
+                this.errorMostrarMsjInformacion.push("La dirección de la empresa no puede estar vacía.");
+            } else if (this.email == '' || this.email == null) {
+                this.errorMostrarMsjInformacion.push("El email de la empresa no puede estar vacío, Ej. name@example.com");
+            } else if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
+                this.errorMostrarMsjInformacion.push("Ingrese un email valido, Ej. name@example.com");
+            } else if (this.telefono == '') {
+                this.errorMostrarMsjInformacion.push("El teléfono de la empresa no puede estar vacío, Ej. 22223333 ó 77778888");
+            } else if (!/^\d{8}$/.test(this.telefono)) {
+                this.errorMostrarMsjInformacion.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            } else if (this.nombre_contacto == '' || this.nombre_contacto == null) {
+                this.errorMostrarMsjInformacion.push("El nombre de contacto de la empresa no puede estar vacío, Ej. Juan Pérez");
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre_contacto)) {
+                this.errorMostrarMsjInformacion.push("El nombre de contacto de la empresa no debe contener números");
+            } else if (!/^[A-Z]/.test(this.nombre_contacto)) {
+                this.errorMostrarMsjInformacion.push("El nombre de contacto de la empresa debe iniciar con una letra mayúscula");
+            } else if (this.telefono_contacto == '' || this.telefono_contacto == null) {
+                this.errorMostrarMsjInformacion.push("El teléfono del contacto de la empresa no puede estar vacío, Ej. 22223333 ó 77778888");
+            } else if (!/^\d{8}$/.test(this.telefono_contacto)) {
+                this.errorMostrarMsjInformacion.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            } else if (this.cargo == '' || this.cargo == null) {
+                this.errorMostrarMsjInformacion.push("El cargo del contacto de la empresa no puede estar vacío.");
+            } else if (!/^[a-zA-Z ]+$/.test(this.cargo)) {
+                this.errorMostrarMsjInformacion.push("El cargo del contacto de la empresa no debe contener números");
+            } else if (!/^[A-Z]/.test(this.cargo)) {
+                this.errorMostrarMsjInformacion.push("El cargo del contacto de la empresa debe iniciar con una letra mayúscula");
+            }
+
             if (this.errorMostrarMsjInformacion.length) this.errorInformacion = 1;
             return this.errorInformacion;
         },
@@ -57796,7 +57963,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese nombre."
+                              placeholder: "Ingrese un nombre."
                             },
                             domProps: { value: _vm.nombre },
                             on: {
@@ -57874,7 +58041,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese E-mail"
+                              placeholder: "Ingrese el E-mail"
                             },
                             domProps: { value: _vm.email },
                             on: {
@@ -57912,7 +58079,8 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese teléfono "
+                              maxlength: "8",
+                              placeholder: "Ingrese el teléfono "
                             },
                             domProps: { value: _vm.telefono },
                             on: {
@@ -57990,7 +58158,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese Número de registro"
+                              placeholder: "Ingrese el número de registro"
                             },
                             domProps: { value: _vm.numero_registro },
                             on: {
@@ -58030,7 +58198,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese Giro"
+                              placeholder: "Ingrese el Giro"
                             },
                             domProps: { value: _vm.giro },
                             on: {
@@ -58068,7 +58236,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese nombre del contacto."
+                              placeholder: "Ingrese el nombre del contacto."
                             },
                             domProps: { value: _vm.nombre_contacto },
                             on: {
@@ -58108,7 +58276,8 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese teléfono del contacto"
+                              maxlength: "8",
+                              placeholder: "Ingrese el teléfono del contacto"
                             },
                             domProps: { value: _vm.telefono_contacto },
                             on: {
@@ -58146,7 +58315,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "email",
-                              placeholder: "Cargo que del contacto."
+                              placeholder: "Cargo del contacto."
                             },
                             domProps: { value: _vm.cargo },
                             on: {
@@ -60501,7 +60670,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
+              _c("div", { staticClass: "modal-header verde" }, [
                 _c("h4", {
                   staticClass: "modal-title",
                   domProps: { textContent: _vm._s(_vm.tituloModal) }
@@ -60715,7 +60884,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-dark",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -60792,7 +60961,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Total_Compra")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condicion")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condición")])
       ])
     ])
   },
@@ -60882,7 +61051,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Nombre")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Categoria")]),
+        _c("th", [_vm._v("Categoría")]),
         _vm._v(" "),
         _c("th", [_vm._v("Precio Actual")]),
         _vm._v(" "),
@@ -60964,7 +61133,7 @@ var content = __webpack_require__(141);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("cbf813c4", content, false, {});
+var update = __webpack_require__(3)("13be7a7e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -62678,7 +62847,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
+              _c("div", { staticClass: "modal-header verde" }, [
                 _c("h4", {
                   staticClass: "modal-title",
                   domProps: { textContent: _vm._s(_vm.tituloModal) }
@@ -62892,7 +63061,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-dark",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -62969,7 +63138,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Total")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condicion")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condición")])
       ])
     ])
   },
