@@ -48,10 +48,14 @@ Route::group(['middleware' => ['auth']], function(){
             Route::put('/producto/desactivar', 'ProductoController@desactivar');
             Route::put('/producto/activar', 'ProductoController@activar');
             Route::get('/producto/listarPdf', 'ProductoController@listarPdf')->name('productos_pdf');
+            Route::get('/producto/listarStockPdf', 'ProductoController@listarStockPdf')->name('productos_stockpdf');
+            Route::get('/producto/listarMesPdf', 'ProductoController@listarMesPdf')->name('productos_mespdf');
             Route::get('/producto/buscarProducto', 'ProductoController@buscarProducto');
             Route::get('/producto/listarProducto', 'ProductoController@listarProducto');
             Route::get('/producto/buscarProductoSalida', 'ProductoController@buscarProductoSalida');
             Route::get('/producto/listarProductoSalida', 'ProductoController@listarProductoSalida');
+
+
             
             
             //RUTAS DE LOS CLIENTES
@@ -130,6 +134,8 @@ Route::group(['middleware' => ['auth']], function(){
             Route::put('/producto/desactivar', 'ProductoController@desactivar');
             Route::put('/producto/activar', 'ProductoController@activar');
             Route::get('/producto/listarPdf', 'ProductoController@listarPdf')->name('productos_pdf');
+            Route::get('/producto/listarStockPdf', 'ProductoController@listarStockPdf')->name('productos_stockpdf');
+            Route::get('/producto/listarMesPdf', 'ProductoController@listarMesPdf')->name('productos_mespdf');
             Route::get('/producto/buscarProducto', 'ProductoController@buscarProducto');
             Route::get('/producto/listarProducto', 'ProductoController@listarProducto');
             Route::get('/producto/buscarProductoSalida', 'ProductoController@buscarProductoSalida');

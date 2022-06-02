@@ -47835,6 +47835,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -47933,6 +47939,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         //Metodo para cargar el pdf
         cargarPdf: function cargarPdf() {
             window.open('http://127.0.0.1:8000/producto/listarPdf', '_blank');
+        },
+        cargarPdf_Stock: function cargarPdf_Stock() {
+            window.open('http://127.0.0.1:8000/producto/listarStockPdf', '_blank');
+        },
+        cargarPdf_Mes: function cargarPdf_Mes() {
+            window.open('http://127.0.0.1:8000/producto/listarMesPdf', '_blank');
         },
 
 
@@ -50842,6 +50854,40 @@ var render = function() {
             [
               _c("i", { staticClass: "icon-doc" }),
               _vm._v(" Reporte\n                    ")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-danger",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.cargarPdf_Stock()
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "icon-doc" }),
+              _vm._v(" Productos stock, menos 5.\n                    ")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.cargarPdf_Mes()
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "icon-doc" }),
+              _vm._v(" Reporte Mensual\n                    ")
             ]
           )
         ]),
