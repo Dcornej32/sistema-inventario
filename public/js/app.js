@@ -50870,7 +50870,7 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "icon-doc" }),
-              _vm._v(" Productos stock, menos 5.\n                    ")
+              _vm._v(" Productos con menos de 5_Stock.\n                    ")
             ]
           ),
           _vm._v(" "),
@@ -63987,7 +63987,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Pdf")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Usuario")]),
         _vm._v(" "),
@@ -64876,7 +64876,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Pdf")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Usuario")]),
         _vm._v(" "),

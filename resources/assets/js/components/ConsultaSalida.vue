@@ -29,7 +29,7 @@
                             <table class="table table-responsive table-borderless table-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Opciones</th>
+                                        <th scope="col">Pdf</th>
                                         <th scope="col">Usuario</th>
                                         <th scope="col">Cliente</th>
                                         <th scope="col">Fecha Salida</th>
