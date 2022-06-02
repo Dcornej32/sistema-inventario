@@ -34,15 +34,12 @@
                                         <th scope="col">Proveedor</th>
                                         <th scope="col">Fecha_Entrada</th>
                                         <th scope="col">Total_Compra</th>
-                                        <th scope="col">Condicion</th>
+                                        <th scope="col">Condición</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="entrada in arrayEntrada" :key="entrada.id">
                                         <td>
-                                            <button type="button" @click="verEntrada(entrada.id)" class="btn btn-success btn-sm">
-                                            <i class="icon-eye"></i>
-                                            </button>&nbsp;
                                             <button type="button" @click="pdfEntrada(entrada.id)" class="btn btn-info btn-sm">
                                             <i class="icon-doc"></i>
                                             </button>

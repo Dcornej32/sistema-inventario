@@ -46534,7 +46534,7 @@ var content = __webpack_require__(61);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("29c0b732", content, false, {});
+var update = __webpack_require__(4)("3aed04c7", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47594,7 +47594,7 @@ var content = __webpack_require__(67);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("e508153a", content, false, {});
+var update = __webpack_require__(4)("cf5dedfa", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -51666,7 +51666,7 @@ var content = __webpack_require__(108);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("ccd03600", content, false, {});
+var update = __webpack_require__(4)("47fc4540", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -52974,7 +52974,7 @@ var content = __webpack_require__(113);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("4a0d26e7", content, false, {});
+var update = __webpack_require__(4)("cc4af172", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -54429,7 +54429,7 @@ var content = __webpack_require__(118);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("d9fc0350", content, false, {});
+var update = __webpack_require__(4)("c211b290", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55441,7 +55441,7 @@ var content = __webpack_require__(123);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("7736f8f1", content, false, {});
+var update = __webpack_require__(4)("2c3246de", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -56982,7 +56982,7 @@ var content = __webpack_require__(128);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("3a3c0f97", content, false, {});
+var update = __webpack_require__(4)("679a5012", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -58365,7 +58365,7 @@ var content = __webpack_require__(133);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("2c3f9bc5", content, false, {});
+var update = __webpack_require__(4)("6ea99425", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -59054,7 +59054,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             swal({
-                title: 'Esta seguro de anular la entrada?.',
+                title: 'Esta seguro de anular la entrada?',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -59073,7 +59073,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         'id': id
                     }).then(function (response) {
                         me.listarEntrada(1, '', 'nombre');
-                        swal('Anulado!', 'La entrada ha sido anulada con éxito.', 'success');
+                        swal('Anulada!', 'La entrada ha sido anulada con éxito.', 'success');
                     }).catch(function (error) {
                         console.log(error);
                     });
@@ -60299,8 +60299,10 @@ var render = function() {
                                         _vm._v(
                                           "$" +
                                             _vm._s(
-                                              detalle.precio_compra *
+                                              (
+                                                detalle.precio_compra *
                                                 detalle.cantidad
+                                              ).toFixed(2)
                                             )
                                         )
                                       ])
@@ -60322,7 +60324,7 @@ var render = function() {
                                           "$" +
                                             _vm._s(
                                               (_vm.total_compra =
-                                                _vm.calcularTotal)
+                                                _vm.calcularTotal).toFixed(2)
                                             )
                                         )
                                       ])
@@ -60795,7 +60797,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Total_Compra")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condicion")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condición")])
       ])
     ])
   },
@@ -60967,7 +60969,7 @@ var content = __webpack_require__(141);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("13be7a7e", content, false, {});
+var update = __webpack_require__(4)("cbf813c4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -61682,7 +61684,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             swal({
-                title: 'Esta seguro de anular la salida?.',
+                title: 'Esta seguro de anular la salida?',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -61701,7 +61703,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         'id': id
                     }).then(function (response) {
                         me.listarSalida(1, '', 'nombre');
-                        swal('Anulado!', 'La salida ha sido anulada con éxito.', 'success');
+                        swal('Anulada!', 'La salida ha sido anulada con éxito.', 'success');
                     }).catch(function (error) {
                         console.log(error);
                     });
@@ -62472,8 +62474,10 @@ var render = function() {
                                         _vm._v(
                                           "$" +
                                             _vm._s(
-                                              detalle.precio_actual *
+                                              (
+                                                detalle.precio_actual *
                                                 detalle.cantidad
+                                              ).toFixed(2)
                                             )
                                         )
                                       ])
@@ -62494,7 +62498,8 @@ var render = function() {
                                         _vm._v(
                                           "$" +
                                             _vm._s(
-                                              (_vm.total = _vm.calcularTotal)
+                                              (_vm.total =
+                                                _vm.calcularTotal).toFixed(2)
                                             )
                                         )
                                       ])
@@ -62597,8 +62602,10 @@ var render = function() {
                                         _vm._v(
                                           "$" +
                                             _vm._s(
-                                              detalle.precio_actual *
+                                              (
+                                                detalle.precio_actual *
                                                 detalle.cantidad
+                                              ).toFixed(2)
                                             )
                                         )
                                       ])
@@ -62619,7 +62626,8 @@ var render = function() {
                                         _vm._v(
                                           "$" +
                                             _vm._s(
-                                              (_vm.total = _vm.calcularTotal)
+                                              (_vm.total =
+                                                _vm.calcularTotal).toFixed(2)
                                             )
                                         )
                                       ])
@@ -62972,7 +62980,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Total")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condicion")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condición")])
       ])
     ])
   },
@@ -63144,7 +63152,7 @@ var content = __webpack_require__(146);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("f6beae8a", content, false, {});
+var update = __webpack_require__(4)("333c411b", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -63183,9 +63191,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_select__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css__);
-//
-//
-//
 //
 //
 //
@@ -63629,22 +63634,6 @@ var render = function() {
                                 _c(
                                   "button",
                                   {
-                                    staticClass: "btn btn-success btn-sm",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.verEntrada(entrada.id)
-                                      }
-                                    }
-                                  },
-                                  [_c("i", { staticClass: "icon-eye" })]
-                                ),
-                                _vm._v(
-                                  " \n                                       "
-                                ),
-                                _c(
-                                  "button",
-                                  {
                                     staticClass: "btn btn-info btn-sm",
                                     attrs: { type: "button" },
                                     on: {
@@ -63939,7 +63928,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Total_Compra")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condicion")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condición")])
       ])
     ])
   },
@@ -64055,7 +64044,7 @@ var content = __webpack_require__(151);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("1e521b34", content, false, {});
+var update = __webpack_require__(4)("1bb1f6d4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -64094,8 +64083,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_select__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css__);
-//
-//
 //
 //
 //
@@ -64535,22 +64522,6 @@ var render = function() {
                                 _c(
                                   "button",
                                   {
-                                    staticClass: "btn btn-success btn-sm",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.verSalida(salida.id)
-                                      }
-                                    }
-                                  },
-                                  [_c("i", { staticClass: "icon-eye" })]
-                                ),
-                                _vm._v(
-                                  "  \n                                       "
-                                ),
-                                _c(
-                                  "button",
-                                  {
                                     staticClass: "btn btn-info btn-sm",
                                     attrs: { type: "button" },
                                     on: {
@@ -64846,7 +64817,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Total")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condicion")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condición")])
       ])
     ])
   },

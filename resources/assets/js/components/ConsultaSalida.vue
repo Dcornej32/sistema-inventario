@@ -34,15 +34,13 @@
                                         <th scope="col">Cliente</th>
                                         <th scope="col">Fecha Salida</th>
                                         <th scope="col">Total</th>
-                                        <th scope="col">Condicion</th>
+                                        <th scope="col">Condición</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="salida in arraySalida" :key="salida.id">
                                         <td>
-                                            <button type="button" @click="verSalida(salida.id)" class="btn btn-success btn-sm">
-                                            <i class="icon-eye"></i>
-                                            </button> &nbsp;
+                                            
                                             <button type="button" @click="pdfSalida(salida.id)" class="btn btn-info btn-sm">
                                             <i class="icon-doc"></i>
                                             </button>
