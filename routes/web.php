@@ -104,6 +104,8 @@ Route::group(['middleware' => ['auth']], function(){
             Route::get('/entrada/obtenerCabecera', 'EntradaController@obtenerCabecera');
             Route::get('/entrada/obtenerDetalle', 'EntradaController@obtenerDetalle');
             Route::get('/entrada/MesPdf', 'EntradaController@MesPdf')->name('entradas_mespdf');
+            Route::get('/entrada/DiaPdf', 'EntradaController@DiaPdf')->name('entradas_diapdf');
+
 
             //RUTAS PARA LA TABLA DE SALIDAS 
             Route::get('/salida', 'SalidaController@index');
@@ -112,6 +114,8 @@ Route::group(['middleware' => ['auth']], function(){
             Route::get('/salida/obtenerCabecera', 'SalidaController@obtenerCabecera');
             Route::get('/salida/obtenerDetalle', 'SalidaController@obtenerDetalle');
             Route::get('/salida/pdf/{id}', 'SalidaController@pdf')->name('salida-pfd');
+            Route::get('/salida/MesPdf', 'SalidaController@MesPdf')->name('salidas_mespdf');
+            Route::get('/salida/DiaPdf', 'SalidaController@DiaPdf')->name('salidas_diapdf');
 
 
         });
@@ -173,6 +177,8 @@ Route::group(['middleware' => ['auth']], function(){
             Route::get('/entrada/obtenerDetalle', 'EntradaController@obtenerDetalle');
             Route::get('/entrada/pdf/{id}', 'EntradaController@pdf')->name('entrada_pfd');
             Route::get('/entrada/MesPdf', 'EntradaController@MesPdf')->name('entradas_mespdf');
+            Route::get('/entrada/DiaPdf', 'EntradaController@DiaPdf')->name('entradas_diapdf');
+
 
 
             //RUTAS PARA LA TABLA DE SALIDAS 
@@ -182,8 +188,8 @@ Route::group(['middleware' => ['auth']], function(){
             Route::get('/salida/obtenerCabecera', 'SalidaController@obtenerCabecera');
             Route::get('/salida/obtenerDetalle', 'SalidaController@obtenerDetalle');
             Route::get('/salida/pdf/{id}', 'SalidaController@pdf')->name('salida_pfd');
-
-
+            Route::get('/salida/MesPdf', 'SalidaController@MesPdf')->name('salidas_mespdf');
+            Route::get('/salida/DiaPdf', 'SalidaController@DiaPdf')->name('salidas_diapdf');
         });
 });
 

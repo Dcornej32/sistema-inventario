@@ -58797,8 +58797,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -59641,23 +59639,6 @@ var render = function() {
               [
                 _c("i", { staticClass: "icon-plus" }),
                 _vm._v(" Nuevo\n                   ")
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-info",
-                attrs: { type: "button" },
-                on: {
-                  click: function($event) {
-                    return _vm.cargarPdf_Mes()
-                  }
-                }
-              },
-              [
-                _c("i", { staticClass: "icon-plus" }),
-                _vm._v(" Reporte Mensual\n                   ")
               ]
             )
           ]),
@@ -63398,6 +63379,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -63491,8 +63485,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error);
             });
         },
-        pdfEntrada: function pdfEntrada(id) {
-            window.open('/entrada/pdf/' + id, '_blank');
+        cargarPdf_Mes: function cargarPdf_Mes() {
+            window.open('/entrada/MesPdf/');
+        },
+        cargarPdf_Dia: function cargarPdf_Dia() {
+            window.open('/entrada/DiaPdf/');
         },
         cambiarPagina: function cambiarPagina(page, buscar, criterio) {
             var me = this;
@@ -63708,6 +63705,39 @@ var render = function() {
                                     on: {
                                       click: function($event) {
                                         return _vm.pdfEntrada(entrada.id)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "icon-doc" })]
+                                ),
+                                _vm._v(" \n                                   ")
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-secondary btn-sm",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.cargarPdf_Dia()
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "icon-doc" })]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-success btn-sm",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.cargarPdf_Mes()
                                       }
                                     }
                                   },
@@ -63988,6 +64018,10 @@ var staticRenderFns = [
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Pdf")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Dia")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Mes")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Usuario")]),
         _vm._v(" "),
@@ -64292,6 +64326,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -64387,6 +64433,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         pdfSalida: function pdfSalida(id) {
             window.open('/salida/pdf/' + id, '_blank');
+        },
+        cargarPdf_Mes: function cargarPdf_Mes() {
+            window.open('/salida/MesPdf/');
+        },
+        cargarPdf_Dia: function cargarPdf_Dia() {
+            window.open('/salida/DiaPdf/');
         },
         cambiarPagina: function cambiarPagina(page, buscar, criterio) {
             var me = this;
@@ -64596,6 +64648,38 @@ var render = function() {
                                     on: {
                                       click: function($event) {
                                         return _vm.pdfSalida(salida.id)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "icon-doc" })]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-secondary btn-sm",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.cargarPdf_Dia()
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "icon-doc" })]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-success btn-sm",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.cargarPdf_Mes()
                                       }
                                     }
                                   },
@@ -64877,6 +64961,10 @@ var staticRenderFns = [
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Pdf")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Dia")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Mes")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Usuario")]),
         _vm._v(" "),

@@ -30,6 +30,8 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Pdf</th>
+                                        <th scope="col">Dia</th>
+                                        <th scope="col">Mes</th>
                                         <th scope="col">Usuario</th>
                                         <th scope="col">Cliente</th>
                                         <th scope="col">Fecha Salida</th>
@@ -42,6 +44,16 @@
                                         <td>
                                             
                                             <button type="button" @click="pdfSalida(salida.id)" class="btn btn-info btn-sm">
+                                            <i class="icon-doc"></i>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button type="button" @click="cargarPdf_Dia()" class="btn btn-secondary btn-sm">
+                                            <i class="icon-doc"></i>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button type="button" @click="cargarPdf_Mes()" class="btn btn-success btn-sm">
                                             <i class="icon-doc"></i>
                                             </button>
                                         </td>
@@ -236,6 +248,12 @@
             },
             pdfSalida(id){
                 window.open('/salida/pdf/'+ id ,'_blank');
+            },
+             cargarPdf_Mes(){
+                window.open('/salida/MesPdf/');
+            },
+            cargarPdf_Dia(){
+                window.open('/salida/DiaPdf/');
             },
          
        

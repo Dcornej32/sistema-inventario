@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reporte de Entradas por Mes</title>   
+    <title>Reporte de Entradas por Dia</title>   
     <body>
     <style>
 
@@ -134,7 +134,7 @@ body {
         <br>
         <section>
         <div>
-        <h3>Lista de Entradas Mensuales <span class="derecha">{{now()}}</span></h3>
+        <h3>Lista de Entradas Diarias <span class="derecha">{{now()}}</span></h3>
        </div>
             <div>
             <table class="table table-responsive table-borderless table-sm">
@@ -163,7 +163,6 @@ body {
                 @endforeach
 
             </tbody>
-            
 
         </table>
             </div>
@@ -174,7 +173,7 @@ body {
         <br>
         <section>
             <div>
-            <p><strong>Total de registros: </strong></p>
+              
             </div>
         </section>
         

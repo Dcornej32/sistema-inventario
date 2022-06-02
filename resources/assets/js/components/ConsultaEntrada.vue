@@ -30,6 +30,8 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Pdf</th>
+                                        <th scope="col">Dia</th>
+                                        <th scope="col">Mes</th>
                                         <th scope="col">Usuario</th>
                                         <th scope="col">Proveedor</th>
                                         <th scope="col">Fecha_Entrada</th>
@@ -42,8 +44,19 @@
                                         <td>
                                             <button type="button" @click="pdfEntrada(entrada.id)" class="btn btn-info btn-sm">
                                             <i class="icon-doc"></i>
+                                            </button>&nbsp;
+                                        </td>
+                                         <td>
+                                            <button type="button" @click="cargarPdf_Dia()" class="btn btn-secondary btn-sm">
+                                            <i class="icon-doc"></i>
                                             </button>
                                         </td>
+                                          <td>
+                                             <button type="button" @click="cargarPdf_Mes()" class="btn btn-success btn-sm">
+                                            <i class="icon-doc"></i>
+                                            </button>
+                                        </td>
+                                       
                                         <td v-text="entrada.usuario"></td>
                                         <td v-text="entrada.nombre"></td>
                                         <td v-text="entrada.fecha_entrada"></td>
@@ -231,10 +244,14 @@
                     console.log(error);
                 });
             },
-            pdfEntrada(id){
-                window.open('/entrada/pdf/'+ id ,'_blank');
+         
+            
+            cargarPdf_Mes(){
+                window.open('/entrada/MesPdf/');
             },
-
+            cargarPdf_Dia(){
+                window.open('/entrada/DiaPdf/');
+            },
             cambiarPagina(page,buscar,criterio){
                 let me = this;
                 //Actualiza la página actual
