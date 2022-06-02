@@ -58796,6 +58796,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -58929,6 +58932,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         pdfEntrada: function pdfEntrada(id) {
             window.open('/entrada/pdf/' + id, '_blank');
+        },
+        cargarPdf_Mes: function cargarPdf_Mes() {
+            window.open('/entrada/MesPdf/');
         },
         cambiarPagina: function cambiarPagina(page, buscar, criterio) {
             var me = this;
@@ -59635,6 +59641,23 @@ var render = function() {
               [
                 _c("i", { staticClass: "icon-plus" }),
                 _vm._v(" Nuevo\n                   ")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-info",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.cargarPdf_Mes()
+                  }
+                }
+              },
+              [
+                _c("i", { staticClass: "icon-plus" }),
+                _vm._v(" Reporte Mensual\n                   ")
               ]
             )
           ]),

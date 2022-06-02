@@ -12,6 +12,9 @@
                         <button type="button" @click="mostrarDetalle()" class="btn btn-secondary">
                             <i class="icon-plus"></i>&nbsp;Nuevo
                         </button>
+                        <button type="button" @click="cargarPdf_Mes()" class="btn btn-info">
+                            <i class="icon-plus"></i>&nbsp;Reporte Mensual
+                        </button>
                     </div>
                     <!-- Listado -->
                     <template v-if="listado==1">
@@ -483,6 +486,10 @@
             },
             pdfEntrada(id){
                 window.open('/entrada/pdf/'+ id ,'_blank');
+            },
+
+            cargarPdf_Mes(){
+                window.open('/entrada/MesPdf/');
             },
 
             cambiarPagina(page,buscar,criterio){
