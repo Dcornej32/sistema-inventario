@@ -48,7 +48,7 @@
                                </div>
                                <div class="card-content">
                                     <div class="ct-chart">
-                                        <canvas id="salidas"  width="100" height="100" >
+                                        <canvas id="salidas"  width="100" height="100">
                                         </canvas>
                                     </div>
                                 </div>
