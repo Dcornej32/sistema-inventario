@@ -56,7 +56,6 @@
                                     <p>Salidas de los ultimos meses</p>
                                 </div>
                            </div> 
-
                        </div>
                    </div>
                </div>
