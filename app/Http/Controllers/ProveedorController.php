@@ -22,14 +22,14 @@ class ProveedorController extends Controller
             //listar todos los registros
         $personas = Proveedor::join('personas','proveedores.id','=','personas.id')
         ->select('personas.id','personas.nombre','personas.tipo_documento','personas.numero_documento','personas.direccion','personas.telefono','personas.email','proveedores.nombre_contacto','proveedores.telefono_contacto','proveedores.condicion')
-        ->orderBy('personas.id', 'desc')->paginate(6);
+        ->orderBy('personas.id', 'desc')->paginate(5);
         }
 
         else{
             $personas = Proveedor::join('personas','proveedores.id','=','personas.id')
             ->select('personas.id','personas.nombre','personas.tipo_documento','personas.numero_documento','personas.direccion','personas.telefono','personas.email','proveedores.nombre_contacto','proveedores.telefono_contacto','proveedores.condicion')
             ->where('personas.'.$criterio, 'like', '%'. $buscar . '%')
-            ->orderBy('personas.id', 'desc')->paginate(6);
+            ->orderBy('personas.id', 'desc')->paginate(5);
         }
         
         return [

@@ -340,7 +340,20 @@
             this.errorRol=0,
             this.errorMostrarMsjRol =[];
 
-            if (!this.nombre) this.errorMostrarMsjRol.push("El nombre de del Rol no puede estar vacío");
+            if (this.nombre == '' || this.nombre == null) 
+            {
+                this.errorMostrarMsjRol.push("El nombre del rol no puede estar vacío");
+            }
+            else if (!/^[a-zA-Z ]+$/.test(this.nombre)){
+                this.errorMostrarMsjRol.push("El nombre del rol no debe contener números");
+            }
+            else if (!/^[A-Z]/.test(this.nombre)){
+                this.errorMostrarMsjRol.push("El nombre del rol debe iniciar con una letra mayúscula");
+            } 
+            else if (this.nombre.length<=3){
+                this.errorMostrarMsjRol.push("El nombre del rol no es valido");
+            } 
+
             if (this.errorMostrarMsjRol.length) this.errorRol = 1;
             return this.errorRol;
         },

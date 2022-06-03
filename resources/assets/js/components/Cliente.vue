@@ -115,6 +115,7 @@
                                     <label class="col-md-3 form-control-label" for="text-input">Tipo Documento</label>
                                     <div class="col-md-9">
                                         <select v-model="tipo_documento" class="form-control">
+                                        <option value=''>Seleccione</option>
                                         <option value="DUI">DUI</option>
                                         <option value="NIT">NIT</option>
                                         <option value="PASS">PASAPORTE</option>
@@ -305,11 +306,55 @@
             this.errorPersona=0,
             this.errorMostrarMsjPersona =[];
 
-            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre del cliente no puede estar vacío, ej. David Cornejo");
-            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un Email valido, ej. name@example.com");
-            if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            if (this.nombre == '' || this.nombre == null) 
+            {
+                this.errorMostrarMsjPersona.push("El nombre del cliente no puede estar vacío, ej. Juan Pérez");
+            }
+            else if (!/^[a-zA-Z ]+$/.test(this.nombre)){
+                this.errorMostrarMsjPersona.push("El nombre del cliente no debe contener números");
+            }
+            else if (!/^[A-Z]/.test(this.nombre)){
+                this.errorMostrarMsjPersona.push("El nombre del cliente debe iniciar con una letra mayúscula");
+            } 
+            else if (this.nombre.length<=3){
+                this.errorMostrarMsjPersona.push("El nombre del cliente no es valido");
+            }
+            else if (!this.validTelefono(this.telefono)) {
+                this.errorMostrarMsjPersona.push("Ingresa un número de teléfono valido, Ej. 22223333 ó 77778888");
+            }
+            else if (!this.validEmail(this.email)) {
+                this.errorMostrarMsjPersona.push("Ingrese un Email valido, ej. name@example.com");
+            }
+
+            else if (!this.numero_documento == '') 
+            {
+                if (!/^[0-9]+$/.test(this.numero_documento)){
+                    this.errorMostrarMsjPersona.push("El número de documento del cliente no debe contener letras.");
+                }
+                else if (this.numero_documento.length<=7){
+                    this.errorMostrarMsjPersona.push("El número de documento del cliente no es valido");
+                }
+                
+            }
+
+           
+
+            
+
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
             return this.errorPersona;
+        },
+        cerrarModal(){
+            this.modal=0;
+            this.tituloModal='';
+            this.nombre='';
+            this.tipo_documento='';
+            this.numero_documento='';
+            this.direccion='';
+            this.telefono='';
+            this.email='';
+            this.errorPersona=0;
+
         },
         validEmail (email) {
             if (!this.email == ''){
@@ -320,29 +365,17 @@
                 return true;
             }
        
-        },     
-        
+        },
         validTelefono (telefono) {
             if (!this.telefono == ''){
                var  re = /^\d{8}$/;
                 return re.test(telefono);
    
-            }else{
+            }
+            else{
                 return true;
             }
        
-        },
-        cerrarModal(){
-            this.modal=0;
-            this.tituloModal='';
-            this.nombre='';
-            this.tipo_documento='DUI';
-            this.numero_documento='';
-            this.direccion='';
-            this.telefono='';
-            this.email='';
-            this.errorPersona=0;
-
         },
         abrirModal(modelo, accion, data = []){
             switch (modelo){
@@ -354,7 +387,7 @@
                             this.modal = 1;
                             this.tituloModal = 'Registrar Cliente';
                             this.nombre='';
-                            this.tipo_documento='DUI';
+                            this.tipo_documento='';
                             this.numero_documento='';
                             this.direccion='';
                             this.telefono='';

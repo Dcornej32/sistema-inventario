@@ -101,6 +101,37 @@ class EntradaController extends Controller
         return $pdf->download('entrada-'.$numentrada[0]->id.'.pdf');
     }
 
+    public function DiaPdf(){
+        $entrada = Entrada::join('personas','entradas.idproveedores','=','personas.id')
+        ->join('users','entradas.idusuarios','users.id')
+        ->select('entradas.id','entradas.fecha_entrada','entradas.total_compra',
+        'entradas.condicion',
+        'personas.nombre','personas.tipo_documento',
+        'personas.numero_documento','personas.direccion','personas.email',
+        'personas.telefono','users.usuario')
+        ->whereDay('entradas.created_at', now()->day)
+        ->get();
+
+        $pdf = \PDF::loadView('pdf.EntradaDia',['entrada'=>$entrada]);
+        return $pdf->download('EntradaDia.pdf');
+    }
+
+    public function MesPdf(){
+        $entrada = Entrada::join('personas','entradas.idproveedores','=','personas.id')
+        ->join('users','entradas.idusuarios','users.id')
+        ->select('entradas.id','entradas.fecha_entrada','entradas.total_compra',
+        'entradas.condicion',
+        'personas.nombre','personas.tipo_documento',
+        'personas.numero_documento','personas.direccion','personas.email',
+        'personas.telefono','users.usuario')
+        ->whereMonth('entradas.created_at', now()->month)
+   
+        ->get();
+        $pdf = \PDF::loadView('pdf.EntradaMes',['entrada'=>$entrada]);
+        return $pdf->download('EntradaMes.pdf');
+    }
+    
+
     public function store(Request $request)
     {
         if (!$request->ajax()) return redirect('/');

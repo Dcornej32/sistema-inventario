@@ -94,7 +94,7 @@
                                 <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
                                     <div>
-                                        <input type="text" v-model="nombre" class="form-control" placeholder="Ingrese nombre.">
+                                        <input type="text" v-model="nombre" class="form-control" placeholder="Ingrese un nombre.">
                                     </div>
                                 </div>
 
@@ -111,14 +111,14 @@
                                  <div class="form-group  col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Email</label>
                                     <div>
-                                        <input type="text" v-model="email" class="form-control" placeholder="Ingrese E-mail">
+                                        <input type="text" v-model="email" class="form-control" placeholder="Ingrese el E-mail">
                                     </div>
                                 </div>
 
                                  <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Teléfono</label>
                                     <div>
-                                        <input type="text" v-model="telefono" class="form-control" placeholder="Ingrese teléfono ">
+                                        <input type="text" v-model="telefono" class="form-control" maxlength="8" placeholder="Ingrese el teléfono ">
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                                  <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Número_registro</label>
                                     <div>
-                                        <input type="text" v-model="numero_registro" class="form-control" placeholder="Ingrese Número de registro">
+                                        <input type="text" v-model="numero_registro" class="form-control" placeholder="Ingrese el número de registro">
                                     </div>
                                 </div>
                             </div>
@@ -144,14 +144,14 @@
                                  <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Giro</label>
                                     <div>
-                                        <input type="text" v-model="giro" class="form-control" placeholder="Ingrese Giro">
+                                        <input type="text" v-model="giro" class="form-control" placeholder="Ingrese el Giro">
                                     </div>
                                 </div>
 
                                  <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Nombre_Contacto</label>
                                     <div>
-                                        <input type="text" v-model="nombre_contacto" class="form-control" placeholder="Ingrese nombre del contacto.">
+                                        <input type="text" v-model="nombre_contacto" class="form-control" placeholder="Ingrese el nombre del contacto.">
                                     </div>
                                 </div>
                              </div>
@@ -160,14 +160,14 @@
                                  <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">Teléfono</label>
                                     <div>
-                                        <input type="text" v-model="telefono_contacto" class="form-control" placeholder="Ingrese teléfono del contacto">
+                                        <input type="text" v-model="telefono_contacto" class="form-control" maxlength="8" placeholder="Ingrese el teléfono del contacto">
                                     </div>
                                 </div>
                                 
                                 <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="email-input">Cargo</label>
                                     <div>
-                                        <input type="email" v-model="cargo" class="form-control" placeholder="Cargo que del contacto.">
+                                        <input type="email" v-model="cargo" class="form-control" placeholder="Cargo del contacto.">
                                     </div>
                                 </div>
                               </div>
@@ -330,12 +330,62 @@
         validarInformacion(){
             this.errorInformacion=0;
                 this.errorMostrarMsjInformacion= [];
-                if (!this.nombre) this.errorMostrarMsjInformacion.push("El nombre de la empresa, no puede estar vacio");
-                if (!this.direccion) this.errorMostrarMsjInformacion.push("La dirección, es obligatoio de ingresar.");
-                if (!this.telefono) this.errorMostrarMsjInformacion.push("El teléfono es obligatorio de ingresar.");
-                if (!this.nombre_contacto) this.errorMostrarMsjInformacion.push("El nombre de contacto, no puede quedar vacio");
-                if (!this.telefono_contacto) this.errorMostrarMsjInformacion.push("El teléfono del contacto no puede quedar vacio.");
-                if (!this.cargo) this.errorMostrarMsjInformacion.push("El cargo es obligatorio de ingresar.");
+
+            if (this.nombre == '' || this.nombre == null) 
+            {
+                this.errorMostrarMsjInformacion.push("El nombre de la empresa no puede estar vacío, Ej. Hewlett Packard");
+            }
+            else if (!/^[a-zA-Z ]+$/.test(this.nombre)){
+                this.errorMostrarMsjInformacion.push("El nombre de la empresa no debe contener números");
+            }
+            else if (!/^[A-Z]/.test(this.nombre)){
+                this.errorMostrarMsjInformacion.push("El nombre de la empresa debe iniciar con una letra mayúscula");
+            }
+            else if (this.direccion == '' || this.direccion == null) 
+            {
+                this.errorMostrarMsjInformacion.push("La dirección de la empresa no puede estar vacía.");
+            }
+            else if (this.email == '' || this.email == null) 
+            {
+                this.errorMostrarMsjInformacion.push("El email de la empresa no puede estar vacío, Ej. name@example.com");
+            }
+            else if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
+                this.errorMostrarMsjInformacion.push("Ingrese un email valido, Ej. name@example.com");
+            }
+            else if (this.telefono == '') {
+                this.errorMostrarMsjInformacion.push("El teléfono de la empresa no puede estar vacío, Ej. 22223333 ó 77778888");
+            }
+            else if (!/^\d{8}$/.test(this.telefono)) {
+                this.errorMostrarMsjInformacion.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            }
+            else if (this.nombre_contacto == '' || this.nombre_contacto == null) 
+            {
+                this.errorMostrarMsjInformacion.push("El nombre de contacto de la empresa no puede estar vacío, Ej. Juan Pérez");
+            }
+            else if (!/^[a-zA-Z ]+$/.test(this.nombre_contacto)){
+                this.errorMostrarMsjInformacion.push("El nombre de contacto de la empresa no debe contener números");
+            }
+            else if (!/^[A-Z]/.test(this.nombre_contacto)){
+                this.errorMostrarMsjInformacion.push("El nombre de contacto de la empresa debe iniciar con una letra mayúscula");
+            }
+            else if (this.telefono_contacto == '' || this.telefono_contacto == null) 
+            {
+                this.errorMostrarMsjInformacion.push("El teléfono del contacto de la empresa no puede estar vacío, Ej. 22223333 ó 77778888");
+            }
+            else if (!/^\d{8}$/.test(this.telefono_contacto)) {
+                this.errorMostrarMsjInformacion.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            }
+            else if (this.cargo == '' || this.cargo == null) 
+            {
+                this.errorMostrarMsjInformacion.push("El cargo del contacto de la empresa no puede estar vacío.");
+            }
+            else if (!/^[a-zA-Z ]+$/.test(this.cargo)){
+                this.errorMostrarMsjInformacion.push("El cargo del contacto de la empresa no debe contener números");
+            }
+            else if (!/^[A-Z]/.test(this.cargo)){
+                this.errorMostrarMsjInformacion.push("El cargo del contacto de la empresa debe iniciar con una letra mayúscula");
+            }
+
                 if (this.errorMostrarMsjInformacion.length) this.errorInformacion = 1; 
                 return this.errorInformacion;
         },
