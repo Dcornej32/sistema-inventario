@@ -181,11 +181,11 @@
                                             <span style="color:red;" v-show="detalle.cantidad>detalle.stock">Stock: {{detalle.stock}}</span>
                                             <input v-model="detalle.cantidad" type="number"  class="form-control">
                                         </td>
-                                        <td>${{detalle.precio_actual*detalle.cantidad}}</td>
+                                        <td>${{(detalle.precio_actual*detalle.cantidad).toFixed(2)}}</td>
                                     </tr>
                                     <tr style="background-color:#B0C4DE;">
                                         <td colspan="4" align="right"><strong>Total:</strong></td>
-                                        <td>${{total=calcularTotal}}</td>
+                                        <td>${{(total=calcularTotal).toFixed(2)}}</td>
                                     </tr>
                                 </tbody>
                                 <tbody v-else>
@@ -237,11 +237,11 @@
                                         </td>
                                         <td v-text="detalle.cantidad">
                                         </td>
-                                        <td>${{detalle.precio_actual*detalle.cantidad}}</td>
+                                        <td>${{(detalle.precio_actual*detalle.cantidad).toFixed(2)}}</td>
                                     </tr>
                                     <tr style="background-color:	#90EE90;">
                                         <td colspan="3" align="right"><strong>Total:</strong></td>
-                                        <td>${{total=calcularTotal}}</td>
+                                        <td>${{(total=calcularTotal).toFixed(2)}}</td>
                                     </tr>
                                 </tbody>
                                 <tbody v-else>
@@ -699,7 +699,7 @@
             },
             desactivarSalida(id){
                swal({
-                title: 'Esta seguro de anular la salida?.',
+                title: 'Esta seguro de anular la salida?',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -719,7 +719,7 @@
                     }).then(function (response) {
                         me.listarSalida(1,'','nombre');
                         swal(
-                        'Anulado!',
+                        'Anulada!',
                         'La salida ha sido anulada con éxito.',
                         'success'
                         )

@@ -25,7 +25,7 @@ class SalidaController extends Controller
             ->join('users','salidas.idusuarios','=','users.id')
             ->select('salidas.id','salidas.fecha_salida','salidas.total',
             'salidas.condicion','personas.nombre','users.usuario')
-            ->orderBy('salidas.id', 'desc')->paginate(3);
+            ->orderBy('salidas.id', 'desc')->paginate(6);
         }
         else{
             $salidas = Salida::join('personas','salidas.idclientes','=','personas.id')
@@ -33,7 +33,7 @@ class SalidaController extends Controller
             ->select('salidas.id','salidas.fecha_salida','salidas.total',
             'salidas.condicion','personas.nombre','users.usuario')
             ->where('salidas.'.$criterio, 'like', '%'. $buscar . '%')
-            ->orderBy('salidas.id', 'desc')->paginate(3);
+            ->orderBy('salidas.id', 'desc')->paginate(6);
         }
         
         return [
@@ -96,6 +96,34 @@ class SalidaController extends Controller
         $pdf = \PDF::loadView('pdf.salida',['salida'=>$salida,'detalles'=>$detalles]);
         return $pdf->download('salida-'.$numsalida[0]->id.'.pdf');
     }
+
+    public function DiaPdf(){
+        $salida = Salida::join('personas','salidas.idclientes','=','personas.id')
+        ->join('users','salidas.idusuarios','users.id')
+        ->select('salidas.id','salidas.fecha_salida','salidas.total',
+        'personas.nombre','personas.direccion','personas.email',
+        'personas.telefono','users.usuario')
+        ->whereDay('salidas.created_at', now()->day)
+        ->get();
+
+        $pdf = \PDF::loadView('pdf.SalidaDia',['salida'=>$salida]);
+        return $pdf->download('SalidaDia.pdf');
+    }
+
+    public function MesPdf(){
+        $salida = Salida::join('personas','salidas.idclientes','=','personas.id')
+        ->join('users','salidas.idusuarios','users.id')
+        ->select('salidas.id','salidas.fecha_salida','salidas.total',
+        'personas.nombre','personas.direccion','personas.email',
+        'personas.telefono','users.usuario')
+        ->whereMonth('salidas.created_at', now()->month)
+   
+        ->get();
+        $pdf = \PDF::loadView('pdf.SalidaMes',['salida'=>$salida]);
+        return $pdf->download('SalidaMes.pdf');
+    }
+    
+
 
     public function store(Request $request)
     {

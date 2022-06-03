@@ -6,8 +6,8 @@
     <title>Reporte de Entradas</title>
     <style>
     body {
-        font-family:Verdana, Geneva, Tahoma, sans-serif; 
-        background-color:#F0FFF0;
+        font-family:Georgia; 
+        background-color:	#eeeeee;
         }
 
         .logo{
@@ -58,7 +58,7 @@
 
         #proveedor thead{
         padding: 20px;
-        background: #95c799;
+        background: 	#B0C4DE;
         text-align: left;
         border-bottom: 1px solid #FFFFFF;  
         }
@@ -75,7 +75,7 @@
  
         #usuario thead{
         padding: 20px;
-        background: #95c799;
+        background:	#B0C4DE;
         text-align: center;
         margin:10px;
         border-bottom: 1px solid #FFFFFF;  
@@ -100,7 +100,7 @@
  
         #producto thead{
         padding: 20px;
-        background: #95c799;
+        background: 	#B0C4DE;
         text-align: center;
         border-bottom: 1px solid #FFFFFF;  
         }
@@ -113,7 +113,7 @@
             border-left-width: 1px
         }
         #color{
-           background-color: #b8daba;
+           background-color: 	#B0C4DE;
         }
         #usuario,th{
             text-align: center;
@@ -130,14 +130,14 @@
         @foreach ($entrada as $e)
             <header>
                 <div class="logo">
-                    <img src="">
+                    <img src="img/logo.jpeg"  id="imagen">
                 </div>
                 <div class="datos">
                     <p class="encabezado">
-                        <b> <i>Nombre de la empresa:</i></b>
-                        <br><b><i>Dirección de la empresa:</i></b>
-                        <br><b><i>Telefono de la empresa:</i></b>
-                        <br><b><i>Email de la empresa: </i></b>
+                        <b>Nombre de la empresa:</b>
+                        <br><b>Dirección de la empresa:</b>
+                        <br><b>Teléfono de la empresa:</b>
+                        <br><b>Email de la empresa: </b>
                     </p>
                 </div>
             </header>
@@ -200,7 +200,7 @@
                     <thead>
                         <tr id="pd">
                             <th>CANTIDAD</th>
-                            <th >DESCRIPCION</th>
+                            <th >DESCRIPCIÓN</th>
                             <th>PRECIO UNITARIO</th>
                             <th >PRECIO TOTAL</th>
                         </tr>

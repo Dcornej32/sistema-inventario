@@ -25,6 +25,11 @@ Vue.component('user', require('./components/User.vue'));
 Vue.component('informacion', require('./components/Informacion.vue'));
 Vue.component('entrada', require('./components/Entrada.vue'));
 Vue.component('salida', require('./components/Salida.vue'));
+Vue.component('consultaentrada', require('./components/ConsultaEntrada.vue'));
+Vue.component('consultasalida', require('./components/ConsultaSalida.vue'));
+Vue.component('dashboard', require('./components/Dashboard.vue'));
+
+
 
 
 

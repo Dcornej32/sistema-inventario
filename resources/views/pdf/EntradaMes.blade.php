@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE>
+<html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reporte de productos</title>
+    <title>Reporte de Entradas por Mes</title>   
+    <body>
     <style>
 
 body {
@@ -15,6 +15,38 @@ body {
             line-height: 1.5;
             color: #151b1e;           
         }
+
+        .logo{
+        float: left;
+        margin-top: 1%;
+        margin-left: 2%;
+        margin-right: 2%;
+        }
+ 
+        img{
+        width: 100px;
+        }
+ 
+ 
+        .datos{
+        float: left;
+        margin-top: 0%;
+        margin-left: 2%;
+        margin-right: 2%;
+        }
+ 
+        .encabezado{
+        text-align: center;
+        margin-left: 10%;
+        margin-right: 35%;
+        font-size: 18px;
+        }
+
+        section{
+        clear: left;
+        }
+ 
+ 
         .table {
             display: table;
             width: 100%;
@@ -82,44 +114,69 @@ body {
 
     </style>
 </head>
-<body>
-    <div>
-        <h3>Lista de los  productos <span class="derecha">{{now()}}</span></h3>
-    </div>
-    <div>
-        
-        <table class="table table-responsive table-borderless table-sm">
+      
+            <header>
+                <div class="logo">
+                    <img src="img/logo.jpeg"  id="imagen">
+                </div>
+                <div class="datos">
+                    <p class="encabezado">
+                        <b>Nombre de la empresa:</b>
+                        <br><b>Dirección de la empresa:</b>
+                        <br><b>Teléfono de la empresa:</b>
+                        <br><b>Email de la empresa: </b>
+                    </p>
+                </div>
+            </header>
+            <section>
+        <br>
+        <hr><hr>
+        <br>
+        <section>
+        <div>
+        <h3>Lista de Entradas Mensuales <span class="derecha">{{now()}}</span></h3>
+       </div>
+            <div>
+            <table class="table table-responsive table-borderless table-sm">
             <thead>
                 <tr>
-                    <th scope="col">SKU</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Precio Actual</th>
-                    <th scope="col">Stock</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Estado</th>
+                    <th scope="col">Proveedor</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Total</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($productos as $a)
+                @foreach ($entrada as $a)
                     
                     <tr>
-                        <td>{{$a->codigo}}</td>
-                        <td>{{$a->nombre}}</td>
-                        <td>{{$a->nombre_categoria}}</td>
-                        <td>{{$a->precio_actual}}</td>
-                        <td>{{$a->stock}}</td>
-                        <td>{{$a->descripcion}}</td>
-                        <td>{{$a->condicion?'Activo':'Desactivado'}}</td>
+                        <td>{{$a->nombre}}</td>>
+                        <td>{{$a->telefono}}</td>
+                        <td>{{$a->email}}</td>
+                        <td>{{$a->usuario}}</td>
+                        <td>{{$a->fecha_entrada}}</td> 
+                        <td>${{$a->total_compra}}</td> 
+
                     </tr>
                 @endforeach
 
             </tbody>
+            
 
         </table>
-    </div>
-    <div class="izquierda">
-        <p><strong>Total de registros: </strong>{{$cont}}</p>
-    </div>
-</body>
+            </div>
+        </section>
+   
+        <br>
+        <br>
+        <br>
+        <section>
+            <div>
+            <p><strong>Total de registros: </strong></p>
+            </div>
+        </section>
+        
+    </body>
 </html>

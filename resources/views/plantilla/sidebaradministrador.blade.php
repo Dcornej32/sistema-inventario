@@ -54,16 +54,30 @@
                     <li class="nav-item nav-dropdown negro borde-b">
                         <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-pie-chart"></i> Reportes</a>
                         <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="icon-chart"></i> Reporte</a>
+                            <li @click="menu=9" class="nav-item">
+                                <a class="nav-link" href="#"><i class="icon-chart"></i> R-Entradas <span class="badge badge-danger">PDF</span></a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="icon-chart"></i> Reporte</a>
+                            <li @click="menu=10" class="nav-item">
+                                <a class="nav-link" href="#"><i class="icon-chart"></i> R-Salidas <span class="badge badge-danger">PDF</span></a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item negro borde-b">
-                        <a class="nav-link" href="#"><i class="icon-book-open"></i> Ayuda <span class="badge badge-danger">PDF</span></a>
+                    <li class="nav-item nav-dropdown negro borde-b">
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-book-open"></i> Ayuda </a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="window.open('http://127.0.0.1:8000/manuales/manual_usuario.pdf');">
+                                <i class="icon-bag"></i>Manual-Usuario<span class="badge badge-danger">PDF</span></a>
+                            </li>
+                            <li  class="nav-item">
+                                <a class="nav-link" href="#" onclick="window.open('http://127.0.0.1:8000/manuales/manual_almacenero.pdf');">
+                                <i class="icon-bag"></i>Almacenero<span class="badge badge-danger">PDF</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" onclick="window.open('http://127.0.0.1:8000/manuales/manual_programador.pdf');">
+                                    <i class="icon-bag"></i>Programador<span class="badge badge-danger">PDF</span></a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item negro borde-b"  @click="menu=12">
                         <a class="nav-link" href="#"><i class="icon-info"></i> Acerca de...<span class="badge badge-danger">IT</span></a>

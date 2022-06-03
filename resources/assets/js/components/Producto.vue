@@ -15,6 +15,12 @@
                         <button type="button"  @click="cargarPdf()" class="btn btn-info">
                             <i class="icon-doc"></i>&nbsp;Reporte
                         </button>
+                        <button type="button"  @click="cargarPdf_Stock()" class="btn btn-danger">
+                            <i class="icon-doc"></i>&nbsp;Productos con menos de 5_Stock.
+                        </button>
+                        <button type="button"  @click="cargarPdf_Mes()" class="btn btn-success">
+                            <i class="icon-doc"></i>&nbsp;Reporte Mensual
+                        </button>
 
                     </div>
                     <div class="card-body">
@@ -302,6 +308,14 @@
             cargarPdf(){
                 window.open('http://127.0.0.1:8000/producto/listarPdf', '_blank');
             },
+            cargarPdf_Stock(){
+                window.open('http://127.0.0.1:8000/producto/listarStockPdf', '_blank');
+            },
+              cargarPdf_Mes(){
+                window.open('http://127.0.0.1:8000/producto/listarMesPdf', '_blank');
+            },
+
+
 
 
         //Metodo ṕara listar todos los registros de la tabla

@@ -22,10 +22,10 @@ class CategoriaController extends Controller
         $criterio = $request->criterio;
 
         if($buscar==''){
-            $categorias = Categoria::orderBy('id','desc')->paginate(3);
+            $categorias = Categoria::orderBy('id','desc')->paginate(6);
         }
         else{
-            $categorias = Categoria::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id','desc')->paginate(3);
+            $categorias = Categoria::where($criterio, 'like', '%'. $buscar . '%')->orderBy('id','desc')->paginate(6);
         }
         //listar todos los registros
         return[
