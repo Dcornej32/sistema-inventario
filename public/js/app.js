@@ -61188,9 +61188,7 @@ var content = __webpack_require__(141);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-
-var update = __webpack_require__(3)("13be7a7e", content, false, {});
-
+var update = __webpack_require__(4)("cbf813c4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -61971,7 +61969,7 @@ var render = function() {
               },
               [
                 _c("i", { staticClass: "icon-plus" }),
-                _vm._v("Nuevo\n")
+                _vm._v(" Nuevo\n                   ")
               ]
             )
           ]),

@@ -61,7 +61,7 @@
                         </ul>
                     </li>
                     <li @click="menu=12" class="nav-item negro borde-b">
-                        <a class="nav-link" href="#"><i class="icon-info"></i> Acerca de...
+                        <a class="nav-link" href="#"><i class="icon-info"></i> Acerca de...</a>
                     </li>
                 </ul>
             </nav>
