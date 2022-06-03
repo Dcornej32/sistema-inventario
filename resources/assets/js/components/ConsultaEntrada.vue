@@ -245,7 +245,9 @@
                 });
             },
          
-            
+            pdfEntrada(id){
+                window.open('/entrada/pdf/'+ id ,'_blank');
+            },
             cargarPdf_Mes(){
                 window.open('/entrada/MesPdf/');
             },

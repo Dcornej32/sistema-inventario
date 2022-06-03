@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Entrada;
 use App\DetalleEntrada;
+use App\Informacion;
 use Exception;
 use Carbon\Carbon;
 
@@ -94,10 +95,13 @@ class EntradaController extends Controller
         'productos.nombre as producto')
         ->where('detalle_entradas.identradas','=',$id)
         ->orderBy('detalle_entradas.id', 'desc')->get();
+        
+        $informaciones = Informacion::select('nombre', 'direccion', 'email', 'telefono','giro',)
+        ->orderBy('id', 'desc')->get();
 
         $numentrada=Entrada::select('id')->where('id',$id)->get();
 
-        $pdf = \PDF::loadView('pdf.entrada',['entrada'=>$entrada,'detalles'=>$detalles]);
+        $pdf = \PDF::loadView('pdf.entrada',['entrada'=>$entrada,'detalles'=>$detalles,'informacion'=>$informaciones]);
         return $pdf->download('entrada-'.$numentrada[0]->id.'.pdf');
     }
 
@@ -112,7 +116,10 @@ class EntradaController extends Controller
         ->whereDay('entradas.created_at', now()->day)
         ->get();
 
-        $pdf = \PDF::loadView('pdf.EntradaDia',['entrada'=>$entrada]);
+        $informaciones = Informacion::select('nombre', 'direccion', 'email', 'telefono','giro',)
+        ->orderBy('id', 'desc')->get();
+
+        $pdf = \PDF::loadView('pdf.EntradaDia',['entrada'=>$entrada,'informacion'=>$informaciones]);
         return $pdf->download('EntradaDia.pdf');
     }
 
@@ -125,9 +132,11 @@ class EntradaController extends Controller
         'personas.numero_documento','personas.direccion','personas.email',
         'personas.telefono','users.usuario')
         ->whereMonth('entradas.created_at', now()->month)
-   
         ->get();
-        $pdf = \PDF::loadView('pdf.EntradaMes',['entrada'=>$entrada]);
+
+        $informaciones = Informacion::select('nombre', 'direccion', 'email', 'telefono','giro',)
+        ->orderBy('id', 'desc')->get();
+        $pdf = \PDF::loadView('pdf.EntradaMes',['entrada'=>$entrada,'informacion'=>$informaciones]);
         return $pdf->download('EntradaMes.pdf');
     }
     

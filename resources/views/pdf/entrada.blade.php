@@ -6,8 +6,8 @@
     <title>Reporte de Entradas</title>
     <style>
     body {
-        font-family:Georgia; 
-        background-color:	#eeeeee;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background-color:#eee;
         }
 
         .logo{
@@ -20,8 +20,7 @@
         img{
         width: 100px;
         }
- 
- 
+
         .datos{
         float: left;
         margin-top: 0%;
@@ -33,19 +32,16 @@
         text-align: center;
         margin-left: 10%;
         margin-right: 35%;
-        font-size: 18px;
+        font-size: 17px;
         }
  
         section{
         clear: left;
         }
- 
-
-     
        
         #datosproveedor{
         text-align: left;
-        font-size: 15px;
+        font-size: 17px;
         }
  
         #proveedor{
@@ -55,17 +51,13 @@
         margin-bottom: 18px;
         }
 
-
         #proveedor thead{
         padding: 20px;
         background: 	#B0C4DE;
         text-align: left;
         border-bottom: 1px solid #FFFFFF;  
         }
- 
-      
- 
- 
+    
         #usuario{
         width: 100%;
         border-collapse: collapse;
@@ -127,26 +119,28 @@
     </style>
    
     <body>
-        @foreach ($entrada as $e)
             <header>
                 <div class="logo">
                     <img src="img/logo.jpeg"  id="imagen">
                 </div>
+                @foreach ($informacion as $in)
                 <div class="datos">
                     <p class="encabezado">
-                        <b>Nombre de la empresa:</b>
-                        <br><b>Dirección de la empresa:</b>
-                        <br><b>Teléfono de la empresa:</b>
-                        <br><b>Email de la empresa: </b>
-                    </p>
+                        <b>Nombre: {{$in->nombre}}</b>
+                        <br><b>Dirección: {{$in->direccion}}</b>
+                        <br><b>Teléfono: {{$in->telefono}}</b>
+                        <br><b>Email:{{$in->email}}</b>
+                        <br><b>Rubro:{{$in->giro}}</b>
+                      </p>
                 </div>
+                @endforeach
             </header>
             <section>
         <br>
         <hr><hr>
         <section>
             <div>
-
+            @foreach ($entrada as $e)
                 <table id="proveedor">
                     <thead>                        
                         <tr>
@@ -158,11 +152,12 @@
                             <th>
                             <p id="datosproveedor">
                                 <b>Sr(a).</b>  {{$e->nombre}}<br>
-                                <b>Tipo de doucumento:.</b> {{$e->tipo_documento}}<br>
-                                <b>Número de documento:.</b>  {{$e->numero_documento}}<br>
-                                <b>Dirección: .</b> {{$e->direccion}}<br>
-                                <b>Teléfono:.</b> {{$e->telefono}}<br>
-                                <b>Email:.</b> {{$e->email}}
+                                <b>Tipo de doucumento:</b> {{$e->tipo_documento}}<br>
+                                <b>Número de documento:</b>  {{$e->numero_documento}}<br>
+                                <b>Dirección:</b> {{$e->direccion}}<br>
+                                <b>Teléfono:</b> {{$e->telefono}}<br>
+                                <b>Email:</b> {{$e->email}}
+                              
                         </p>
                         </th>
                         </tr>
@@ -228,6 +223,7 @@
                 </table>
             </div>
         </section>
-        
+        <br><br>
+        <h3>Fecha de comprobante:</h3><span>{{now()}}</span>
     </body>
 </html>

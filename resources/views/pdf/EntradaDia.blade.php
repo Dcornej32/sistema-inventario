@@ -7,7 +7,7 @@
     <body>
     <style>
 
-body {
+       body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             font-size: 0.875rem;
@@ -39,7 +39,7 @@ body {
         text-align: center;
         margin-left: 10%;
         margin-right: 35%;
-        font-size: 18px;
+        font-size: 16px;
         }
 
         section{
@@ -119,14 +119,17 @@ body {
                 <div class="logo">
                     <img src="img/logo.jpeg"  id="imagen">
                 </div>
-                <div class="datos">
-                    <p class="encabezado">
-                        <b>Nombre de la empresa:</b>
-                        <br><b>Dirección de la empresa:</b>
-                        <br><b>Teléfono de la empresa:</b>
-                        <br><b>Email de la empresa: </b>
-                    </p>
-                </div>
+                @foreach ($informacion as $in)
+                    <div class="datos">
+                        <p class="encabezado">
+                            <b>Nombre de la empresa:{{$in->nombre}}</b>
+                            <br><b>Dirección:{{$in->direccion}}</b>
+                            <br><b>Teléfono:{{$in->telefono}}</b>
+                            <br><b>Email:{{$in->email}}</b>
+                            <br><b>Rubro:{{$in->giro}}</b>
+                        </p>
+                    </div>
+                @endforeach
             </header>
             <section>
         <br>

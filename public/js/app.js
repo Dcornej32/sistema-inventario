@@ -63654,6 +63654,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error);
             });
         },
+        pdfEntrada: function pdfEntrada(id) {
+            window.open('/entrada/pdf/' + id, '_blank');
+        },
         cargarPdf_Mes: function cargarPdf_Mes() {
             window.open('/entrada/MesPdf/');
         },

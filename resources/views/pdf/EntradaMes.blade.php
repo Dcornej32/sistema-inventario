@@ -39,7 +39,7 @@ body {
         text-align: center;
         margin-left: 10%;
         margin-right: 35%;
-        font-size: 18px;
+        font-size: 16px;
         }
 
         section{
@@ -114,19 +114,20 @@ body {
 
     </style>
 </head>
-      
             <header>
                 <div class="logo">
                     <img src="img/logo.jpeg"  id="imagen">
                 </div>
-                <div class="datos">
-                    <p class="encabezado">
-                        <b>Nombre de la empresa:</b>
-                        <br><b>Dirección de la empresa:</b>
-                        <br><b>Teléfono de la empresa:</b>
-                        <br><b>Email de la empresa: </b>
-                    </p>
-                </div>
+                @foreach ($informacion as $in)
+                    <div class="datos">
+                        <p class="encabezado">
+                        <b>Nombre de la empresa:{{$in->nombre}}</b>
+                         <br><b>Dirección:{{$in->direccion}}</b>
+                        <br><b>Teléfono:{{$in->telefono}}</b>
+                        <br><b>Email:{{$in->email}}</b>
+                        <br><b>Rubro:{{$in->giro}}</b>
+                    </div>
+                @endforeach
             </header>
             <section>
         <br>
@@ -149,8 +150,7 @@ body {
                 </tr>
             </thead>
             <tbody>
-                @foreach ($entrada as $a)
-                    
+                @foreach ($entrada as $a) 
                     <tr>
                         <td>{{$a->nombre}}</td>>
                         <td>{{$a->telefono}}</td>
@@ -158,17 +158,12 @@ body {
                         <td>{{$a->usuario}}</td>
                         <td>{{$a->fecha_entrada}}</td> 
                         <td>${{$a->total_compra}}</td> 
-
                     </tr>
                 @endforeach
-
             </tbody>
-            
-
         </table>
             </div>
         </section>
-   
         <br>
         <br>
         <br>

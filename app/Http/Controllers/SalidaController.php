@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Salida;
 use App\DetalleSalida;
+use App\Informacion;
 use Exception;
 
 
@@ -91,9 +92,13 @@ class SalidaController extends Controller
         ->where('detalle_salidas.idsalidas','=',$id)
         ->orderBy('detalle_salidas.id', 'desc')->get();
 
+         
+        $informaciones = Informacion::select('nombre', 'direccion', 'email', 'telefono','giro',)
+        ->orderBy('id', 'desc')->get();
+
         $numsalida=Salida::select('id')->where('id',$id)->get();
 
-        $pdf = \PDF::loadView('pdf.salida',['salida'=>$salida,'detalles'=>$detalles]);
+        $pdf = \PDF::loadView('pdf.salida',['salida'=>$salida,'detalles'=>$detalles,'informacion'=>$informaciones]);
         return $pdf->download('salida-'.$numsalida[0]->id.'.pdf');
     }
 
@@ -106,7 +111,11 @@ class SalidaController extends Controller
         ->whereDay('salidas.created_at', now()->day)
         ->get();
 
-        $pdf = \PDF::loadView('pdf.SalidaDia',['salida'=>$salida]);
+        $informaciones = Informacion::select('nombre', 'direccion', 'email', 'telefono','giro',)
+        ->orderBy('id', 'desc')->get();
+        
+
+        $pdf = \PDF::loadView('pdf.SalidaDia',['salida'=>$salida,'informacion'=>$informaciones]);
         return $pdf->download('SalidaDia.pdf');
     }
 
@@ -117,14 +126,15 @@ class SalidaController extends Controller
         'personas.nombre','personas.direccion','personas.email',
         'personas.telefono','users.usuario')
         ->whereMonth('salidas.created_at', now()->month)
-   
         ->get();
-        $pdf = \PDF::loadView('pdf.SalidaMes',['salida'=>$salida]);
+
+        $informaciones = Informacion::select('nombre', 'direccion', 'email', 'telefono','giro',)
+        ->orderBy('id', 'desc')->get();
+        
+        $pdf = \PDF::loadView('pdf.SalidaMes',['salida'=>$salida,'informacion'=>$informaciones]);
         return $pdf->download('SalidaMes.pdf');
     }
     
-
-
     public function store(Request $request)
     {
         if (!$request->ajax()) return redirect('/');

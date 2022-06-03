@@ -38,8 +38,8 @@ body {
         .encabezado{
         text-align: center;
         margin-left: 10%;
-        margin-right: 35%;
-        font-size: 18px;
+        margin-right: 30%;
+        font-size: 16px;
         }
 
         section{
@@ -119,14 +119,17 @@ body {
                 <div class="logo">
                     <img src="img/logo.jpeg"  id="imagen">
                 </div>
+                @foreach ($informacion as $in)
                 <div class="datos">
                     <p class="encabezado">
-                        <b>Nombre de la empresa:</b>
-                        <br><b>Dirección de la empresa:</b>
-                        <br><b>Teléfono de la empresa:</b>
-                        <br><b>Email de la empresa: </b>
+                        <b>Nombre de la empresa:{{$in->nombre}}</b>
+                        <br><b>Dirección:{{$in->direccion}}</b>
+                        <br><b>Teléfono:{{$in->telefono}}</b>
+                        <br><b>Email:{{$in->email}} </b>
+                        <br><b>Rubro:{{$in->giro}} </b>
                     </p>
                 </div>
+                @endforeach
             </header>
             <section>
         <br>
@@ -134,7 +137,7 @@ body {
         <br>
         <section>
         <div>
-        <h3>Lista de Salidas Diarias <span class="derecha">{{now()}}</span></h3>
+        <h3>Lista de Salidas Mensuales <span class="derecha">{{now()}}</span></h3>
        </div>
             <div>
             <table class="table table-responsive table-borderless table-sm">
@@ -161,7 +164,6 @@ body {
 
                     </tr>
                 @endforeach
-
             </tbody>
 
         </table>
