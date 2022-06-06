@@ -8,7 +8,14 @@
                 <!-- Ejemplo de tabla Listado -->
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> Entradas
+                        <i class="fa fa-align-justify"></i>Reportes de  Entradas
+
+                       <button type="button"  @click="cargarPdf_Dia()"  class="btn btn-secondary">
+                            <i class="icon-doc"></i>&nbsp;Reporte Por Día
+                        </button>
+                         <button type="button"  @click="cargarPdf_Mes()" class="btn btn-success">
+                            <i class="icon-doc"></i>&nbsp;Reporte Por Mes
+                        </button>
                     </div>
                     <!-- Listado -->
                     <template v-if="listado==1">
@@ -29,9 +36,7 @@
                             <table class="table table-responsive table-borderless table-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col">PDF</th>
-                                        <th scope="col">Día</th>
-                                        <th scope="col">Mes</th>
+                                        <th scope="col">PDF Entrada</th>
                                         <th scope="col">Usuario</th>
                                         <th scope="col">Proveedor</th>
                                         <th scope="col">Fecha_Entrada</th>
@@ -46,17 +51,7 @@
                                             <i class="icon-doc"></i>
                                             </button>&nbsp;
                                         </td>
-                                         <td>
-                                            <button type="button" @click="cargarPdf_Dia()" class="btn btn-secondary btn-sm">
-                                            <i class="icon-doc"></i>
-                                            </button>
-                                        </td>
-                                          <td>
-                                             <button type="button" @click="cargarPdf_Mes()" class="btn btn-success btn-sm">
-                                            <i class="icon-doc"></i>
-                                            </button>
-                                        </td>
-                                       
+                                        
                                         <td v-text="entrada.usuario"></td>
                                         <td v-text="entrada.nombre"></td>
                                         <td v-text="entrada.fecha_entrada"></td>

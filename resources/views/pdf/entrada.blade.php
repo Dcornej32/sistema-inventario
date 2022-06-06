@@ -8,6 +8,7 @@
     body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         background-color:#eee;
+        font-size: 17px;
         }
 
         .logo{

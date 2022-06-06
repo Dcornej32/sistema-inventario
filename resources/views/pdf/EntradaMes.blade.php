@@ -7,13 +7,14 @@
     <body>
     <style>
 
-body {
+        body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             font-size: 0.875rem;
             font-weight: normal;
             line-height: 1.5;
-            color: #151b1e;           
+            color: #151b1e;    
+            font-size: 16px;          
         }
 
         .logo{
@@ -39,7 +40,7 @@ body {
         text-align: center;
         margin-left: 10%;
         margin-right: 35%;
-        font-size: 16px;
+        
         }
 
         section{
@@ -135,7 +136,7 @@ body {
         <br>
         <section>
         <div>
-        <h3>Lista de Entradas Por Mes <span class="derecha">{{now()}}</span></h3>
+        <h4>Lista de Entradas Por Mes <span class="derecha">{{now()}}</span></h4>
        </div>
             <div>
             <table class="table table-responsive table-borderless table-sm">

@@ -7,7 +7,7 @@
     <title>Reporte mensual de productos</title>
     <style>
 
-body {
+          body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             font-size: 0.875rem;
