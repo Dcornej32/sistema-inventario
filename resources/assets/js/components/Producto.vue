@@ -150,7 +150,7 @@
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label class="col-md-3 form-control-label" for="text-input">stock</label>
+                                    <label class="col-md-3 form-control-label" for="text-input">Stock</label>
                                     <div>
                                         <input type="number" v-model="stock" class="form-control" placeholder="Stock '100'">
                                          <!-- Se eliminar la siguiente linea de codigo -->

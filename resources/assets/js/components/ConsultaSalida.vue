@@ -29,8 +29,8 @@
                             <table class="table table-responsive table-borderless table-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Pdf</th>
-                                        <th scope="col">Dia</th>
+                                        <th scope="col">PDF</th>
+                                        <th scope="col">Día</th>
                                         <th scope="col">Mes</th>
                                         <th scope="col">Usuario</th>
                                         <th scope="col">Cliente</th>

@@ -279,7 +279,7 @@
                                         <select class="form-control col-md-3" v-model="criterioP">
                                         <option value="nombre">Nombre</option>
                                         <option value="descripcion">Descripción</option>
-                                        <option value="codigo">codigo</option>
+                                        <option value="codigo">Código</option>
                                         </select>
                                         <input type="text" v-model="buscarP" @keyup.enter="listarProducto(buscarP,criterioP)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit"  @click="listarProducto(buscarP,criterioP)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>

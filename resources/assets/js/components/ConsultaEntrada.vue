@@ -18,7 +18,7 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="fecha_entrada">Fecha Entrada</option>
-                                        <option value="nombre">Proveedor</option>
+                                        
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarEntrada(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarEntrada(1,buscar,criterio)" class="btn btn-outline-info"><i class="fa fa-search"></i> Buscar</button>
@@ -29,8 +29,8 @@
                             <table class="table table-responsive table-borderless table-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Pdf</th>
-                                        <th scope="col">Dia</th>
+                                        <th scope="col">PDF</th>
+                                        <th scope="col">Día</th>
                                         <th scope="col">Mes</th>
                                         <th scope="col">Usuario</th>
                                         <th scope="col">Proveedor</th>

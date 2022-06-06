@@ -51424,7 +51424,7 @@ var render = function() {
                             staticClass: "col-md-3 form-control-label",
                             attrs: { for: "text-input" }
                           },
-                          [_vm._v("stock")]
+                          [_vm._v("Stock")]
                         ),
                         _vm._v(" "),
                         _c("div", [
@@ -57383,18 +57383,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -57647,123 +57635,14 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "container-fluid" }, [
       _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _c("i", { staticClass: "fa fa-align-justify" }),
-          _vm._v(" Información\n                   "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-secondary",
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  return _vm.abrirModal("informacion", "registrar")
-                }
-              }
-            },
-            [
-              _c("i", { staticClass: "icon-plus" }),
-              _vm._v(" Nuevo\n                   ")
-            ]
-          )
-        ]),
+        _vm._m(1),
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "form-group row" }, [
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("div", { staticClass: "input-group" }, [
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.criterio,
-                        expression: "criterio"
-                      }
-                    ],
-                    staticClass: "form-control col-md-3",
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.criterio = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      }
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "nombre" } }, [
-                      _vm._v("Nombre")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.buscar,
-                      expression: "buscar"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", placeholder: "Texto a buscar" },
-                  domProps: { value: _vm.buscar },
-                  on: {
-                    keyup: function($event) {
-                      if (
-                        !$event.type.indexOf("key") &&
-                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                      ) {
-                        return null
-                      }
-                      return _vm.listarInformacion(1, _vm.buscar, _vm.criterio)
-                    },
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.buscar = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-info",
-                    attrs: { type: "submit" },
-                    on: {
-                      click: function($event) {
-                        return _vm.listarInformacion(
-                          1,
-                          _vm.buscar,
-                          _vm.criterio
-                        )
-                      }
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-search" }), _vm._v(" Buscar")]
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
           _c(
             "table",
             { staticClass: "table table-responsive table-borderless" },
             [
-              _vm._m(1),
+              _vm._m(2),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -58482,6 +58361,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("i", { staticClass: "fa fa-align-justify" }),
+      _vm._v(" Información\n                  \n               ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")]),
@@ -58494,15 +58382,15 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Teléfono")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Núm-Tributario")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Número-Tributario")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Núm-Registro")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Número-Registro")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Giro")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Contacto")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("TeléfonoContacto")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Teléfono-Contacto")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Cargo")])
       ])
@@ -58619,7 +58507,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_select__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css__);
-//
 //
 //
 //
@@ -59267,7 +59154,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         abrirModal: function abrirModal() {
             this.arrayProducto = [];
             this.modal = 1;
-            this.tituloModal = 'Seleccione uno o varios Productos';
+            this.tituloModal = 'Seleccione uno o más Productos';
         },
         desactivarEntrada: function desactivarEntrada(id) {
             var _this = this;
@@ -59851,11 +59738,7 @@ var render = function() {
                               "option",
                               { attrs: { value: "fecha_entrada" } },
                               [_vm._v("Fecha Entrada")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "nombre" } }, [
-                              _vm._v("Proveedor")
-                            ])
+                            )
                           ]
                         ),
                         _vm._v(" "),
@@ -60788,7 +60671,7 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "codigo" } }, [
-                            _vm._v("codigo")
+                            _vm._v("Código")
                           ])
                         ]
                       ),
@@ -62971,7 +62854,7 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "codigo" } }, [
-                            _vm._v("codigo")
+                            _vm._v("Código")
                           ])
                         ]
                       ),
@@ -63778,11 +63661,7 @@ var render = function() {
                               "option",
                               { attrs: { value: "fecha_entrada" } },
                               [_vm._v("Fecha Entrada")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "nombre" } }, [
-                              _vm._v("Proveedor")
-                            ])
+                            )
                           ]
                         ),
                         _vm._v(" "),
@@ -64189,9 +64068,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Pdf")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("PDF")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Dia")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Día")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Mes")]),
         _vm._v(" "),
@@ -65132,9 +65011,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Pdf")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("PDF")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Dia")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Día")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Mes")]),
         _vm._v(" "),

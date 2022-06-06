@@ -22,7 +22,6 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="fecha_entrada">Fecha Entrada</option>
-                                        <option value="nombre">Proveedor</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarEntrada(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarEntrada(1,buscar,criterio)" class="btn btn-outline-info"><i class="fa fa-search"></i> Buscar</button>
@@ -278,7 +277,7 @@
                                         <select class="form-control col-md-3" v-model="criterioP">
                                         <option value="nombre">Nombre</option>
                                         <option value="descripcion">Descripción</option>
-                                        <option value="codigo">codigo</option>
+                                        <option value="codigo">Código</option>
                                         </select>
                                         <input type="text" v-model="buscarP" @keyup.enter="listarProducto(buscarP,criterioP)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit"  @click="listarProducto(buscarP,criterioP)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -671,7 +670,7 @@
             abrirModal(){
                 this.arrayProducto=[];
                 this.modal = 1;
-                this.tituloModal = 'Seleccione uno o varios Productos';
+                this.tituloModal = 'Seleccione uno o más Productos';
             },
             desactivarEntrada(id){
                swal({

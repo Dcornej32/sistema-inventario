@@ -171,14 +171,6 @@ body {
             </div>
         </section>
    
-        <br>
-        <br>
-        <br>
-        <section>
-            <div>
-              
-            </div>
-        </section>
         
     </body>
 </html>

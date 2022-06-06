@@ -137,7 +137,7 @@
         <br>
         <section>
         <div>
-        <h3>Lista de Entradas Diarias <span class="derecha">{{now()}}</span></h3>
+        <h3>Lista de Entradas Por Día <span class="derecha">{{now()}}</span></h3>
        </div>
             <div>
             <table class="table table-responsive table-borderless table-sm">
@@ -171,14 +171,6 @@
             </div>
         </section>
    
-        <br>
-        <br>
-        <br>
-        <section>
-            <div>
-              
-            </div>
-        </section>
         
     </body>
 </html>

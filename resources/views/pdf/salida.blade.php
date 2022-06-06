@@ -50,13 +50,13 @@
         border-spacing: 0;
         margin-bottom: 18px;
         }
-
         #proveedor thead{
         padding: 20px;
-        background:#B0C4DE;
+        background: 	#B0C4DE;
         text-align: left;
         border-bottom: 1px solid #FFFFFF;  
         }
+        
     
         #usuario{
         width: 100%;
@@ -141,18 +141,18 @@
         <section>
             <div>
             @foreach ($salida as $s)
-                <table id="cliente">
+                <table id="proveedor">
                     <thead>                        
                         <tr>
-                            <th id="cl">CLIENTE</th>
+                            <th id="pr">CLIENTE</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th>
-                            <p id="datoscliente">
+                            <p id="datosproveedor">
                                 <b>Sr(a).</b>  {{$s->nombre}}<br>
-                                <b>Tipo de doucumento:</b> {{$s->tipo_documento}}<br>
+                                <b>Tipo de documento:</b> {{$s->tipo_documento}}<br>
                                 <b>Número de documento:</b>  {{$s->numero_documento}}<br>
                                 <b>Dirección:</b> {{$s->direccion}}<br>
                                 <b>Teléfono:</b> {{$s->telefono}}<br>

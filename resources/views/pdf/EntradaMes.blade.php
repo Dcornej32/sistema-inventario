@@ -135,7 +135,7 @@ body {
         <br>
         <section>
         <div>
-        <h3>Lista de Entradas Mensuales <span class="derecha">{{now()}}</span></h3>
+        <h3>Lista de Entradas Por Mes <span class="derecha">{{now()}}</span></h3>
        </div>
             <div>
             <table class="table table-responsive table-borderless table-sm">
@@ -162,14 +162,6 @@ body {
                 @endforeach
             </tbody>
         </table>
-            </div>
-        </section>
-        <br>
-        <br>
-        <br>
-        <section>
-            <div>
-            <p><strong>Total de registros: </strong></p>
             </div>
         </section>
         

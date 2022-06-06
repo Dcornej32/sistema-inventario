@@ -8,22 +8,10 @@
                 <div class="card">
                     <div class="card-header">
                         <i class="fa fa-align-justify"></i> Información
-                        <button type="button" @click="abrirModal('informacion','registrar')" class="btn btn-secondary">
-                            <i class="icon-plus"></i>&nbsp;Nuevo
-                        </button>
+                       
                     </div>
                     <div class="card-body">
-                        <div class="form-group row">
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <select class="form-control col-md-3" v-model="criterio">
-                                      <option value="nombre">Nombre</option>
-                                    </select>
-                                    <input type="text" v-model="buscar" @keyup.enter="listarInformacion(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
-                                    <button type="submit" @click="listarInformacion(1,buscar,criterio)" class="btn btn-outline-info"><i class="fa fa-search"></i> Buscar</button>
-                                </div>
-                            </div>
-                        </div>
+                       
                         <table class="table table-responsive table-borderless">
                             <thead>
                                 <tr>
@@ -32,11 +20,11 @@
                                     <th scope="col">Dirección</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Teléfono</th>
-                                    <th scope="col">Núm-Tributario</th>
-                                    <th scope="col">Núm-Registro</th>
+                                    <th scope="col">Número-Tributario</th>
+                                    <th scope="col">Número-Registro</th>
                                     <th scope="col">Giro</th>
                                     <th scope="col">Contacto</th>
-                                    <th scope="col">TeléfonoContacto</th>
+                                    <th scope="col">Teléfono-Contacto</th>
                                     <th scope="col">Cargo</th>
                                 </tr>
                             </thead>

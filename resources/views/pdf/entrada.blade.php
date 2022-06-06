@@ -152,7 +152,7 @@
                             <th>
                             <p id="datosproveedor">
                                 <b>Sr(a).</b>  {{$e->nombre}}<br>
-                                <b>Tipo de doucumento:</b> {{$e->tipo_documento}}<br>
+                                <b>Tipo de documento:</b> {{$e->tipo_documento}}<br>
                                 <b>Número de documento:</b>  {{$e->numero_documento}}<br>
                                 <b>Dirección:</b> {{$e->direccion}}<br>
                                 <b>Teléfono:</b> {{$e->telefono}}<br>
