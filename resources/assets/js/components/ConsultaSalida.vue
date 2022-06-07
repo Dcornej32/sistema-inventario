@@ -9,7 +9,7 @@
                 <!-- Ejemplo de tabla Listado -->
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> Reportes  de productos.
+                        <i class="fa fa-align-justify"></i> Reportes  de Salidas
                          <button type="button"  @click="cargarPdf_Dia()"  class="btn btn-secondary">
                             <i class="icon-doc"></i>&nbsp;Reporte Por Día
                         </button>
