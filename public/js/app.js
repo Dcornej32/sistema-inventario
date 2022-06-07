@@ -54733,9 +54733,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -54983,26 +54980,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "container-fluid" }, [
       _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _c("i", { staticClass: "fa fa-align-justify" }),
-          _vm._v(" Roles\n                 "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-secondary",
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  return _vm.abrirModal("rol", "registrar")
-                }
-              }
-            },
-            [
-              _c("i", { staticClass: "icon-plus" }),
-              _vm._v(" Nuevo\n                ")
-            ]
-          )
-        ]),
+        _vm._m(1),
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
           _c("div", { staticClass: "form-group row" }, [
@@ -55099,7 +55077,7 @@ var render = function() {
             "table",
             { staticClass: "table table-responsive table-borderless table-sm" },
             [
-              _vm._m(1),
+              _vm._m(2),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -55498,6 +55476,15 @@ var staticRenderFns = [
       _c("li", { staticClass: "breadcrumb-item" }, [
         _c("a", { attrs: { href: "/" } }, [_vm._v("Escritorio")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("i", { staticClass: "fa fa-align-justify" }),
+      _vm._v(" Roles\n            ")
     ])
   },
   function() {
