@@ -15,6 +15,12 @@
                         <button type="button"  @click="cargarPdf()" class="btn btn-info">
                             <i class="icon-doc"></i>&nbsp;Reporte
                         </button>
+                        <button type="button"  @click="cargarPdf_Stock()" class="btn btn-danger">
+                            <i class="icon-doc"></i>&nbsp;Productos con menos de 5_Stock.
+                        </button>
+                        <button type="button"  @click="cargarPdf_Mes()" class="btn btn-success">
+                            <i class="icon-doc"></i>&nbsp;Reporte Mensual
+                        </button>
 
                     </div>
                     <div class="card-body">
@@ -36,7 +42,7 @@
                                     <th scope="col">Opciones</th>
                                     <th scope="col">SKU</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Categoria</th>
+                                    <th scope="col">Categoría</th>
                                     <th scope="col">Precio Actual</th>
                                     <th scope="col">Stock</th>
                                     <th scope="col">Descripción</th>
@@ -77,7 +83,7 @@
                                       </div>
 
                                       <div v-else>
-                                        <span class="badge badge-danger">Desactivo</span>
+                                        <span class="badge badge-danger">Desactivado</span>
                                       </div>
                                     </td>
                                 </tr>
@@ -128,7 +134,7 @@
                                     <div class="form-group col-md-6">
                                         <label class="col-md-3 form-control-label" for="text-input">Descripción</label>
                                         <div>
-                                            <textarea type="text" v-model="descripcion" class="form-control" placeholder="Ingrese la descripcion">
+                                            <textarea type="text" v-model="descripcion" class="form-control" placeholder="Ingrese la descripción">
                                             <!-- Se eliminar la siguiente linea de codigo -->
                                             </textarea>
                                         </div>
@@ -144,7 +150,7 @@
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label class="col-md-3 form-control-label" for="text-input">stock</label>
+                                    <label class="col-md-3 form-control-label" for="text-input">Stock</label>
                                     <div>
                                         <input type="number" v-model="stock" class="form-control" placeholder="Stock '100'">
                                          <!-- Se eliminar la siguiente linea de codigo -->
@@ -155,7 +161,7 @@
                                 <div class="form-group col-md-6">
                                     <label class="col-md-3 form-control-label" for="text-input">SKU</label>
                                     <div>
-                                        <input type="text" v-model="codigo" class="form-control" placeholder="Codigo 'sv000000'">
+                                        <input type="text" v-model="codigo" class="form-control" placeholder="Código 'sv000000'">
                                         <barcode :value="codigo" :options="{ format: 'EAN-13' }"> </barcode>
                                         Generando un código
                                          <!-- Se eliminar la siguiente linea de codigo -->
@@ -302,6 +308,14 @@
             cargarPdf(){
                 window.open('http://127.0.0.1:8000/producto/listarPdf', '_blank');
             },
+            cargarPdf_Stock(){
+                window.open('http://127.0.0.1:8000/producto/listarStockPdf', '_blank');
+            },
+              cargarPdf_Mes(){
+                window.open('http://127.0.0.1:8000/producto/listarMesPdf', '_blank');
+            },
+
+
 
 
         //Metodo ṕara listar todos los registros de la tabla
@@ -474,12 +488,62 @@
                 this.errorProducto=0;
                 this.errorMostrarMsjProducto= [];
 
-                if (this.idcategorias==0) this.errorMostrarMsjProducto.push("Seleccione una categoria.");
-                if (!this.nombre) this.errorMostrarMsjProducto.push("El nombre del producto, no puede estar vacio.");
-                if (!this.stock) this.errorMostrarMsjProducto.push("El stock del producto debe ser un numero y no puede estar vacio.");
-                if (!this.precio_actual) this.errorMostrarMsjProducto.push("El precio del producto, debe ser un numero y no puede estar vacio.");
+                 if (this.nombre == '' || this.nombre == null) 
+                {
+                    this.errorMostrarMsjProducto.push("El nombre del producto no puede estar vacío");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                }
+                else if (!/^[a-zA-Z ]+$/.test(this.nombre)){
+                    this.errorMostrarMsjProducto.push("El nombre del producto no debe contener números");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                }
+                else if (!/^[A-Z]/.test(this.nombre)){
+                    this.errorMostrarMsjProducto.push("El nombre del producto debe iniciar con una letra mayúscula");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                } 
+                else if (this.nombre.length<=3){
+                    this.errorMostrarMsjProducto.push("El nombre del producto no es valido");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                }
 
-                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1; 
+                else if (this.precio_actual == '' || this.precio_actual == null){
+                    this.errorMostrarMsjProducto.push("El precio del producto no puede estar vacío.");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+
+                } 
+
+                else if (!/^[0-9]/.test(this.precio_actual)){
+                    this.errorMostrarMsjProducto.push("El precio del producto debe ser en números.");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                } 
+
+                else if (this.stock == '' || this.stock == null){
+                    this.errorMostrarMsjProducto.push("El stock del producto no puede estar vacío.");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+
+                } 
+
+                else if (!/^[0-9]/.test(this.stock)){
+                    this.errorMostrarMsjProducto.push("El stock del producto debe ser en números.");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                } 
+
+                else if (this.codigo == '' || this.codigo == null){
+                    this.errorMostrarMsjProducto.push("El código del producto no puede estar vacío.");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+
+                } 
+
+                else if (!/^[0-9]/.test(this.codigo)){
+                    this.errorMostrarMsjProducto.push("El código del producto debe ser en números.");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                }
+                
+
+                else if (this.idcategorias==0){ 
+                    this.errorMostrarMsjProducto.push("Seleccione una categoría.");
+                    if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+                }
 
                 return this.errorProducto;
             },

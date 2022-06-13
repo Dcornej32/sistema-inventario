@@ -9,9 +9,6 @@
                 <div class="card">
                     <div class="card-header">
                         <i class="fa fa-align-justify"></i> Roles
-                         <button type="button" @click="abrirModal('rol','registrar')" class="btn btn-secondary">
-                            <i class="icon-plus"></i>&nbsp;Nuevo
-                        </button>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
@@ -340,7 +337,20 @@
             this.errorRol=0,
             this.errorMostrarMsjRol =[];
 
-            if (!this.nombre) this.errorMostrarMsjRol.push("El nombre de del Rol no puede estar vacío");
+            if (this.nombre == '' || this.nombre == null) 
+            {
+                this.errorMostrarMsjRol.push("El nombre del rol no puede estar vacío");
+            }
+            else if (!/^[a-zA-Z ]+$/.test(this.nombre)){
+                this.errorMostrarMsjRol.push("El nombre del rol no debe contener números");
+            }
+            else if (!/^[A-Z]/.test(this.nombre)){
+                this.errorMostrarMsjRol.push("El nombre del rol debe iniciar con una letra mayúscula");
+            } 
+            else if (this.nombre.length<=3){
+                this.errorMostrarMsjRol.push("El nombre del rol no es valido");
+            } 
+
             if (this.errorMostrarMsjRol.length) this.errorRol = 1;
             return this.errorRol;
         },

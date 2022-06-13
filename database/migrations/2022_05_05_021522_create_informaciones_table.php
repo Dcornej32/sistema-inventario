@@ -27,8 +27,10 @@ class CreateInformacionesTable extends Migration
             $table->string('cargo',60);
             $table->timestamps();
         });
+        DB::table('informaciones')->insert(array('id'=>'1','nombre'=>'Tienda Variedades(SJ)', 'direccion'=>'San Jacinto, San Salvador',
+         'email'=>'variedades@gmail.com','telefono'=>'77895467', 'numero_tributario'=>'', 'numero_registro'=>'',
+         'giro'=>'Cereales-Bebidas','nombre_contacto'=>'Sandra Amelia Sandoval Linares','telefono_contacto'=>'71234567','cargo'=>'Vendedora'));
     }
-
     /**
      * Reverse the migrations.
      *

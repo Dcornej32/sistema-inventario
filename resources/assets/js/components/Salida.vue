@@ -37,7 +37,7 @@
                                         <th scope="col">Cliente</th>
                                         <th scope="col">Fecha Salida</th>
                                         <th scope="col">Total</th>
-                                        <th scope="col">Condicion</th>
+                                        <th scope="col">Condición</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -181,11 +181,11 @@
                                             <span style="color:red;" v-show="detalle.cantidad>detalle.stock">Stock: {{detalle.stock}}</span>
                                             <input v-model="detalle.cantidad" type="number"  class="form-control">
                                         </td>
-                                        <td>${{detalle.precio_actual*detalle.cantidad}}</td>
+                                        <td>${{(detalle.precio_actual*detalle.cantidad).toFixed(2)}}</td>
                                     </tr>
                                     <tr style="background-color:#B0C4DE;">
                                         <td colspan="4" align="right"><strong>Total:</strong></td>
-                                        <td>${{total=calcularTotal}}</td>
+                                        <td>${{(total=calcularTotal).toFixed(2)}}</td>
                                     </tr>
                                 </tbody>
                                 <tbody v-else>
@@ -237,11 +237,11 @@
                                         </td>
                                         <td v-text="detalle.cantidad">
                                         </td>
-                                        <td>${{detalle.precio_actual*detalle.cantidad}}</td>
+                                        <td>${{(detalle.precio_actual*detalle.cantidad).toFixed(2)}}</td>
                                     </tr>
                                     <tr style="background-color:	#90EE90;">
                                         <td colspan="3" align="right"><strong>Total:</strong></td>
-                                        <td>${{total=calcularTotal}}</td>
+                                        <td>${{(total=calcularTotal).toFixed(2)}}</td>
                                     </tr>
                                 </tbody>
                                 <tbody v-else>
@@ -266,7 +266,7 @@
             <div class="modal fade"  tabindex="-1" :class="{'mostrar' : modal}" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
                 <div class="modal-dialog modal-primary modal-lg" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header verde">
                             <h4 class="modal-title" v-text="tituloModal"></h4>
                             <button type="button" class="close" @click="cerrarModal()" aria-label="Close">
                               <span aria-hidden="true"></span>
@@ -279,7 +279,7 @@
                                         <select class="form-control col-md-3" v-model="criterioP">
                                         <option value="nombre">Nombre</option>
                                         <option value="descripcion">Descripción</option>
-                                        <option value="codigo">codigo</option>
+                                        <option value="codigo">Código</option>
                                         </select>
                                         <input type="text" v-model="buscarP" @keyup.enter="listarProducto(buscarP,criterioP)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit"  @click="listarProducto(buscarP,criterioP)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -328,7 +328,7 @@
                         </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
+                            <button type="button" class="btn btn-dark" @click="cerrarModal()">Cerrar</button>
                             <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="registrarPersona()">Guardar</button>
                             <button type="button" v-if="tipoAccion==2" class="btn btn-primary" @click="actualizarPersona()">Actualizar</button>
                         </div>
@@ -699,7 +699,7 @@
             },
             desactivarSalida(id){
                swal({
-                title: 'Esta seguro de anular la salida?.',
+                title: 'Esta seguro de anular la salida?',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -719,7 +719,7 @@
                     }).then(function (response) {
                         me.listarSalida(1,'','nombre');
                         swal(
-                        'Anulado!',
+                        'Anulada!',
                         'La salida ha sido anulada con éxito.',
                         'success'
                         )

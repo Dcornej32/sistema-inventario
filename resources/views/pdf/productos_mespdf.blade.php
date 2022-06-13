@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reporte de productos</title>
+    <title>Reporte mensual de productos</title>
     <style>
 
-        body {
+          body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             font-size: 0.875rem;
@@ -84,7 +84,7 @@
 </head>
 <body>
     <div>
-        <h3>Lista de los  productos <span class="derecha">{{now()}}</span></h3>
+        <h3>Lista de los  productos  por mes.<span class="derecha">{{now()}}</span></h3>
     </div>
     <div>
         
@@ -119,7 +119,7 @@
         </table>
     </div>
     <div class="izquierda">
-        <p><strong>Total de registros: </strong>{{$cont}}</p>
+        <p><strong></strong></p>
     </div>
 </body>
 </html>

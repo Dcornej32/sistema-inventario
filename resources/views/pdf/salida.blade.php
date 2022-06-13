@@ -6,8 +6,9 @@
     <title>Reporte de Salidas</title>
     <style>
     body {
-        font-family:Georgia; 
-        background-color:#eeeeee;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background-color:#eee;
+        font-size: 17px;
         }
 
         .logo{
@@ -20,8 +21,7 @@
         img{
         width: 100px;
         }
- 
- 
+
         .datos{
         float: left;
         margin-top: 0%;
@@ -33,39 +33,32 @@
         text-align: center;
         margin-left: 10%;
         margin-right: 35%;
-        font-size: 18px;
+        font-size: 17px;
         }
  
         section{
         clear: left;
         }
- 
-
-     
        
-        #datoscliente{
+        #datosproveedor{
         text-align: left;
-        font-size: 15px;
+        font-size: 17px;
         }
  
-        #cliente{
+        #proveedor{
         width: 40%;
         border-collapse: collapse;
         border-spacing: 0;
         margin-bottom: 18px;
         }
-
-
-        #cliente thead{
+        #proveedor thead{
         padding: 20px;
-        background: #B0C4DE;
+        background: 	#B0C4DE;
         text-align: left;
         border-bottom: 1px solid #FFFFFF;  
         }
- 
-      
- 
- 
+        
+    
         #usuario{
         width: 100%;
         border-collapse: collapse;
@@ -75,14 +68,14 @@
  
         #usuario thead{
         padding: 20px;
-        background: 	#B0C4DE;
+        background:	#B0C4DE;
         text-align: center;
         margin:10px;
         border-bottom: 1px solid #FFFFFF;  
         }
 
 
-        #cl, #us,#pd{
+        #pr, #us,#pd{
         float: center;
         margin-top: 2%;
         margin-left: 2%;
@@ -100,7 +93,7 @@
  
         #producto thead{
         padding: 20px;
-        background:	#B0C4DE;
+        background: 	#B0C4DE;
         text-align: center;
         border-bottom: 1px solid #FFFFFF;  
         }
@@ -127,42 +120,44 @@
     </style>
    
     <body>
-        @foreach ($salida as $s)
             <header>
                 <div class="logo">
                 <img src="img/logo.jpeg"  id="imagen">
                 </div>
-                <div class="datos">
-                    <p class="encabezado">
-                        <b>Nombre de la empresa:</b>
-                        <br><b>Dirección de la empresa:</b>
-                        <br><b>Teléfono de la empresa:</b>
-                        <br><b>Email de la empresa: </b>
-                    </p>
-                </div>
+                @foreach ($informacion as $in)
+                    <div class="datos">
+                        <p class="encabezado">
+                            <b>Nombre de la empresa:{{$in->nombre}}</b>
+                            <br><b>Dirección:{{$in->direccion}}</b>
+                            <br><b>Teléfono:{{$in->telefono}}</b>
+                            <br><b>Email:{{$in->email}} </b>
+                            <br><b>Rubro:{{$in->giro}}</b>
+                        </p>
+                    </div>
+                @endforeach
             </header>
             <section>
         <br>
         <hr><hr>
         <section>
             <div>
-
-                <table id="cliente">
+            @foreach ($salida as $s)
+                <table id="proveedor">
                     <thead>                        
                         <tr>
-                            <th id="cl">CLIENTE</th>
+                            <th id="pr">CLIENTE</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th>
-                            <p id="datoscliente">
+                            <p id="datosproveedor">
                                 <b>Sr(a).</b>  {{$s->nombre}}<br>
-                                <b>Tipo de doucumento:.</b> {{$s->tipo_documento}}<br>
-                                <b>Número de documento:.</b>  {{$s->numero_documento}}<br>
-                                <b>Dirección: .</b> {{$s->direccion}}<br>
-                                <b>Teléfono:.</b> {{$s->telefono}}<br>
-                                <b>Email:.</b> {{$s->email}}
+                                <b>Tipo de documento:</b> {{$s->tipo_documento}}<br>
+                                <b>Número de documento:</b>  {{$s->numero_documento}}<br>
+                                <b>Dirección:</b> {{$s->direccion}}<br>
+                                <b>Teléfono:</b> {{$s->telefono}}<br>
+                                <b>Email:</b> {{$s->email}}
                         </p>
                         </th>
                         </tr>
@@ -228,6 +223,7 @@
                 </table>
             </div>
         </section>
-        
+        <br><br>
+        <h3>Fecha de comprobante:</h3><span>{{now()}}</span>
     </body>
 </html>

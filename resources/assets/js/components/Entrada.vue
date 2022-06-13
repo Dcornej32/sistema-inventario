@@ -12,6 +12,7 @@
                         <button type="button" @click="mostrarDetalle()" class="btn btn-secondary">
                             <i class="icon-plus"></i>&nbsp;Nuevo
                         </button>
+                       
                     </div>
                     <!-- Listado -->
                     <template v-if="listado==1">
@@ -21,7 +22,6 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="fecha_entrada">Fecha Entrada</option>
-                                        <option value="nombre">Proveedor</option>
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarEntrada(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarEntrada(1,buscar,criterio)" class="btn btn-outline-info"><i class="fa fa-search"></i> Buscar</button>
@@ -37,7 +37,7 @@
                                         <th scope="col">Proveedor</th>
                                         <th scope="col">Fecha_Entrada</th>
                                         <th scope="col">Total_Compra</th>
-                                        <th scope="col">Condicion</th>
+                                        <th scope="col">Condición</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -179,11 +179,11 @@
                                         <td>
                                             <input v-model="detalle.cantidad" type="number" value="2" class="form-control">
                                         </td>
-                                        <td>${{detalle.precio_compra*detalle.cantidad}}</td>
+                                        <td>${{(detalle.precio_compra*detalle.cantidad).toFixed(2)}}</td>
                                     </tr>
                                     <tr style="background-color:#B0C4DE;">
                                         <td colspan="4" align="right"><strong>Total_Compra:</strong></td>
-                                        <td>${{total_compra=calcularTotal}}</td>
+                                        <td>${{(total_compra=calcularTotal).toFixed(2)}}</td>
                                     </tr>
                                 </tbody>
                                 <tbody v-else>
@@ -264,7 +264,7 @@
             <div class="modal fade"  tabindex="-1" :class="{'mostrar' : modal}" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
                 <div class="modal-dialog modal-primary modal-lg" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header verde">
                             <h4 class="modal-title" v-text="tituloModal"></h4>
                             <button type="button" class="close" @click="cerrarModal()" aria-label="Close">
                               <span aria-hidden="true"></span>
@@ -277,7 +277,7 @@
                                         <select class="form-control col-md-3" v-model="criterioP">
                                         <option value="nombre">Nombre</option>
                                         <option value="descripcion">Descripción</option>
-                                        <option value="codigo">codigo</option>
+                                        <option value="codigo">Código</option>
                                         </select>
                                         <input type="text" v-model="buscarP" @keyup.enter="listarProducto(buscarP,criterioP)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit"  @click="listarProducto(buscarP,criterioP)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -291,7 +291,7 @@
                                     <th>Opciones</th>
                                     <th>SKU</th>
                                     <th>Nombre</th>
-                                    <th>Categoria</th>
+                                    <th>Categoría</th>
                                     <th>Precio Actual</th>
                                     <th>Stock</th>
                                     <th>Estado</th>
@@ -326,7 +326,7 @@
                         </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" @click="cerrarModal()">Cerrar</button>
+                            <button type="button" class="btn btn-dark" @click="cerrarModal()">Cerrar</button>
                             <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="registrarPersona()">Guardar</button>
                             <button type="button" v-if="tipoAccion==2" class="btn btn-primary" @click="actualizarPersona()">Actualizar</button>
                         </div>
@@ -484,6 +484,12 @@
             pdfEntrada(id){
                 window.open('/entrada/pdf/'+ id ,'_blank');
             },
+
+            cargarPdf_Mes(){
+                window.open('/entrada/MesPdf/');
+            },
+
+             
 
             cambiarPagina(page,buscar,criterio){
                 let me = this;
@@ -664,11 +670,11 @@
             abrirModal(){
                 this.arrayProducto=[];
                 this.modal = 1;
-                this.tituloModal = 'Seleccione uno o varios Productos';
+                this.tituloModal = 'Seleccione uno o más Productos';
             },
             desactivarEntrada(id){
                swal({
-                title: 'Esta seguro de anular la entrada?.',
+                title: 'Esta seguro de anular la entrada?',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -688,7 +694,7 @@
                     }).then(function (response) {
                         me.listarEntrada(1,'','nombre');
                         swal(
-                        'Anulado!',
+                        'Anulada!',
                         'La entrada ha sido anulada con éxito.',
                         'success'
                         )

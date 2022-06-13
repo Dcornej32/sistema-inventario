@@ -19,7 +19,7 @@ class CreateEntradasTable extends Migration
             $table->foreign('idproveedores')->references('id')->on('proveedores');
             $table->integer('idusuarios')->unsigned();
             $table->foreign('idusuarios')->references('id')->on('users');
-            $table->dateTime('fecha_entrada');
+            $table->date('fecha_entrada');
             $table->decimal('total_compra',11,2);
             $table->boolean('condicion')->default(1);
             $table->timestamps();

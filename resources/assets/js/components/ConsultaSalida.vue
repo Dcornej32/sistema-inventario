@@ -9,7 +9,13 @@
                 <!-- Ejemplo de tabla Listado -->
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> Salidas de prodcutos.
+                        <i class="fa fa-align-justify"></i> Reportes  de Salidas
+                         <button type="button"  @click="cargarPdf_Dia()"  class="btn btn-secondary">
+                            <i class="icon-doc"></i>&nbsp;Reporte Por Día
+                        </button>
+                         <button type="button"  @click="cargarPdf_Mes()" class="btn btn-success">
+                            <i class="icon-doc"></i>&nbsp;Reporte Por Mes
+                        </button>
                     </div>
                     <!-- Listado -->
                     <template v-if="listado==1">
@@ -29,24 +35,23 @@
                             <table class="table table-responsive table-borderless table-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Opciones</th>
+                                        <th scope="col">PDF Salida</th>
                                         <th scope="col">Usuario</th>
                                         <th scope="col">Cliente</th>
                                         <th scope="col">Fecha Salida</th>
                                         <th scope="col">Total</th>
-                                        <th scope="col">Condicion</th>
+                                        <th scope="col">Condición</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="salida in arraySalida" :key="salida.id">
                                         <td>
-                                            <button type="button" @click="verSalida(salida.id)" class="btn btn-success btn-sm">
-                                            <i class="icon-eye"></i>
-                                            </button> &nbsp;
+                                            
                                             <button type="button" @click="pdfSalida(salida.id)" class="btn btn-info btn-sm">
                                             <i class="icon-doc"></i>
                                             </button>
                                         </td>
+
                                         <td v-text="salida.usuario"></td>
                                         <td v-text="salida.nombre"></td>
                                         <td v-text="salida.fecha_salida"></td>
@@ -238,6 +243,12 @@
             },
             pdfSalida(id){
                 window.open('/salida/pdf/'+ id ,'_blank');
+            },
+             cargarPdf_Mes(){
+                window.open('/salida/MesPdf/');
+            },
+            cargarPdf_Dia(){
+                window.open('/salida/DiaPdf/');
             },
          
        

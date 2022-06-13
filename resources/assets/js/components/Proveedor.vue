@@ -143,6 +143,7 @@
                                         <label class="col-md-6 form-control-label" for="text-input">Tipo Documento</label>
                                         <div>
                                             <select v-model="tipo_documento" class="form-control">
+                                                <option value=''>Seleccione</option>
                                                 <option value="DUI">DUI</option>
                                                 <option value="NIT">NIT</option>
                                                 <option value="PASSAPORTE">PASAPORTE</option>
@@ -150,7 +151,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="col-md-6 form-control-label" for="text-input">Número</label>
+                                        <label class="col-md-6 form-control-label" for="text-input">Número de Documento</label>
                                         <div>
                                             <input type="text" v-model="numero_documento" class="form-control" placeholder="Ej. 000000000" minlength="9" maxlength="15">
                                         </div>
@@ -334,53 +335,84 @@
         validarPersona(){
             this.errorPersona=0,
             this.errorMostrarMsjPersona =[];
+            if (this.nombre == '' || this.nombre == null) 
+            {
+                this.errorMostrarMsjPersona.push("El nombre de la empresa no puede estar vacío, Ej. Hewlett Packard");
+            }
+            else if (!/^[a-zA-Z ]+$/.test(this.nombre)){
+                this.errorMostrarMsjPersona.push("El nombre de la empresa no debe contener números");
+            }
+            else if (!/^[A-Z]/.test(this.nombre)){
+                this.errorMostrarMsjPersona.push("El nombre de la empresa debe iniciar con una letra mayúscula");
+            }
+            else if (this.direccion == '' || this.direccion == null) 
+            {
+                this.errorMostrarMsjPersona.push("La dirección de la empresa no puede estar vacía.");
+            }
+            else if (this.telefono == '') {
+                this.errorMostrarMsjPersona.push("El teléfono de la empresa no puede estar vacío, Ej. 22223333 ó 77778888");
+            }
+            else if (!/^\d{8}$/.test(this.telefono)) {
+                this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            }
+            else if (this.email == '' || this.email == null) 
+            {
+                this.errorMostrarMsjPersona.push("El email de la empresa no puede estar vacío, Ej. name@example.com");
+            }
+            else if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
+                this.errorMostrarMsjPersona.push("Ingrese un email valido, Ej. name@example.com");
+            }
+            else if (this.nombre_contacto == '' || this.nombre_contacto == null) 
+            {
+                this.errorMostrarMsjPersona.push("El nombre de contacto de la empresa no puede estar vacío, Ej. Juan Pérez");
+            }
+            else if (!/^[a-zA-Z ]+$/.test(this.nombre_contacto)){
+                this.errorMostrarMsjPersona.push("El nombre de contacto de la empresa no debe contener números");
+            }
+            else if (!/^[A-Z]/.test(this.nombre_contacto)){
+                this.errorMostrarMsjPersona.push("El nombre de contacto de la empresa debe iniciar con una letra mayúscula");
+            }
+            else if (this.telefono_contacto == '' || this.telefono_contacto == null) 
+            {
+                this.errorMostrarMsjPersona.push("El teléfono del contacto de la empresa no puede estar vacío, Ej. 22223333 ó 77778888");
+            }
+            else if (!/^\d{8}$/.test(this.telefono_contacto)) {
+                this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            }
+            else if (!this.tipo_documento == ''){
 
-            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre de la empresa no puede estar vacío");
-            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un email valido, ej. name@example.com");
-            if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
-            if (!this.validTelefonoContacto(this.telefono_contacto)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+                if(this.numero_documento == ''){
+                    this.errorMostrarMsjPersona.push("El número de documento del proveedor no puede estar vacío.");
+                }
+                else if (!/^[0-9]+$/.test(this.numero_documento)){
+                    this.errorMostrarMsjPersona.push("El número de documento del proveedor no debe contener letras.");
+                }
+                else if (this.numero_documento.length<=7){
+                    this.errorMostrarMsjPersona.push("El número de documento del proveedor no es valido");
+                }
+            }
+            else if (!this.numero_documento == ''){
+
+                if(this.tipo_documento == ''){
+                    this.errorMostrarMsjPersona.push("Seleccione un tipo de documento.");
+                }
+                    
+            }
+           
+
+            
+            
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
             return this.errorPersona;
         },
-        validEmail (email) {
-            if (!this.email == ''){
-                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                return re.test(email);
-   
-            }else{
-                return true;
-            }
-       
-        },
         
-        
-        validTelefono (telefono) {
-            if (!this.telefono == ''){
-               var  re = /^\d{8}$/;
-                return re.test(telefono);
-   
-            }else{
-                return true;
-            }
-       
-        },
-        validTelefonoContacto (telefono_contacto) {
-            if (!this.telefono_contacto == ''){
-                var  re = /^\d{8}$/;
-                return re.test(telefono_contacto);
-   
-            }else{
-                return true;
-            }
-       
-        },
     
         cerrarModal(){
             this.modal=0;
             this.tituloModal='';
             this.nombre='';
             this.descripcion='';
-            this.tipo_documento='DUI';
+            this.tipo_documento='';
             this.numero_documento='';
             this.direccion='';
             this.telefono='';
@@ -400,7 +432,7 @@
                             this.modal = 1;
                             this.tituloModal = 'Registrar Proveedor';
                             this.nombre='';
-                            this.tipo_documento='DUI';
+                            this.tipo_documento='';
                             this.numero_documento='';
                             this.direccion='';
                             this.telefono='';

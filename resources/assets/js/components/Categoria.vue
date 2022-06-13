@@ -105,7 +105,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
                                     <div class="col-md-9">
-                                        <input type="email" v-model="descripcion" class="form-control" placeholder="Ingrese descripción">
+                                        <input type="email" v-model="descripcion" class="form-control" placeholder="Ingrese una descripción">
                                     </div>
                                 </div>
 
@@ -250,7 +250,7 @@
         },
         desactivarCategoria(id){
             swal({
-            title: 'Esta seguro de desactivar esta categoria?',
+            title: 'Esta seguro de desactivar esta categoría?',
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: 'green',
@@ -296,7 +296,7 @@
 
         activarCategoria(id){
             swal({
-            title: 'Esta seguro de activar esta categoria?',
+            title: 'Esta seguro de activar esta categoría?',
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: 'green',
@@ -344,10 +344,42 @@
             this.errorCategoria=0,
             this.errorMostrarMsjCategoria =[];
 
-            if (!this.nombre) this.errorMostrarMsjCategoria.push("El nombre de la categoria no puede estar vacío");
-            if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            if (this.nombre == '' || this.nombre == null) 
+            {
+                this.errorMostrarMsjCategoria.push("El nombre de la categoría no puede estar vacío");
+                if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            }
+            else if (!/^[a-zA-Z ]+$/.test(this.nombre)){
+                this.errorMostrarMsjCategoria.push("El nombre de la categoría no debe contener números");
+                if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            }
+            else if (!/^[A-Z]/.test(this.nombre)){
+                this.errorMostrarMsjCategoria.push("El nombre de la categoría debe iniciar con una letra mayúscula");
+                if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            } 
+            else if (this.nombre.length<=3){
+                this.errorMostrarMsjCategoria.push("El nombre de la categoría no es valido");
+                if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            } 
+            
+            
+
+            
             return this.errorCategoria;
         },
+        
+        /*validarNombre(nombre){
+             if (this.nombre == ''){
+
+                 return nombre;
+              //  var re = /[a-z]/;
+                //return re.test(nombre);
+   
+            }else if(!this.nombre == ''){
+                 var re = /[a-z]/;
+                return re.test(nombre);
+            }
+        },*/
         cerrarModal(){
             this.modal=0;
             this.tituloModal='';
@@ -364,7 +396,7 @@
                         case 'registrar':
                         {
                             this.modal = 1;
-                            this.tituloModal = 'Registrar Categoria';
+                            this.tituloModal = 'Registrar Categoría';
                             this.nombre = '';
                             this.descripcion = '';
                             this.tipoAccion = 1;
@@ -375,7 +407,7 @@
                         {
                             //console.log(data);
                             this.modal=1;
-                            this.tituloModal='Actualizar Categoria';
+                            this.tituloModal='Actualizar Categoría';
                             this.tipoAccion=2;
                             this.categoria_id=data['id'];
                             this.nombre = data['nombre'];

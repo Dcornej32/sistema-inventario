@@ -8,7 +8,14 @@
                 <!-- Ejemplo de tabla Listado -->
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> Entradas
+                        <i class="fa fa-align-justify"></i>Reportes de  Entradas
+
+                       <button type="button"  @click="cargarPdf_Dia()"  class="btn btn-secondary">
+                            <i class="icon-doc"></i>&nbsp;Reporte Por Día
+                        </button>
+                         <button type="button"  @click="cargarPdf_Mes()" class="btn btn-success">
+                            <i class="icon-doc"></i>&nbsp;Reporte Por Mes
+                        </button>
                     </div>
                     <!-- Listado -->
                     <template v-if="listado==1">
@@ -18,7 +25,7 @@
                                     <div class="input-group">
                                         <select class="form-control col-md-3" v-model="criterio">
                                         <option value="fecha_entrada">Fecha Entrada</option>
-                                        <option value="nombre">Proveedor</option>
+                                        
                                         </select>
                                         <input type="text" v-model="buscar" @keyup.enter="listarEntrada(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarEntrada(1,buscar,criterio)" class="btn btn-outline-info"><i class="fa fa-search"></i> Buscar</button>
@@ -29,24 +36,22 @@
                             <table class="table table-responsive table-borderless table-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Opciones</th>
+                                        <th scope="col">PDF Entrada</th>
                                         <th scope="col">Usuario</th>
                                         <th scope="col">Proveedor</th>
                                         <th scope="col">Fecha_Entrada</th>
                                         <th scope="col">Total_Compra</th>
-                                        <th scope="col">Condicion</th>
+                                        <th scope="col">Condición</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="entrada in arrayEntrada" :key="entrada.id">
                                         <td>
-                                            <button type="button" @click="verEntrada(entrada.id)" class="btn btn-success btn-sm">
-                                            <i class="icon-eye"></i>
-                                            </button>&nbsp;
                                             <button type="button" @click="pdfEntrada(entrada.id)" class="btn btn-info btn-sm">
                                             <i class="icon-doc"></i>
-                                            </button>
+                                            </button>&nbsp;
                                         </td>
+                                        
                                         <td v-text="entrada.usuario"></td>
                                         <td v-text="entrada.nombre"></td>
                                         <td v-text="entrada.fecha_entrada"></td>
@@ -234,10 +239,16 @@
                     console.log(error);
                 });
             },
+         
             pdfEntrada(id){
                 window.open('/entrada/pdf/'+ id ,'_blank');
             },
-
+            cargarPdf_Mes(){
+                window.open('/entrada/MesPdf/');
+            },
+            cargarPdf_Dia(){
+                window.open('/entrada/DiaPdf/');
+            },
             cambiarPagina(page,buscar,criterio){
                 let me = this;
                 //Actualiza la página actual

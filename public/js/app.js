@@ -46534,7 +46534,7 @@ var content = __webpack_require__(61);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("29c0b732", content, false, {});
+var update = __webpack_require__(4)("3aed04c7", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -46852,7 +46852,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             swal({
-                title: 'Esta seguro de desactivar esta categoria?',
+                title: 'Esta seguro de desactivar esta categoría?',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: 'green',
@@ -46886,7 +46886,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this2 = this;
 
             swal({
-                title: 'Esta seguro de activar esta categoria?',
+                title: 'Esta seguro de activar esta categoría?',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: 'green',
@@ -46919,10 +46919,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         validarCategoria: function validarCategoria() {
             this.errorCategoria = 0, this.errorMostrarMsjCategoria = [];
 
-            if (!this.nombre) this.errorMostrarMsjCategoria.push("El nombre de la categoria no puede estar vacío");
-            if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            if (this.nombre == '' || this.nombre == null) {
+                this.errorMostrarMsjCategoria.push("El nombre de la categoría no puede estar vacío");
+                if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+                this.errorMostrarMsjCategoria.push("El nombre de la categoría no debe contener números");
+                if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            } else if (!/^[A-Z]/.test(this.nombre)) {
+                this.errorMostrarMsjCategoria.push("El nombre de la categoría debe iniciar con una letra mayúscula");
+                if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            } else if (this.nombre.length <= 3) {
+                this.errorMostrarMsjCategoria.push("El nombre de la categoría no es valido");
+                if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
+            }
+
             return this.errorCategoria;
         },
+
+
+        /*validarNombre(nombre){
+             if (this.nombre == ''){
+                  return nombre;
+              //  var re = /[a-z]/;
+                //return re.test(nombre);
+             }else if(!this.nombre == ''){
+                 var re = /[a-z]/;
+                return re.test(nombre);
+            }
+        },*/
         cerrarModal: function cerrarModal() {
             this.modal = 0;
             this.tituloModal = '';
@@ -46939,7 +46963,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             case 'registrar':
                                 {
                                     this.modal = 1;
-                                    this.tituloModal = 'Registrar Categoria';
+                                    this.tituloModal = 'Registrar Categoría';
                                     this.nombre = '';
                                     this.descripcion = '';
                                     this.tipoAccion = 1;
@@ -46949,7 +46973,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                 {
                                     //console.log(data);
                                     this.modal = 1;
-                                    this.tituloModal = 'Actualizar Categoria';
+                                    this.tituloModal = 'Actualizar Categoría';
                                     this.tipoAccion = 2;
                                     this.categoria_id = data['id'];
                                     this.nombre = data['nombre'];
@@ -47395,7 +47419,7 @@ var render = function() {
                           staticClass: "form-control",
                           attrs: {
                             type: "email",
-                            placeholder: "Ingrese descripción"
+                            placeholder: "Ingrese una descripción"
                           },
                           domProps: { value: _vm.descripcion },
                           on: {
@@ -47594,7 +47618,7 @@ var content = __webpack_require__(67);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("e508153a", content, false, {});
+var update = __webpack_require__(4)("cf5dedfa", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47631,6 +47655,12 @@ exports.push([module.i, "\n.modal-content{\n     width: 100% !important;\n     p
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_barcode__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_barcode___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_barcode__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -47934,6 +47964,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         cargarPdf: function cargarPdf() {
             window.open('http://127.0.0.1:8000/producto/listarPdf', '_blank');
         },
+        cargarPdf_Stock: function cargarPdf_Stock() {
+            window.open('http://127.0.0.1:8000/producto/listarStockPdf', '_blank');
+        },
+        cargarPdf_Mes: function cargarPdf_Mes() {
+            window.open('http://127.0.0.1:8000/producto/listarMesPdf', '_blank');
+        },
 
 
         //Metodo ṕara listar todos los registros de la tabla
@@ -48081,12 +48117,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.errorProducto = 0;
             this.errorMostrarMsjProducto = [];
 
-            if (this.idcategorias == 0) this.errorMostrarMsjProducto.push("Seleccione una categoria.");
-            if (!this.nombre) this.errorMostrarMsjProducto.push("El nombre del producto, no puede estar vacio.");
-            if (!this.stock) this.errorMostrarMsjProducto.push("El stock del producto debe ser un numero y no puede estar vacio.");
-            if (!this.precio_actual) this.errorMostrarMsjProducto.push("El precio del producto, debe ser un numero y no puede estar vacio.");
-
-            if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            if (this.nombre == '' || this.nombre == null) {
+                this.errorMostrarMsjProducto.push("El nombre del producto no puede estar vacío");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+                this.errorMostrarMsjProducto.push("El nombre del producto no debe contener números");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (!/^[A-Z]/.test(this.nombre)) {
+                this.errorMostrarMsjProducto.push("El nombre del producto debe iniciar con una letra mayúscula");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (this.nombre.length <= 3) {
+                this.errorMostrarMsjProducto.push("El nombre del producto no es valido");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (this.precio_actual == '' || this.precio_actual == null) {
+                this.errorMostrarMsjProducto.push("El precio del producto no puede estar vacío.");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (!/^[0-9]/.test(this.precio_actual)) {
+                this.errorMostrarMsjProducto.push("El precio del producto debe ser en números.");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (this.stock == '' || this.stock == null) {
+                this.errorMostrarMsjProducto.push("El stock del producto no puede estar vacío.");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (!/^[0-9]/.test(this.stock)) {
+                this.errorMostrarMsjProducto.push("El stock del producto debe ser en números.");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (this.codigo == '' || this.codigo == null) {
+                this.errorMostrarMsjProducto.push("El código del producto no puede estar vacío.");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (!/^[0-9]/.test(this.codigo)) {
+                this.errorMostrarMsjProducto.push("El código del producto debe ser en números.");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            } else if (this.idcategorias == 0) {
+                this.errorMostrarMsjProducto.push("Seleccione una categoría.");
+                if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
+            }
 
             return this.errorProducto;
         },
@@ -50843,6 +50907,40 @@ var render = function() {
               _c("i", { staticClass: "icon-doc" }),
               _vm._v(" Reporte\n                    ")
             ]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-danger",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.cargarPdf_Stock()
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "icon-doc" }),
+              _vm._v(" Productos con menos de 5_Stock.\n                    ")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.cargarPdf_Mes()
+                }
+              }
+            },
+            [
+              _c("i", { staticClass: "icon-doc" }),
+              _vm._v(" Reporte Mensual\n                    ")
+            ]
           )
         ]),
         _vm._v(" "),
@@ -51038,7 +51136,7 @@ var render = function() {
                           ])
                         : _c("div", [
                             _c("span", { staticClass: "badge badge-danger" }, [
-                              _vm._v("Desactivo")
+                              _vm._v("Desactivado")
                             ])
                           ])
                     ])
@@ -51258,7 +51356,7 @@ var render = function() {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
-                                placeholder: "Ingrese la descripcion"
+                                placeholder: "Ingrese la descripción"
                               },
                               domProps: { value: _vm.descripcion },
                               on: {
@@ -51326,7 +51424,7 @@ var render = function() {
                             staticClass: "col-md-3 form-control-label",
                             attrs: { for: "text-input" }
                           },
-                          [_vm._v("stock")]
+                          [_vm._v("Stock")]
                         ),
                         _vm._v(" "),
                         _c("div", [
@@ -51384,7 +51482,7 @@ var render = function() {
                               staticClass: "form-control",
                               attrs: {
                                 type: "text",
-                                placeholder: "Codigo 'sv000000'"
+                                placeholder: "Código 'sv000000'"
                               },
                               domProps: { value: _vm.codigo },
                               on: {
@@ -51582,7 +51680,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Categoria")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Categoría")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Precio Actual")]),
         _vm._v(" "),
@@ -51666,7 +51764,7 @@ var content = __webpack_require__(108);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("ccd03600", content, false, {});
+var update = __webpack_require__(4)("47fc4540", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -51701,6 +51799,7 @@ exports.push([module.i, "\n.modal-content{\n    width: 100% !important;\n    pos
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -52000,11 +52099,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         validarPersona: function validarPersona() {
             this.errorPersona = 0, this.errorMostrarMsjPersona = [];
 
-            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre del cliente no puede estar vacío, ej. David Cornejo");
-            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un Email valido, ej. name@example.com");
-            if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            if (this.nombre == '' || this.nombre == null) {
+                this.errorMostrarMsjPersona.push("El nombre del cliente no puede estar vacío, ej. Juan Pérez");
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+                this.errorMostrarMsjPersona.push("El nombre del cliente no debe contener números");
+            } else if (!/^[A-Z]/.test(this.nombre)) {
+                this.errorMostrarMsjPersona.push("El nombre del cliente debe iniciar con una letra mayúscula");
+            } else if (this.nombre.length <= 3) {
+                this.errorMostrarMsjPersona.push("El nombre del cliente no es valido");
+            } else if (!this.validTelefono(this.telefono)) {
+                this.errorMostrarMsjPersona.push("Ingresa un número de teléfono valido, Ej. 22223333 ó 77778888");
+            } else if (!this.validEmail(this.email)) {
+                this.errorMostrarMsjPersona.push("Ingrese un Email valido, ej. name@example.com");
+            } else if (!this.numero_documento == '') {
+                if (!/^[0-9]+$/.test(this.numero_documento)) {
+                    this.errorMostrarMsjPersona.push("El número de documento del cliente no debe contener letras.");
+                } else if (this.numero_documento.length <= 7) {
+                    this.errorMostrarMsjPersona.push("El número de documento del cliente no es valido");
+                }
+            }
+
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
             return this.errorPersona;
+        },
+        cerrarModal: function cerrarModal() {
+            this.modal = 0;
+            this.tituloModal = '';
+            this.nombre = '';
+            this.tipo_documento = '';
+            this.numero_documento = '';
+            this.direccion = '';
+            this.telefono = '';
+            this.email = '';
+            this.errorPersona = 0;
         },
         validEmail: function validEmail(email) {
             if (!this.email == '') {
@@ -52022,17 +52149,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return true;
             }
         },
-        cerrarModal: function cerrarModal() {
-            this.modal = 0;
-            this.tituloModal = '';
-            this.nombre = '';
-            this.tipo_documento = 'DUI';
-            this.numero_documento = '';
-            this.direccion = '';
-            this.telefono = '';
-            this.email = '';
-            this.errorPersona = 0;
-        },
         abrirModal: function abrirModal(modelo, accion) {
             var data = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
 
@@ -52045,7 +52161,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     this.modal = 1;
                                     this.tituloModal = 'Registrar Cliente';
                                     this.nombre = '';
-                                    this.tipo_documento = 'DUI';
+                                    this.tipo_documento = '';
                                     this.numero_documento = '';
                                     this.direccion = '';
                                     this.telefono = '';
@@ -52615,6 +52731,10 @@ var render = function() {
                             }
                           },
                           [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("Seleccione")
+                            ]),
+                            _vm._v(" "),
                             _c("option", { attrs: { value: "DUI" } }, [
                               _vm._v("DUI")
                             ]),
@@ -52974,7 +53094,7 @@ var content = __webpack_require__(113);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("4a0d26e7", content, false, {});
+var update = __webpack_require__(4)("cc4af172", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -53009,6 +53129,7 @@ exports.push([module.i, "\n.modal-content{\n    width: 100% !important;\n    pos
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -53337,44 +53458,57 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         validarPersona: function validarPersona() {
             this.errorPersona = 0, this.errorMostrarMsjPersona = [];
+            if (this.nombre == '' || this.nombre == null) {
+                this.errorMostrarMsjPersona.push("El nombre de la empresa no puede estar vacío, Ej. Hewlett Packard");
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+                this.errorMostrarMsjPersona.push("El nombre de la empresa no debe contener números");
+            } else if (!/^[A-Z]/.test(this.nombre)) {
+                this.errorMostrarMsjPersona.push("El nombre de la empresa debe iniciar con una letra mayúscula");
+            } else if (this.direccion == '' || this.direccion == null) {
+                this.errorMostrarMsjPersona.push("La dirección de la empresa no puede estar vacía.");
+            } else if (this.telefono == '') {
+                this.errorMostrarMsjPersona.push("El teléfono de la empresa no puede estar vacío, Ej. 22223333 ó 77778888");
+            } else if (!/^\d{8}$/.test(this.telefono)) {
+                this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            } else if (this.email == '' || this.email == null) {
+                this.errorMostrarMsjPersona.push("El email de la empresa no puede estar vacío, Ej. name@example.com");
+            } else if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
+                this.errorMostrarMsjPersona.push("Ingrese un email valido, Ej. name@example.com");
+            } else if (this.nombre_contacto == '' || this.nombre_contacto == null) {
+                this.errorMostrarMsjPersona.push("El nombre de contacto de la empresa no puede estar vacío, Ej. Juan Pérez");
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre_contacto)) {
+                this.errorMostrarMsjPersona.push("El nombre de contacto de la empresa no debe contener números");
+            } else if (!/^[A-Z]/.test(this.nombre_contacto)) {
+                this.errorMostrarMsjPersona.push("El nombre de contacto de la empresa debe iniciar con una letra mayúscula");
+            } else if (this.telefono_contacto == '' || this.telefono_contacto == null) {
+                this.errorMostrarMsjPersona.push("El teléfono del contacto de la empresa no puede estar vacío, Ej. 22223333 ó 77778888");
+            } else if (!/^\d{8}$/.test(this.telefono_contacto)) {
+                this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            } else if (!this.tipo_documento == '') {
 
-            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre de la empresa no puede estar vacío");
-            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un email valido, ej. name@example.com");
-            if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
-            if (!this.validTelefonoContacto(this.telefono_contacto)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+                if (this.numero_documento == '') {
+                    this.errorMostrarMsjPersona.push("El número de documento del proveedor no puede estar vacío.");
+                } else if (!/^[0-9]+$/.test(this.numero_documento)) {
+                    this.errorMostrarMsjPersona.push("El número de documento del proveedor no debe contener letras.");
+                } else if (this.numero_documento.length <= 7) {
+                    this.errorMostrarMsjPersona.push("El número de documento del proveedor no es valido");
+                }
+            } else if (!this.numero_documento == '') {
+
+                if (this.tipo_documento == '') {
+                    this.errorMostrarMsjPersona.push("Seleccione un tipo de documento.");
+                }
+            }
+
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
             return this.errorPersona;
-        },
-        validEmail: function validEmail(email) {
-            if (!this.email == '') {
-                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                return re.test(email);
-            } else {
-                return true;
-            }
-        },
-        validTelefono: function validTelefono(telefono) {
-            if (!this.telefono == '') {
-                var re = /^\d{8}$/;
-                return re.test(telefono);
-            } else {
-                return true;
-            }
-        },
-        validTelefonoContacto: function validTelefonoContacto(telefono_contacto) {
-            if (!this.telefono_contacto == '') {
-                var re = /^\d{8}$/;
-                return re.test(telefono_contacto);
-            } else {
-                return true;
-            }
         },
         cerrarModal: function cerrarModal() {
             this.modal = 0;
             this.tituloModal = '';
             this.nombre = '';
             this.descripcion = '';
-            this.tipo_documento = 'DUI';
+            this.tipo_documento = '';
             this.numero_documento = '';
             this.direccion = '';
             this.telefono = '';
@@ -53395,7 +53529,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     this.modal = 1;
                                     this.tituloModal = 'Registrar Proveedor';
                                     this.nombre = '';
-                                    this.tipo_documento = 'DUI';
+                                    this.tipo_documento = '';
                                     this.numero_documento = '';
                                     this.direccion = '';
                                     this.telefono = '';
@@ -54097,6 +54231,10 @@ var render = function() {
                               }
                             },
                             [
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("Seleccione")
+                              ]),
+                              _vm._v(" "),
                               _c("option", { attrs: { value: "DUI" } }, [
                                 _vm._v("DUI")
                               ]),
@@ -54120,7 +54258,7 @@ var render = function() {
                             staticClass: "col-md-6 form-control-label",
                             attrs: { for: "text-input" }
                           },
-                          [_vm._v("Número")]
+                          [_vm._v("Número de Documento")]
                         ),
                         _vm._v(" "),
                         _c("div", [
@@ -54429,7 +54567,7 @@ var content = __webpack_require__(118);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("d9fc0350", content, false, {});
+var update = __webpack_require__(4)("c211b290", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -54464,9 +54602,6 @@ exports.push([module.i, "\n.modal-content{\n    width: 100% !important;\n    pos
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
 //
 //
 //
@@ -54776,7 +54911,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         validarRol: function validarRol() {
             this.errorRol = 0, this.errorMostrarMsjRol = [];
 
-            if (!this.nombre) this.errorMostrarMsjRol.push("El nombre de del Rol no puede estar vacío");
+            if (this.nombre == '' || this.nombre == null) {
+                this.errorMostrarMsjRol.push("El nombre del rol no puede estar vacío");
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+                this.errorMostrarMsjRol.push("El nombre del rol no debe contener números");
+            } else if (!/^[A-Z]/.test(this.nombre)) {
+                this.errorMostrarMsjRol.push("El nombre del rol debe iniciar con una letra mayúscula");
+            } else if (this.nombre.length <= 3) {
+                this.errorMostrarMsjRol.push("El nombre del rol no es valido");
+            }
+
             if (this.errorMostrarMsjRol.length) this.errorRol = 1;
             return this.errorRol;
         },
@@ -54836,26 +54980,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "container-fluid" }, [
       _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _c("i", { staticClass: "fa fa-align-justify" }),
-          _vm._v(" Roles\n                 "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-secondary",
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  return _vm.abrirModal("rol", "registrar")
-                }
-              }
-            },
-            [
-              _c("i", { staticClass: "icon-plus" }),
-              _vm._v(" Nuevo\n                ")
-            ]
-          )
-        ]),
+        _vm._m(1),
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
           _c("div", { staticClass: "form-group row" }, [
@@ -54952,7 +55077,7 @@ var render = function() {
             "table",
             { staticClass: "table table-responsive table-borderless table-sm" },
             [
-              _vm._m(1),
+              _vm._m(2),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -55357,6 +55482,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("i", { staticClass: "fa fa-align-justify" }),
+      _vm._v(" Roles\n            ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")]),
@@ -55441,7 +55575,7 @@ var content = __webpack_require__(123);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("7736f8f1", content, false, {});
+var update = __webpack_require__(4)("2c3246de", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55476,6 +55610,7 @@ exports.push([module.i, "\n.modal-content{\n    width: 100% !important;\n    pos
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -55835,12 +55970,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.errorPersona = 0;
             this.errorMostrarMsjPersona = [];
 
-            if (!this.nombre) this.errorMostrarMsjPersona.push("El nombre del usuario no puede estar vacío.");
-            if (!this.validEmail(this.email)) this.errorMostrarMsjPersona.push("Ingrese un email valido, ej. name@example.com");
-            if (!this.validTelefono(this.telefono)) this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
-            if (!this.usuario) this.errorMostrarMsjPersona.push("El nombre del usuario no puede estar vacío, ej. dave_cornejo.");
-            if (!this.password) this.errorMostrarMsjPersona.push("El password del usuario no puede estar vacía.");
-            if (this.idrol == 0) this.errorMostrarMsjPersona.push("Seleccione un Rol.");
+            if (this.nombre == '' || this.nombre == null) {
+                this.errorMostrarMsjPersona.push("El nombre del usuario no puede estar vacío, Ej. Juan Pérez");
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+                this.errorMostrarMsjPersona.push("El nombre del usuario no debe contener números");
+            } else if (!/^[A-Z]/.test(this.nombre)) {
+                this.errorMostrarMsjPersona.push("El nombre del usuario debe iniciar con una letra mayúscula");
+            } else if (this.direccion == '' || this.direccion == null) {
+                this.errorMostrarMsjPersona.push("La dirección del usuario no puede estar vacía.");
+            } else if (this.telefono == '') {
+                this.errorMostrarMsjPersona.push("El teléfono del usuario no puede estar vacío, Ej. 22223333 ó 77778888");
+            } else if (!/^\d{8}$/.test(this.telefono)) {
+                this.errorMostrarMsjPersona.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            } else if (this.email == '' || this.email == null) {
+                this.errorMostrarMsjPersona.push("El email del usuario no puede estar vacío, Ej. name@example.com");
+            } else if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
+                this.errorMostrarMsjPersona.push("Ingrese un email valido, Ej. name@example.com");
+            } else if (this.idrol == 0) {
+                this.errorMostrarMsjPersona.push("Seleccione un Rol.");
+            } else if (this.usuario == '' || this.usuario == null) {
+                this.errorMostrarMsjPersona.push("El usuario no puede estar vacío");
+            } else if (this.password == '' || this.password == null) {
+                this.errorMostrarMsjPersona.push("El password del usuario no puede estar vacío");
+            } else if (!this.tipo_documento == '') {
+
+                if (this.numero_documento == '') {
+                    this.errorMostrarMsjPersona.push("El número de documento del usuario no puede estar vacío.");
+                } else if (!/^[0-9]+$/.test(this.numero_documento)) {
+                    this.errorMostrarMsjPersona.push("El número de documento del usuario no debe contener letras.");
+                } else if (this.numero_documento.length <= 7) {
+                    this.errorMostrarMsjPersona.push("El número de documento del usuario no es valido");
+                }
+            } else if (!this.numero_documento == '') {
+
+                if (this.tipo_documento == '') {
+                    this.errorMostrarMsjPersona.push("Seleccione un tipo de documento.");
+                }
+            }
+
             if (this.errorMostrarMsjPersona.length) this.errorPersona = 1;
 
             return this.errorPersona;
@@ -55888,7 +56055,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     this.modal = 1;
                                     this.tituloModal = 'Registrar Usuario';
                                     this.nombre = '';
-                                    this.tipo_documento = 'DUI';
+                                    this.tipo_documento = '';
                                     this.numero_documento = '';
                                     this.direccion = '';
                                     this.telefono = '';
@@ -55908,7 +56075,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                                     this.persona_id = data['id'];
                                     this.nombre = data['nombre'];
                                     this.tipo_documento = data['tipo_documento'];
-                                    this.numero_documento = data['num_documento'];
+                                    this.numero_documento = data['numero_documento'];
                                     this.direccion = data['direccion'];
                                     this.telefono = data['telefono'];
                                     this.email = data['email'];
@@ -56586,6 +56753,10 @@ var render = function() {
                               }
                             },
                             [
+                              _c("option", { attrs: { value: "" } }, [
+                                _vm._v("Seleccione")
+                              ]),
+                              _vm._v(" "),
                               _c("option", { attrs: { value: "DUI" } }, [
                                 _vm._v("DUI")
                               ]),
@@ -56624,7 +56795,7 @@ var render = function() {
                             ],
                             staticClass: "form-control",
                             attrs: {
-                              type: "number",
+                              type: "text",
                               placeholder: "Ej. 000000000"
                             },
                             domProps: { value: _vm.numero_documento },
@@ -56684,7 +56855,7 @@ var render = function() {
                             },
                             [
                               _c("option", { attrs: { value: "0" } }, [
-                                _vm._v(" Seleccine un Rol ")
+                                _vm._v(" Seleccione un Rol ")
                               ]),
                               _vm._v(" "),
                               _vm._l(_vm.arrayRol, function(rol) {
@@ -56697,7 +56868,7 @@ var render = function() {
                                       textContent: _vm._s(rol.nombre)
                                     }
                                   },
-                                  [_vm._v(" Seleccine un Rol ")]
+                                  [_vm._v(" Seleccione un Rol ")]
                                 )
                               })
                             ],
@@ -56982,7 +57153,7 @@ var content = __webpack_require__(128);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("3a3c0f97", content, false, {});
+var update = __webpack_require__(4)("679a5012", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57017,18 +57188,6 @@ exports.push([module.i, "\n.modal-content{\n    width: 100% !important;\n    pos
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -57344,12 +57503,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         validarInformacion: function validarInformacion() {
             this.errorInformacion = 0;
             this.errorMostrarMsjInformacion = [];
-            if (!this.nombre) this.errorMostrarMsjInformacion.push("El nombre de la empresa, no puede estar vacio");
-            if (!this.direccion) this.errorMostrarMsjInformacion.push("La dirección, es obligatoio de ingresar.");
-            if (!this.telefono) this.errorMostrarMsjInformacion.push("El teléfono es obligatorio de ingresar.");
-            if (!this.nombre_contacto) this.errorMostrarMsjInformacion.push("El nombre de contacto, no puede quedar vacio");
-            if (!this.telefono_contacto) this.errorMostrarMsjInformacion.push("El teléfono del contacto no puede quedar vacio.");
-            if (!this.cargo) this.errorMostrarMsjInformacion.push("El cargo es obligatorio de ingresar.");
+
+            if (this.nombre == '' || this.nombre == null) {
+                this.errorMostrarMsjInformacion.push("El nombre de la empresa no puede estar vacío, Ej. Hewlett Packard");
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+                this.errorMostrarMsjInformacion.push("El nombre de la empresa no debe contener números");
+            } else if (!/^[A-Z]/.test(this.nombre)) {
+                this.errorMostrarMsjInformacion.push("El nombre de la empresa debe iniciar con una letra mayúscula");
+            } else if (this.direccion == '' || this.direccion == null) {
+                this.errorMostrarMsjInformacion.push("La dirección de la empresa no puede estar vacía.");
+            } else if (this.email == '' || this.email == null) {
+                this.errorMostrarMsjInformacion.push("El email de la empresa no puede estar vacío, Ej. name@example.com");
+            } else if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.email)) {
+                this.errorMostrarMsjInformacion.push("Ingrese un email valido, Ej. name@example.com");
+            } else if (this.telefono == '') {
+                this.errorMostrarMsjInformacion.push("El teléfono de la empresa no puede estar vacío, Ej. 22223333 ó 77778888");
+            } else if (!/^\d{8}$/.test(this.telefono)) {
+                this.errorMostrarMsjInformacion.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            } else if (this.nombre_contacto == '' || this.nombre_contacto == null) {
+                this.errorMostrarMsjInformacion.push("El nombre de contacto de la empresa no puede estar vacío, Ej. Juan Pérez");
+            } else if (!/^[a-zA-Z ]+$/.test(this.nombre_contacto)) {
+                this.errorMostrarMsjInformacion.push("El nombre de contacto de la empresa no debe contener números");
+            } else if (!/^[A-Z]/.test(this.nombre_contacto)) {
+                this.errorMostrarMsjInformacion.push("El nombre de contacto de la empresa debe iniciar con una letra mayúscula");
+            } else if (this.telefono_contacto == '' || this.telefono_contacto == null) {
+                this.errorMostrarMsjInformacion.push("El teléfono del contacto de la empresa no puede estar vacío, Ej. 22223333 ó 77778888");
+            } else if (!/^\d{8}$/.test(this.telefono_contacto)) {
+                this.errorMostrarMsjInformacion.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
+            } else if (this.cargo == '' || this.cargo == null) {
+                this.errorMostrarMsjInformacion.push("El cargo del contacto de la empresa no puede estar vacío.");
+            } else if (!/^[a-zA-Z ]+$/.test(this.cargo)) {
+                this.errorMostrarMsjInformacion.push("El cargo del contacto de la empresa no debe contener números");
+            } else if (!/^[A-Z]/.test(this.cargo)) {
+                this.errorMostrarMsjInformacion.push("El cargo del contacto de la empresa debe iniciar con una letra mayúscula");
+            }
+
             if (this.errorMostrarMsjInformacion.length) this.errorInformacion = 1;
             return this.errorInformacion;
         },
@@ -57434,123 +57622,14 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "container-fluid" }, [
       _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _c("i", { staticClass: "fa fa-align-justify" }),
-          _vm._v(" Información\n                   "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-secondary",
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  return _vm.abrirModal("informacion", "registrar")
-                }
-              }
-            },
-            [
-              _c("i", { staticClass: "icon-plus" }),
-              _vm._v(" Nuevo\n                   ")
-            ]
-          )
-        ]),
+        _vm._m(1),
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "form-group row" }, [
-            _c("div", { staticClass: "col-md-6" }, [
-              _c("div", { staticClass: "input-group" }, [
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.criterio,
-                        expression: "criterio"
-                      }
-                    ],
-                    staticClass: "form-control col-md-3",
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.criterio = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      }
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "nombre" } }, [
-                      _vm._v("Nombre")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.buscar,
-                      expression: "buscar"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", placeholder: "Texto a buscar" },
-                  domProps: { value: _vm.buscar },
-                  on: {
-                    keyup: function($event) {
-                      if (
-                        !$event.type.indexOf("key") &&
-                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                      ) {
-                        return null
-                      }
-                      return _vm.listarInformacion(1, _vm.buscar, _vm.criterio)
-                    },
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.buscar = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-info",
-                    attrs: { type: "submit" },
-                    on: {
-                      click: function($event) {
-                        return _vm.listarInformacion(
-                          1,
-                          _vm.buscar,
-                          _vm.criterio
-                        )
-                      }
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-search" }), _vm._v(" Buscar")]
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
           _c(
             "table",
             { staticClass: "table table-responsive table-borderless" },
             [
-              _vm._m(1),
+              _vm._m(2),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -57799,7 +57878,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese nombre."
+                              placeholder: "Ingrese un nombre."
                             },
                             domProps: { value: _vm.nombre },
                             on: {
@@ -57877,7 +57956,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese E-mail"
+                              placeholder: "Ingrese el E-mail"
                             },
                             domProps: { value: _vm.email },
                             on: {
@@ -57915,7 +57994,8 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese teléfono "
+                              maxlength: "8",
+                              placeholder: "Ingrese el teléfono "
                             },
                             domProps: { value: _vm.telefono },
                             on: {
@@ -57993,7 +58073,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese Número de registro"
+                              placeholder: "Ingrese el número de registro"
                             },
                             domProps: { value: _vm.numero_registro },
                             on: {
@@ -58033,7 +58113,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese Giro"
+                              placeholder: "Ingrese el Giro"
                             },
                             domProps: { value: _vm.giro },
                             on: {
@@ -58071,7 +58151,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese nombre del contacto."
+                              placeholder: "Ingrese el nombre del contacto."
                             },
                             domProps: { value: _vm.nombre_contacto },
                             on: {
@@ -58111,7 +58191,8 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
-                              placeholder: "Ingrese teléfono del contacto"
+                              maxlength: "8",
+                              placeholder: "Ingrese el teléfono del contacto"
                             },
                             domProps: { value: _vm.telefono_contacto },
                             on: {
@@ -58149,7 +58230,7 @@ var render = function() {
                             staticClass: "form-control",
                             attrs: {
                               type: "email",
-                              placeholder: "Cargo que del contacto."
+                              placeholder: "Cargo del contacto."
                             },
                             domProps: { value: _vm.cargo },
                             on: {
@@ -58267,6 +58348,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("i", { staticClass: "fa fa-align-justify" }),
+      _vm._v(" Información\n                  \n               ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")]),
@@ -58279,15 +58369,15 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Teléfono")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Núm-Tributario")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Número-Tributario")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Núm-Registro")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Número-Registro")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Giro")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Contacto")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("TeléfonoContacto")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Teléfono-Contacto")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Cargo")])
       ])
@@ -58365,7 +58455,7 @@ var content = __webpack_require__(133);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("2c3f9bc5", content, false, {});
+var update = __webpack_require__(4)("6ea99425", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -58884,6 +58974,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         pdfEntrada: function pdfEntrada(id) {
             window.open('/entrada/pdf/' + id, '_blank');
         },
+        cargarPdf_Mes: function cargarPdf_Mes() {
+            window.open('/entrada/MesPdf/');
+        },
         cambiarPagina: function cambiarPagina(page, buscar, criterio) {
             var me = this;
             //Actualiza la página actual
@@ -59048,13 +59141,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         abrirModal: function abrirModal() {
             this.arrayProducto = [];
             this.modal = 1;
-            this.tituloModal = 'Seleccione uno o varios Productos';
+            this.tituloModal = 'Seleccione uno o más Productos';
         },
         desactivarEntrada: function desactivarEntrada(id) {
             var _this = this;
 
             swal({
-                title: 'Esta seguro de anular la entrada?.',
+                title: 'Esta seguro de anular la entrada?',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -59073,7 +59166,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         'id': id
                     }).then(function (response) {
                         me.listarEntrada(1, '', 'nombre');
-                        swal('Anulado!', 'La entrada ha sido anulada con éxito.', 'success');
+                        swal('Anulada!', 'La entrada ha sido anulada con éxito.', 'success');
                     }).catch(function (error) {
                         console.log(error);
                     });
@@ -59632,11 +59725,7 @@ var render = function() {
                               "option",
                               { attrs: { value: "fecha_entrada" } },
                               [_vm._v("Fecha Entrada")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "nombre" } }, [
-                              _vm._v("Proveedor")
-                            ])
+                            )
                           ]
                         ),
                         _vm._v(" "),
@@ -60299,8 +60388,10 @@ var render = function() {
                                         _vm._v(
                                           "$" +
                                             _vm._s(
-                                              detalle.precio_compra *
+                                              (
+                                                detalle.precio_compra *
                                                 detalle.cantidad
+                                              ).toFixed(2)
                                             )
                                         )
                                       ])
@@ -60322,7 +60413,7 @@ var render = function() {
                                           "$" +
                                             _vm._s(
                                               (_vm.total_compra =
-                                                _vm.calcularTotal)
+                                                _vm.calcularTotal).toFixed(2)
                                             )
                                         )
                                       ])
@@ -60504,7 +60595,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
+              _c("div", { staticClass: "modal-header verde" }, [
                 _c("h4", {
                   staticClass: "modal-title",
                   domProps: { textContent: _vm._s(_vm.tituloModal) }
@@ -60567,7 +60658,7 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "codigo" } }, [
-                            _vm._v("codigo")
+                            _vm._v("Código")
                           ])
                         ]
                       ),
@@ -60718,7 +60809,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-dark",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -60795,7 +60886,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Total_Compra")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condicion")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condición")])
       ])
     ])
   },
@@ -60885,7 +60976,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Nombre")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Categoria")]),
+        _c("th", [_vm._v("Categoría")]),
         _vm._v(" "),
         _c("th", [_vm._v("Precio Actual")]),
         _vm._v(" "),
@@ -60967,7 +61058,7 @@ var content = __webpack_require__(141);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("13be7a7e", content, false, {});
+var update = __webpack_require__(4)("cbf813c4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -61682,7 +61773,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             swal({
-                title: 'Esta seguro de anular la salida?.',
+                title: 'Esta seguro de anular la salida?',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -61701,7 +61792,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         'id': id
                     }).then(function (response) {
                         me.listarSalida(1, '', 'nombre');
-                        swal('Anulado!', 'La salida ha sido anulada con éxito.', 'success');
+                        swal('Anulada!', 'La salida ha sido anulada con éxito.', 'success');
                     }).catch(function (error) {
                         console.log(error);
                     });
@@ -62472,8 +62563,10 @@ var render = function() {
                                         _vm._v(
                                           "$" +
                                             _vm._s(
-                                              detalle.precio_actual *
+                                              (
+                                                detalle.precio_actual *
                                                 detalle.cantidad
+                                              ).toFixed(2)
                                             )
                                         )
                                       ])
@@ -62494,7 +62587,8 @@ var render = function() {
                                         _vm._v(
                                           "$" +
                                             _vm._s(
-                                              (_vm.total = _vm.calcularTotal)
+                                              (_vm.total =
+                                                _vm.calcularTotal).toFixed(2)
                                             )
                                         )
                                       ])
@@ -62597,8 +62691,10 @@ var render = function() {
                                         _vm._v(
                                           "$" +
                                             _vm._s(
-                                              detalle.precio_actual *
+                                              (
+                                                detalle.precio_actual *
                                                 detalle.cantidad
+                                              ).toFixed(2)
                                             )
                                         )
                                       ])
@@ -62619,7 +62715,8 @@ var render = function() {
                                         _vm._v(
                                           "$" +
                                             _vm._s(
-                                              (_vm.total = _vm.calcularTotal)
+                                              (_vm.total =
+                                                _vm.calcularTotal).toFixed(2)
                                             )
                                         )
                                       ])
@@ -62681,7 +62778,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
+              _c("div", { staticClass: "modal-header verde" }, [
                 _c("h4", {
                   staticClass: "modal-title",
                   domProps: { textContent: _vm._s(_vm.tituloModal) }
@@ -62744,7 +62841,7 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("option", { attrs: { value: "codigo" } }, [
-                            _vm._v("codigo")
+                            _vm._v("Código")
                           ])
                         ]
                       ),
@@ -62895,7 +62992,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-dark",
                     attrs: { type: "button" },
                     on: {
                       click: function($event) {
@@ -62972,7 +63069,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Total")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condicion")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condición")])
       ])
     ])
   },
@@ -63144,7 +63241,7 @@ var content = __webpack_require__(146);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("f6beae8a", content, false, {});
+var update = __webpack_require__(4)("333c411b", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -63183,6 +63280,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_select__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -63420,6 +63522,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         pdfEntrada: function pdfEntrada(id) {
             window.open('/entrada/pdf/' + id, '_blank');
         },
+        cargarPdf_Mes: function cargarPdf_Mes() {
+            window.open('/entrada/MesPdf/');
+        },
+        cargarPdf_Dia: function cargarPdf_Dia() {
+            window.open('/entrada/DiaPdf/');
+        },
         cambiarPagina: function cambiarPagina(page, buscar, criterio) {
             var me = this;
             //Actualiza la página actual
@@ -63494,7 +63602,43 @@ var render = function() {
         "div",
         { staticClass: "card" },
         [
-          _vm._m(1),
+          _c("div", { staticClass: "card-header" }, [
+            _c("i", { staticClass: "fa fa-align-justify" }),
+            _vm._v("Reportes de  Entradas\n\n                  "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-secondary",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.cargarPdf_Dia()
+                  }
+                }
+              },
+              [
+                _c("i", { staticClass: "icon-doc" }),
+                _vm._v(" Reporte Por Día\n                   ")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-success",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.cargarPdf_Mes()
+                  }
+                }
+              },
+              [
+                _c("i", { staticClass: "icon-doc" }),
+                _vm._v(" Reporte Por Mes\n                   ")
+              ]
+            )
+          ]),
           _vm._v(" "),
           _vm.listado == 1
             ? [
@@ -63535,11 +63679,7 @@ var render = function() {
                               "option",
                               { attrs: { value: "fecha_entrada" } },
                               [_vm._v("Fecha Entrada")]
-                            ),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "nombre" } }, [
-                              _vm._v("Proveedor")
-                            ])
+                            )
                           ]
                         ),
                         _vm._v(" "),
@@ -63619,29 +63759,13 @@ var render = function() {
                           "table table-responsive table-borderless table-sm"
                       },
                       [
-                        _vm._m(2),
+                        _vm._m(1),
                         _vm._v(" "),
                         _c(
                           "tbody",
                           _vm._l(_vm.arrayEntrada, function(entrada) {
                             return _c("tr", { key: entrada.id }, [
                               _c("td", [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-success btn-sm",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.verEntrada(entrada.id)
-                                      }
-                                    }
-                                  },
-                                  [_c("i", { staticClass: "icon-eye" })]
-                                ),
-                                _vm._v(
-                                  " \n                                       "
-                                ),
                                 _c(
                                   "button",
                                   {
@@ -63654,7 +63778,8 @@ var render = function() {
                                     }
                                   },
                                   [_c("i", { staticClass: "icon-doc" })]
-                                )
+                                ),
+                                _vm._v(" \n                                   ")
                               ]),
                               _vm._v(" "),
                               _c("td", {
@@ -63796,7 +63921,7 @@ var render = function() {
                   _c("div", { staticClass: "form-group row border" }, [
                     _c("div", { staticClass: "col-md-9" }, [
                       _c("div", { staticClass: "form-group" }, [
-                        _vm._m(3),
+                        _vm._m(2),
                         _vm._v(" "),
                         _c("p", {
                           domProps: { textContent: _vm._s(_vm.proveedor) }
@@ -63814,7 +63939,7 @@ var render = function() {
                             "table table-bordered table-striped table-sm"
                         },
                         [
-                          _vm._m(4),
+                          _vm._m(3),
                           _vm._v(" "),
                           _vm.arrayDetalle.length
                             ? _c(
@@ -63861,7 +63986,7 @@ var render = function() {
                                       }
                                     },
                                     [
-                                      _vm._m(5),
+                                      _vm._m(4),
                                       _vm._v(" "),
                                       _c("td", [
                                         _vm._v("$" + _vm._s(_vm.total_compra))
@@ -63871,7 +63996,7 @@ var render = function() {
                                 ],
                                 2
                               )
-                            : _c("tbody", [_vm._m(6)])
+                            : _c("tbody", [_vm._m(5)])
                         ]
                       )
                     ])
@@ -63918,18 +64043,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("i", { staticClass: "fa fa-align-justify" }),
-      _vm._v(" Entradas\n               ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("PDF Entrada")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Usuario")]),
         _vm._v(" "),
@@ -63939,7 +64055,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Total_Compra")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condicion")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condición")])
       ])
     ])
   },
@@ -64055,7 +64171,7 @@ var content = __webpack_require__(151);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("1e521b34", content, false, {});
+var update = __webpack_require__(4)("1bb1f6d4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -64094,6 +64210,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_select__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -64332,6 +64453,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         pdfSalida: function pdfSalida(id) {
             window.open('/salida/pdf/' + id, '_blank');
         },
+        cargarPdf_Mes: function cargarPdf_Mes() {
+            window.open('/salida/MesPdf/');
+        },
+        cargarPdf_Dia: function cargarPdf_Dia() {
+            window.open('/salida/DiaPdf/');
+        },
         cambiarPagina: function cambiarPagina(page, buscar, criterio) {
             var me = this;
             //Actualiza la página actual
@@ -64406,7 +64533,43 @@ var render = function() {
         "div",
         { staticClass: "card" },
         [
-          _vm._m(1),
+          _c("div", { staticClass: "card-header" }, [
+            _c("i", { staticClass: "fa fa-align-justify" }),
+            _vm._v(" Reportes  de Salidas\n                    "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-secondary",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.cargarPdf_Dia()
+                  }
+                }
+              },
+              [
+                _c("i", { staticClass: "icon-doc" }),
+                _vm._v(" Reporte Por Día\n                   ")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-success",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.cargarPdf_Mes()
+                  }
+                }
+              },
+              [
+                _c("i", { staticClass: "icon-doc" }),
+                _vm._v(" Reporte Por Mes\n                   ")
+              ]
+            )
+          ]),
           _vm._v(" "),
           _vm.listado == 1
             ? [
@@ -64525,29 +64688,13 @@ var render = function() {
                           "table table-responsive table-borderless table-sm"
                       },
                       [
-                        _vm._m(2),
+                        _vm._m(1),
                         _vm._v(" "),
                         _c(
                           "tbody",
                           _vm._l(_vm.arraySalida, function(salida) {
                             return _c("tr", { key: salida.id }, [
                               _c("td", [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-success btn-sm",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.verSalida(salida.id)
-                                      }
-                                    }
-                                  },
-                                  [_c("i", { staticClass: "icon-eye" })]
-                                ),
-                                _vm._v(
-                                  "  \n                                       "
-                                ),
                                 _c(
                                   "button",
                                   {
@@ -64698,7 +64845,7 @@ var render = function() {
                   _c("div", { staticClass: "form-group row border" }, [
                     _c("div", { staticClass: "col-md-9" }, [
                       _c("div", { staticClass: "form-group" }, [
-                        _vm._m(3),
+                        _vm._m(2),
                         _vm._v(" "),
                         _c("p", {
                           domProps: { textContent: _vm._s(_vm.cliente) }
@@ -64716,7 +64863,7 @@ var render = function() {
                             "table table-bordered table-striped table-sm"
                         },
                         [
-                          _vm._m(4),
+                          _vm._m(3),
                           _vm._v(" "),
                           _vm.arrayDetalle.length
                             ? _c(
@@ -64763,7 +64910,7 @@ var render = function() {
                                       }
                                     },
                                     [
-                                      _vm._m(5),
+                                      _vm._m(4),
                                       _vm._v(" "),
                                       _c("td", [
                                         _vm._v(
@@ -64778,7 +64925,7 @@ var render = function() {
                                 ],
                                 2
                               )
-                            : _c("tbody", [_vm._m(6)])
+                            : _c("tbody", [_vm._m(5)])
                         ]
                       )
                     ])
@@ -64825,18 +64972,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("i", { staticClass: "fa fa-align-justify" }),
-      _vm._v(" Salidas de prodcutos.\n               ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("PDF Salida")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Usuario")]),
         _vm._v(" "),
@@ -64846,7 +64984,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Total")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condicion")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Condición")])
       ])
     ])
   },
