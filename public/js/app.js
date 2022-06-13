@@ -65026,7 +65026,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
 
 
 
@@ -66015,7 +66014,7 @@ var staticRenderFns = [
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-footer" }, [
-                    _c("p", [_vm._v("Los 10 productos con menos stock")])
+                    _c("p", [_vm._v("Los 5 productos con menos stock")])
                   ])
                 ])
               ]),
@@ -66023,7 +66022,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "col-md-4" }, [
                 _c("div", { staticClass: "card card-chart" }, [
                   _c("div", { staticClass: "card-header" }, [
-                    _c("h4", [_vm._v("Entradas")])
+                    _c("h4", [_vm._v("Entradas de Productos")])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-content" }, [
@@ -66043,7 +66042,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "col-md-4" }, [
                 _c("div", { staticClass: "card card-chart" }, [
                   _c("div", { staticClass: "card-header" }, [
-                    _c("h4", [_vm._v("Salidas")])
+                    _c("h4", [_vm._v("Salidas de Productos")])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-content" }, [

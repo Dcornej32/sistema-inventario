@@ -27,9 +27,9 @@ class DashboardController extends Controller
         ->get();
 
         $stock = DB::table('productos')
-        ->where('stock', '<=', 100)
+        ->where('stock', '<=', 10)
         ->orderBy('stock', 'asc')
-        ->limit(10)
+        ->limit(5)
         ->get(); 
 
         return ['entradas'=>$entradas, 'salidas'=>$salidas,'anio'=>$anio, 'stock' => $stock];

@@ -21,14 +21,14 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <p>Los 10 productos con menos stock</p>
+                                    <p>Los 5 productos con menos stock</p>
                                 </div>
                            </div> 
                        </div>
                        <div class="col-md-4">
                            <div class="card card-chart">
                                <div class="card-header">
-                                   <h4>Entradas</h4>
+                                   <h4>Entradas de Productos</h4>
                                </div>
                                <div class="card-content">
                                     <div class="ct-chart">
@@ -44,7 +44,7 @@
                        <div class="col-md-4">
                            <div class="card card-chart">
                                <div class="card-header">
-                                   <h4>Salidas</h4>
+                                   <h4>Salidas de Productos</h4>
                                </div>
                                <div class="card-content">
                                     <div class="ct-chart">
