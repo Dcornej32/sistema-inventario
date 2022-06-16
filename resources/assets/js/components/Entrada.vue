@@ -35,8 +35,8 @@
                                         <th scope="col">Opciones</th>
                                         <th scope="col">Usuario</th>
                                         <th scope="col">Proveedor</th>
-                                        <th scope="col">Fecha_Entrada</th>
-                                        <th scope="col">Total_Compra</th>
+                                        <th scope="col">Fecha Entrada</th>
+                                        <th scope="col">Total</th>
                                         <th scope="col">Condición</th>
                                     </tr>
                                 </thead>

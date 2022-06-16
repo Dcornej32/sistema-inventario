@@ -46534,7 +46534,7 @@ var content = __webpack_require__(61);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("3aed04c7", content, false, {});
+var update = __webpack_require__(4)("29c0b732", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -46922,7 +46922,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.nombre == '' || this.nombre == null) {
                 this.errorMostrarMsjCategoria.push("El nombre de la categoría no puede estar vacío");
                 if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
-            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+            } else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre)) {
                 this.errorMostrarMsjCategoria.push("El nombre de la categoría no debe contener números");
                 if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
             } else if (!/^[A-Z]/.test(this.nombre)) {
@@ -47618,7 +47618,7 @@ var content = __webpack_require__(67);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("cf5dedfa", content, false, {});
+var update = __webpack_require__(4)("e508153a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48120,7 +48120,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.nombre == '' || this.nombre == null) {
                 this.errorMostrarMsjProducto.push("El nombre del producto no puede estar vacío");
                 if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
-            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+            } else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre)) {
                 this.errorMostrarMsjProducto.push("El nombre del producto no debe contener números");
                 if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
             } else if (!/^[A-Z]/.test(this.nombre)) {
@@ -51764,7 +51764,7 @@ var content = __webpack_require__(108);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("47fc4540", content, false, {});
+var update = __webpack_require__(4)("ccd03600", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -52101,7 +52101,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             if (this.nombre == '' || this.nombre == null) {
                 this.errorMostrarMsjPersona.push("El nombre del cliente no puede estar vacío, ej. Juan Pérez");
-            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+            } else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre)) {
                 this.errorMostrarMsjPersona.push("El nombre del cliente no debe contener números");
             } else if (!/^[A-Z]/.test(this.nombre)) {
                 this.errorMostrarMsjPersona.push("El nombre del cliente debe iniciar con una letra mayúscula");
@@ -53094,7 +53094,7 @@ var content = __webpack_require__(113);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("cc4af172", content, false, {});
+var update = __webpack_require__(4)("4a0d26e7", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -53460,7 +53460,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.errorPersona = 0, this.errorMostrarMsjPersona = [];
             if (this.nombre == '' || this.nombre == null) {
                 this.errorMostrarMsjPersona.push("El nombre de la empresa no puede estar vacío, Ej. Hewlett Packard");
-            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+            } else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre)) {
                 this.errorMostrarMsjPersona.push("El nombre de la empresa no debe contener números");
             } else if (!/^[A-Z]/.test(this.nombre)) {
                 this.errorMostrarMsjPersona.push("El nombre de la empresa debe iniciar con una letra mayúscula");
@@ -53476,7 +53476,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.errorMostrarMsjPersona.push("Ingrese un email valido, Ej. name@example.com");
             } else if (this.nombre_contacto == '' || this.nombre_contacto == null) {
                 this.errorMostrarMsjPersona.push("El nombre de contacto de la empresa no puede estar vacío, Ej. Juan Pérez");
-            } else if (!/^[a-zA-Z ]+$/.test(this.nombre_contacto)) {
+            } else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre_contacto)) {
                 this.errorMostrarMsjPersona.push("El nombre de contacto de la empresa no debe contener números");
             } else if (!/^[A-Z]/.test(this.nombre_contacto)) {
                 this.errorMostrarMsjPersona.push("El nombre de contacto de la empresa debe iniciar con una letra mayúscula");
@@ -54567,7 +54567,7 @@ var content = __webpack_require__(118);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("c211b290", content, false, {});
+var update = __webpack_require__(4)("d9fc0350", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -54913,7 +54913,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             if (this.nombre == '' || this.nombre == null) {
                 this.errorMostrarMsjRol.push("El nombre del rol no puede estar vacío");
-            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+            } else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre)) {
                 this.errorMostrarMsjRol.push("El nombre del rol no debe contener números");
             } else if (!/^[A-Z]/.test(this.nombre)) {
                 this.errorMostrarMsjRol.push("El nombre del rol debe iniciar con una letra mayúscula");
@@ -55575,7 +55575,7 @@ var content = __webpack_require__(123);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("2c3246de", content, false, {});
+var update = __webpack_require__(4)("7736f8f1", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55972,7 +55972,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             if (this.nombre == '' || this.nombre == null) {
                 this.errorMostrarMsjPersona.push("El nombre del usuario no puede estar vacío, Ej. Juan Pérez");
-            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+            } else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre)) {
                 this.errorMostrarMsjPersona.push("El nombre del usuario no debe contener números");
             } else if (!/^[A-Z]/.test(this.nombre)) {
                 this.errorMostrarMsjPersona.push("El nombre del usuario debe iniciar con una letra mayúscula");
@@ -57153,7 +57153,7 @@ var content = __webpack_require__(128);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("679a5012", content, false, {});
+var update = __webpack_require__(4)("3a3c0f97", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57506,7 +57506,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             if (this.nombre == '' || this.nombre == null) {
                 this.errorMostrarMsjInformacion.push("El nombre de la empresa no puede estar vacío, Ej. Hewlett Packard");
-            } else if (!/^[a-zA-Z ]+$/.test(this.nombre)) {
+            } else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre)) {
                 this.errorMostrarMsjInformacion.push("El nombre de la empresa no debe contener números");
             } else if (!/^[A-Z]/.test(this.nombre)) {
                 this.errorMostrarMsjInformacion.push("El nombre de la empresa debe iniciar con una letra mayúscula");
@@ -57522,7 +57522,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.errorMostrarMsjInformacion.push("Ingresa un número de télefono valido, Ej. 22223333 ó 77778888");
             } else if (this.nombre_contacto == '' || this.nombre_contacto == null) {
                 this.errorMostrarMsjInformacion.push("El nombre de contacto de la empresa no puede estar vacío, Ej. Juan Pérez");
-            } else if (!/^[a-zA-Z ]+$/.test(this.nombre_contacto)) {
+            } else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre_contacto)) {
                 this.errorMostrarMsjInformacion.push("El nombre de contacto de la empresa no debe contener números");
             } else if (!/^[A-Z]/.test(this.nombre_contacto)) {
                 this.errorMostrarMsjInformacion.push("El nombre de contacto de la empresa debe iniciar con una letra mayúscula");
@@ -58455,7 +58455,7 @@ var content = __webpack_require__(133);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("6ea99425", content, false, {});
+var update = __webpack_require__(4)("2c3f9bc5", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -60882,9 +60882,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Proveedor")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fecha_Entrada")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fecha Entrada")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Total_Compra")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Total")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Condición")])
       ])
@@ -61058,7 +61058,7 @@ var content = __webpack_require__(141);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("cbf813c4", content, false, {});
+var update = __webpack_require__(4)("13be7a7e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -63241,7 +63241,7 @@ var content = __webpack_require__(146);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("333c411b", content, false, {});
+var update = __webpack_require__(4)("f6beae8a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -64171,7 +64171,7 @@ var content = __webpack_require__(151);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("1bb1f6d4", content, false, {});
+var update = __webpack_require__(4)("1e521b34", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
