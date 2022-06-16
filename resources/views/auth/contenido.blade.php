@@ -10,7 +10,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-  <title>Sistema de Gestion de Inventario </title>
+  <title>Sistema de Control y Gestión de Inventario </title>
 
   <link href="css/plantilla.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
