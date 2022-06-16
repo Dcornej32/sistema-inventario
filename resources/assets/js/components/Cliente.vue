@@ -310,7 +310,7 @@
             {
                 this.errorMostrarMsjPersona.push("El nombre del cliente no puede estar vacío, ej. Juan Pérez");
             }
-            else if (!/^[a-zA-Z ]+$/.test(this.nombre)){
+            else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre)){
                 this.errorMostrarMsjPersona.push("El nombre del cliente no debe contener números");
             }
             else if (!/^[A-Z]/.test(this.nombre)){

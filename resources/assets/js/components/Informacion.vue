@@ -335,7 +335,7 @@
             {
                 this.errorMostrarMsjInformacion.push("El nombre de la empresa no puede estar vacío, Ej. Hewlett Packard");
             }
-            else if (!/^[a-zA-Z ]+$/.test(this.nombre)){
+            else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre)){
                 this.errorMostrarMsjInformacion.push("El nombre de la empresa no debe contener números");
             }
             else if (!/^[A-Z]/.test(this.nombre)){
@@ -362,7 +362,7 @@
             {
                 this.errorMostrarMsjInformacion.push("El nombre de contacto de la empresa no puede estar vacío, Ej. Juan Pérez");
             }
-            else if (!/^[a-zA-Z ]+$/.test(this.nombre_contacto)){
+            else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre_contacto)){
                 this.errorMostrarMsjInformacion.push("El nombre de contacto de la empresa no debe contener números");
             }
             else if (!/^[A-Z]/.test(this.nombre_contacto)){

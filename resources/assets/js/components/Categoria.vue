@@ -349,7 +349,7 @@
                 this.errorMostrarMsjCategoria.push("El nombre de la categoría no puede estar vacío");
                 if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
             }
-            else if (!/^[a-zA-Z ]+$/.test(this.nombre)){
+            else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre)){
                 this.errorMostrarMsjCategoria.push("El nombre de la categoría no debe contener números");
                 if (this.errorMostrarMsjCategoria.length) this.errorCategoria = 1;
             }

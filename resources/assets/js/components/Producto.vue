@@ -493,7 +493,7 @@
                     this.errorMostrarMsjProducto.push("El nombre del producto no puede estar vacío");
                     if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
                 }
-                else if (!/^[a-zA-Z ]+$/.test(this.nombre)){
+                else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre)){
                     this.errorMostrarMsjProducto.push("El nombre del producto no debe contener números");
                     if (this.errorMostrarMsjProducto.length) this.errorProducto = 1;
                 }
