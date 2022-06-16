@@ -29,9 +29,6 @@
             <li @click="menu=0" class="nav-item px-3">
                 <a class="nav-link" href="#">Panel Principal</a>
             </li>
-            <li class="nav-item px-3">
-                <a class="nav-link" href="#">Configuraciones</a>
-            </li>
         </ul>
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item d-md-down-none">
@@ -94,8 +91,8 @@
     
 
     <footer class="app-footer">
-        <span>ULS | Ciclo 1-2022</span>
-        <span class="ml-auto">Proyecto de especialización (Computación)</span>
+        <span>ULS | Seminario de Especialización</span>
+        <span class="ml-auto"> NewtonStock | © 2022</span>
     </footer>
 
     <!-- Bootstrap and necessary plugins -->
