@@ -121,9 +121,7 @@
    
     <body>
             <header>
-                <div class="logo">
-                <img src="img/logo.jpeg"  id="imagen">
-                </div>
+                
                 @foreach ($informacion as $in)
                     <div class="datos">
                         <p class="encabezado">
