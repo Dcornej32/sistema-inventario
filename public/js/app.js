@@ -47962,13 +47962,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         //Metodo para cargar el pdf
         cargarPdf: function cargarPdf() {
-            window.open('http://127.0.0.1:8000/producto/listarPdf', '_blank');
+            window.open('/producto/listarPdf', '_blank');
         },
         cargarPdf_Stock: function cargarPdf_Stock() {
-            window.open('http://127.0.0.1:8000/producto/listarStockPdf', '_blank');
+            window.open('/producto/listarStockPdf', '_blank');
         },
         cargarPdf_Mes: function cargarPdf_Mes() {
-            window.open('http://127.0.0.1:8000/producto/listarMesPdf', '_blank');
+            window.open('/producto/listarMesPdf', '_blank');
         },
 
 

@@ -306,13 +306,13 @@
 
             //Metodo para cargar el pdf
             cargarPdf(){
-                window.open('http://127.0.0.1:8000/producto/listarPdf', '_blank');
+                window.open('/producto/listarPdf', '_blank');
             },
             cargarPdf_Stock(){
-                window.open('http://127.0.0.1:8000/producto/listarStockPdf', '_blank');
+                window.open('/producto/listarStockPdf', '_blank');
             },
               cargarPdf_Mes(){
-                window.open('http://127.0.0.1:8000/producto/listarMesPdf', '_blank');
+                window.open('/producto/listarMesPdf', '_blank');
             },
 
 
