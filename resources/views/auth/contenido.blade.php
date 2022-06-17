@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Sistema Ventas Laravel Vue Js">
-  <link rel="shortcut icon" href="vendors/img/favicon.png">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
