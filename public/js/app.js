@@ -50922,7 +50922,7 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "icon-doc" }),
-              _vm._v(" Productos_MenorStock\n                    ")
+              _vm._v(" Menor Stock\n                    ")
             ]
           ),
           _vm._v(" "),
@@ -50939,7 +50939,7 @@ var render = function() {
             },
             [
               _c("i", { staticClass: "icon-doc" }),
-              _vm._v(" ReporteMensual\n                    ")
+              _vm._v(" Reporte Mensual\n                    ")
             ]
           )
         ]),

@@ -16,7 +16,7 @@
                             <i class="icon-doc"></i>&nbsp;Reporte
                         </button>
                         <button type="button"  @click="cargarPdf_Stock()" class="btn btn-danger">
-                            <i class="icon-doc"></i>&nbsp;Productos con menos de 5_Stock.
+                            <i class="icon-doc"></i>&nbsp;Menor Stock
                         </button>
                         <button type="button"  @click="cargarPdf_Mes()" class="btn btn-success">
                             <i class="icon-doc"></i>&nbsp;Reporte Mensual
