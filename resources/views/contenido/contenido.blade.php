@@ -72,9 +72,7 @@
             <template v-if="menu==10">
                 <consultasalida></consultasalida>
             </template>
-            <template v-if="menu==12">
-                <informacion></informacion>
-            </template>
+           
         @else
 
         @endif
