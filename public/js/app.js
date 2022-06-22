@@ -59889,7 +59889,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
+                            type: "date",
                             placeholder: "Texto a buscar"
                           },
                           domProps: { value: _vm.buscar },
@@ -62052,7 +62052,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
+                            type: "date",
                             placeholder: "Texto a buscar"
                           },
                           domProps: { value: _vm.buscar },
@@ -63857,7 +63857,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
+                            type: "date",
                             placeholder: "Texto a buscar"
                           },
                           domProps: { value: _vm.buscar },
@@ -64786,7 +64786,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
+                            type: "date",
                             placeholder: "Texto a buscar"
                           },
                           domProps: { value: _vm.buscar },

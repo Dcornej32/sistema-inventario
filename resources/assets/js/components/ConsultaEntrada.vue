@@ -27,7 +27,7 @@
                                         <option value="fecha_entrada">Fecha Entrada</option>
                                         
                                         </select>
-                                        <input type="text" v-model="buscar" @keyup.enter="listarEntrada(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
+                                        <input type="date" v-model="buscar" @keyup.enter="listarEntrada(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                         <button type="submit" @click="listarEntrada(1,buscar,criterio)" class="btn btn-outline-info"><i class="fa fa-search"></i> Buscar</button>
                                     </div>
                                 </div>
