@@ -114,13 +114,13 @@
                             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 <div class="form-row ">
                                     <div class="form-group col-md-6">
-                                        <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Nombre<span style="color:red;">(*Ingrese)</span></label>
                                         <div>
                                             <input type="text" v-model="nombre" class="form-control" placeholder="Ej. Juan Pérez" required>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="col-md-3 form-control-label" for="email-input">Dirección</label>
+                                        <label class="col-md-3 form-control-label" for="email-input">Dirección<span style="color:red;">(*Ingrese)</span></label>
                                         <div>
                                             <input type="text" v-model="direccion" class="form-control" placeholder="Ej. Calle La Mascota 923b, San Salvador, El Salvador">
                                         </div>
@@ -128,13 +128,13 @@
                                 </div>
                                 <div class="form-row"> 
                                     <div class="form-group col-md-6">
-                                        <label class="col-md-3 form-control-label" for="email-input">Teléfono</label>
+                                        <label class="col-md-3 form-control-label" for="email-input">Teléfono<span style="color:red;">(*Ingrese)</span></label>
                                         <div>
                                             <input type="tel" v-model="telefono" class="form-control" maxlength="8" placeholder="Ej. 22223333 ó 77778888">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="col-md-3 form-control-label" for="email-input">Email</label>
+                                        <label class="col-md-3 form-control-label" for="email-input">Email<span style="color:red;">(*Ingrese)</span></label>
                                         <div>
                                             <input type="email" v-model="email" class="form-control" placeholder="name@example.com">
                                         </div>
@@ -153,7 +153,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="col-md-3 form-control-label" for="text-input">Número</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Número Documento</label>
                                         <div>
                                             <input type="text" v-model="numero_documento" class="form-control" placeholder="Ej. 000000000">
                                         </div>
@@ -161,7 +161,7 @@
                                 </div>  
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
-                                        <label class="col-md-6 form-control-label" for="email-input">Rol (*)</label>
+                                        <label class="col-md-6 form-control-label" for="email-input">Rol<span style="color:red;">(*Seleccione)</span></label>
                                         <div>
                                             <select class="form-control" v-model="idrol" > 
                                                 <option value="0" > Seleccione un Rol </option>
@@ -170,13 +170,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="col-md-6 form-control-label" for="email-input">Usuario (*)</label>
+                                        <label class="col-md-6 form-control-label" for="email-input">Usuario<span style="color:red;">(*Ingrese)</span></label>
                                         <div>
                                             <input type="text" v-model="usuario" id="validationDefaultUsername" class="form-control" placeholder="Ej. juan_perez" required>
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6row">
-                                        <label class="col-md-9 form-control-label" for="email-input">password (*)</label>
+                                        <label class="col-md-9 form-control-label" for="email-input">Password<span style="color:red;">(*Ingrese)</span></label>
                                         <div>
                                             <input type="password" v-model="password" class="form-control" placeholder="********" required>
                                         </div>
@@ -194,6 +194,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
+                            <p>Si seleciona tipo de documento, es obligatorio que ingrese el Número de Documento.</p>
                             <button type="button" class="btn btn-dark" @click="cerrarModal()">Cerrar</button>
                             <button type="button" v-if="tipoAccion==1" class="btn verde" @click="registrarPersona()">Guardar</button>
                             <button type="button" v-if="tipoAccion==2" class="btn verde" @click="actualizarPersona()">Actualizar</button>

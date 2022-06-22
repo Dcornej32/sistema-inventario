@@ -94,7 +94,7 @@
                             <div class="form-group row border">
                                 <div class="col-md-9">  
                                     <div class="form-group">
-                                        <label for="">Proveedor(*)</label>
+                                        <label for="">Proveedor<span style="color:red;">(*Ingrese)</span></label>
                                         <v-select
                                             @search="selectProveedor"
                                             label="nombre"

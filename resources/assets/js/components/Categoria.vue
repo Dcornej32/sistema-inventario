@@ -97,13 +97,13 @@
                         <div class="modal-body">
                             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                    <label class="col-md-3 form-control-label">Nombre <span style="color:red;">(*Ingrese)</span></label>
                                     <div class="col-md-9">
                                         <input type="text" v-model="nombre" class="form-control" placeholder="Nombre de categoría">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="email-input">Descripción</label>
+                                    <label class="col-md-3 form-control-label">Descripción</label>
                                     <div class="col-md-9">
                                         <input type="email" v-model="descripcion" class="form-control" placeholder="Ingrese una descripción">
                                     </div>

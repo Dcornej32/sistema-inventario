@@ -112,13 +112,13 @@
                             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label class="col-md-6 form-control-label" for="text-input">Nombre Empresa</label>
+                                        <label class="col-md-6 form-control-label" >Nombre Empresa<span style="color:red;">(*Ingrese)</span></label>
                                         <div >
                                             <input type="text" v-model="nombre" class="form-control" placeholder=" Ej.Hewlett Packard">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="col-md-3 form-control-label" for="email-input">Dirección</label>
+                                        <label class="col-md-3 form-control-label" for="email-input">Dirección <span style="color:red;">(*Ingrese)</span></label>
                                         <div>
                                             <input type="text" v-model="direccion" class="form-control" placeholder=" Ej. Calle La Mascota 923b, San Salvador, El Salvador">
                                         </div>
@@ -126,13 +126,13 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label class="col-md-3 form-control-label" for="email-input">Teléfono</label>
+                                        <label class="col-md-3 form-control-label" for="email-input">Teléfono<span style="color:red;">(*Ingrese)</span></label>
                                         <div>
                                             <input type="tel" v-model="telefono" class="form-control" maxlength="8" placeholder="Ej. 22223333 ó 77778888">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="col-md-3 form-control-label" for="email-input">Email</label>
+                                        <label class="col-md-3 form-control-label" for="email-input">Email<span style="color:red;">(*Ingrese)</span></label>
                                         <div>
                                             <input type="email" v-model="email" class="form-control"  placeholder="name@example.com">
                                         </div>
@@ -159,13 +159,13 @@
                                 </div>    
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label class="col-md-6 form-control-label" for="email-input">Contacto</label>
+                                        <label class="col-md-6 form-control-label" for="email-input">Nombre de Contacto<span style="color:red;">(*Ingrese)</span></label>
                                         <div>
                                             <input type="text" v-model="nombre_contacto" class="form-control" placeholder="Ej. Juan Pérez">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="col-md-6 form-control-label" for="email-input">Teléfono de Contacto</label>
+                                        <label class="col-md-6 form-control-label" for="email-input">Teléfono de Contacto<span style="color:red;">(*Ingrese)</span></label>
                                         <div>
                                             <input type="tel" v-model="telefono_contacto" class="form-control" maxlength="8" placeholder="Ej. 22223333 ó 77778888">
                                         </div>
@@ -180,6 +180,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
+                            <p>Si seleciona tipo de documento, es obligatorio que ingrese el Número de Documento.</p>
                             <button type="button" class="btn btn-dark" @click="cerrarModal()">Cerrar</button>
                             <button type="button" v-if="tipoAccion==1" class="btn verde" @click="registrarPersona()">Guardar</button>
                             <button type="button" v-if="tipoAccion==2" class="btn verde" @click="actualizarPersona()">Actualizar</button>

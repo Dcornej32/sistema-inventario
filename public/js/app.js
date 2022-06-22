@@ -47359,14 +47359,7 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "form-group row" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-md-3 form-control-label",
-                          attrs: { for: "text-input" }
-                        },
-                        [_vm._v("Nombre")]
-                      ),
+                      _vm._m(2),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
                         _c("input", {
@@ -47399,10 +47392,7 @@ var render = function() {
                     _c("div", { staticClass: "form-group row" }, [
                       _c(
                         "label",
-                        {
-                          staticClass: "col-md-3 form-control-label",
-                          attrs: { for: "email-input" }
-                        },
+                        { staticClass: "col-md-3 form-control-label" },
                         [_vm._v("Descripción")]
                       ),
                       _vm._v(" "),
@@ -47544,6 +47534,15 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-md-3 form-control-label" }, [
+      _vm._v("Nombre "),
+      _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
     ])
   }
 ]
@@ -51294,14 +51293,7 @@ var render = function() {
                   [
                     _c("div", { staticClass: "form-row" }, [
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-3 form-control-label",
-                            attrs: { for: "text-input" }
-                          },
-                          [_vm._v("Nombre")]
-                        ),
+                        _vm._m(2),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -51380,14 +51372,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "form-row" }, [
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-6 form-control-label",
-                            attrs: { for: "text-input" }
-                          },
-                          [_vm._v("Precio Actual")]
-                        ),
+                        _vm._m(3),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -51418,14 +51403,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-3 form-control-label",
-                            attrs: { for: "text-input" }
-                          },
-                          [_vm._v("Stock")]
-                        ),
+                        _vm._m(4),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -51458,14 +51436,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "form-row" }, [
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-3 form-control-label",
-                            attrs: { for: "text-input" }
-                          },
-                          [_vm._v("SKU")]
-                        ),
+                        _vm._m(5),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -51510,14 +51481,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-3 form-control-label",
-                            attrs: { for: "text-input" }
-                          },
-                          [_vm._v("Categorías")]
-                        ),
+                        _vm._m(6),
                         _vm._v(" "),
                         _c("div", [
                           _c(
@@ -51691,6 +51655,51 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-md-3 form-control-label" }, [
+      _vm._v("Nombre"),
+      _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-md-6 form-control-label" }, [
+      _vm._v("Precio Actual"),
+      _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-md-3 form-control-label" }, [
+      _vm._v("Stock"),
+      _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-md-3 form-control-label" }, [
+      _vm._v("SKU"),
+      _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-md-3 form-control-label" }, [
+      _vm._v("Categorías"),
+      _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Seleccione)")])
+    ])
   }
 ]
 render._withStripped = true
@@ -51799,6 +51808,7 @@ exports.push([module.i, "\n.modal-content{\n    width: 100% !important;\n    pos
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -52654,14 +52664,7 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "form-group row" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-md-3 form-control-label",
-                          attrs: { for: "text-input" }
-                        },
-                        [_vm._v("Nombre")]
-                      ),
+                      _vm._m(2),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
                         _c("input", {
@@ -52758,7 +52761,7 @@ var render = function() {
                           staticClass: "col-md-3 form-control-label",
                           attrs: { for: "text-input" }
                         },
-                        [_vm._v("Número")]
+                        [_vm._v("Número Documento")]
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-9" }, [
@@ -52934,6 +52937,12 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
+                _c("p", [
+                  _vm._v(
+                    "Si seleciona tipo de documento, es obligatorio que ingrese el Número de Documento."
+                  )
+                ]),
+                _vm._v(" "),
                 _c(
                   "button",
                   {
@@ -53021,6 +53030,22 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-md-3 form-control-label",
+        attrs: { for: "text-input" }
+      },
+      [
+        _vm._v("Nombre"),
+        _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -53129,6 +53154,7 @@ exports.push([module.i, "\n.modal-content{\n    width: 100% !important;\n    pos
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -54033,14 +54059,7 @@ var render = function() {
                   [
                     _c("div", { staticClass: "form-row" }, [
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-6 form-control-label",
-                            attrs: { for: "text-input" }
-                          },
-                          [_vm._v("Nombre Empresa")]
-                        ),
+                        _vm._m(2),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -54071,14 +54090,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-3 form-control-label",
-                            attrs: { for: "email-input" }
-                          },
-                          [_vm._v("Dirección")]
-                        ),
+                        _vm._m(3),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -54112,14 +54124,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "form-row" }, [
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-3 form-control-label",
-                            attrs: { for: "email-input" }
-                          },
-                          [_vm._v("Teléfono")]
-                        ),
+                        _vm._m(4),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -54151,14 +54156,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-3 form-control-label",
-                            attrs: { for: "email-input" }
-                          },
-                          [_vm._v("Email")]
-                        ),
+                        _vm._m(5),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -54294,14 +54292,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "form-row" }, [
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-6 form-control-label",
-                            attrs: { for: "email-input" }
-                          },
-                          [_vm._v("Contacto")]
-                        ),
+                        _vm._m(6),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -54332,14 +54323,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-6 form-control-label",
-                            attrs: { for: "email-input" }
-                          },
-                          [_vm._v("Teléfono de Contacto")]
-                        ),
+                        _vm._m(7),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -54403,6 +54387,12 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
+                _c("p", [
+                  _vm._v(
+                    "Si seleciona tipo de documento, es obligatorio que ingrese el Número de Documento."
+                  )
+                ]),
+                _vm._v(" "),
                 _c(
                   "button",
                   {
@@ -54494,6 +54484,95 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "col-md-6 form-control-label" }, [
+      _vm._v("Nombre Empresa"),
+      _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-md-3 form-control-label",
+        attrs: { for: "email-input" }
+      },
+      [
+        _vm._v("Dirección "),
+        _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-md-3 form-control-label",
+        attrs: { for: "email-input" }
+      },
+      [
+        _vm._v("Teléfono"),
+        _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-md-3 form-control-label",
+        attrs: { for: "email-input" }
+      },
+      [
+        _vm._v("Email"),
+        _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-md-6 form-control-label",
+        attrs: { for: "email-input" }
+      },
+      [
+        _vm._v("Nombre de Contacto"),
+        _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-md-6 form-control-label",
+        attrs: { for: "email-input" }
+      },
+      [
+        _vm._v("Teléfono de Contacto"),
+        _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -55823,6 +55902,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -56554,14 +56634,7 @@ var render = function() {
                   [
                     _c("div", { staticClass: "form-row " }, [
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-3 form-control-label",
-                            attrs: { for: "text-input" }
-                          },
-                          [_vm._v("Nombre")]
-                        ),
+                        _vm._m(2),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -56593,14 +56666,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-3 form-control-label",
-                            attrs: { for: "email-input" }
-                          },
-                          [_vm._v("Dirección")]
-                        ),
+                        _vm._m(3),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -56634,14 +56700,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "form-row" }, [
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-3 form-control-label",
-                            attrs: { for: "email-input" }
-                          },
-                          [_vm._v("Teléfono")]
-                        ),
+                        _vm._m(4),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -56673,14 +56732,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-6" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-3 form-control-label",
-                            attrs: { for: "email-input" }
-                          },
-                          [_vm._v("Email")]
-                        ),
+                        _vm._m(5),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -56780,7 +56832,7 @@ var render = function() {
                             staticClass: "col-md-3 form-control-label",
                             attrs: { for: "text-input" }
                           },
-                          [_vm._v("Número")]
+                          [_vm._v("Número Documento")]
                         ),
                         _vm._v(" "),
                         _c("div", [
@@ -56814,14 +56866,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", { staticClass: "form-row" }, [
                       _c("div", { staticClass: "form-group col-md-4" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-6 form-control-label",
-                            attrs: { for: "email-input" }
-                          },
-                          [_vm._v("Rol (*)")]
-                        ),
+                        _vm._m(6),
                         _vm._v(" "),
                         _c("div", [
                           _c(
@@ -56878,14 +56923,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-4" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-6 form-control-label",
-                            attrs: { for: "email-input" }
-                          },
-                          [_vm._v("Usuario (*)")]
-                        ),
+                        _vm._m(7),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -56918,14 +56956,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group col-md-6row" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "col-md-9 form-control-label",
-                            attrs: { for: "email-input" }
-                          },
-                          [_vm._v("password (*)")]
-                        ),
+                        _vm._m(8),
                         _vm._v(" "),
                         _c("div", [
                           _c("input", {
@@ -56989,6 +57020,12 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
+                _c("p", [
+                  _vm._v(
+                    "Si seleciona tipo de documento, es obligatorio que ingrese el Número de Documento."
+                  )
+                ]),
+                _vm._v(" "),
                 _c(
                   "button",
                   {
@@ -57080,6 +57117,118 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-md-3 form-control-label",
+        attrs: { for: "text-input" }
+      },
+      [
+        _vm._v("Nombre"),
+        _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-md-3 form-control-label",
+        attrs: { for: "email-input" }
+      },
+      [
+        _vm._v("Dirección"),
+        _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-md-3 form-control-label",
+        attrs: { for: "email-input" }
+      },
+      [
+        _vm._v("Teléfono"),
+        _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-md-3 form-control-label",
+        attrs: { for: "email-input" }
+      },
+      [
+        _vm._v("Email"),
+        _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-md-6 form-control-label",
+        attrs: { for: "email-input" }
+      },
+      [
+        _vm._v("Rol"),
+        _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Seleccione)")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-md-6 form-control-label",
+        attrs: { for: "email-input" }
+      },
+      [
+        _vm._v("Usuario"),
+        _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-md-9 form-control-label",
+        attrs: { for: "email-input" }
+      },
+      [
+        _vm._v("Password"),
+        _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -60016,9 +60165,7 @@ var render = function() {
                         "div",
                         { staticClass: "form-group" },
                         [
-                          _c("label", { attrs: { for: "" } }, [
-                            _vm._v("Proveedor(*)")
-                          ]),
+                          _vm._m(2),
                           _vm._v(" "),
                           _c("v-select", {
                             attrs: {
@@ -60286,7 +60433,7 @@ var render = function() {
                             "table table-bordered table-striped table-sm"
                         },
                         [
-                          _vm._m(2),
+                          _vm._m(3),
                           _vm._v(" "),
                           _vm.arrayDetalle.length
                             ? _c(
@@ -60406,7 +60553,7 @@ var render = function() {
                                       }
                                     },
                                     [
-                                      _vm._m(3),
+                                      _vm._m(4),
                                       _vm._v(" "),
                                       _c("td", [
                                         _vm._v(
@@ -60422,7 +60569,7 @@ var render = function() {
                                 ],
                                 2
                               )
-                            : _c("tbody", [_vm._m(4)])
+                            : _c("tbody", [_vm._m(5)])
                         ]
                       )
                     ])
@@ -60467,7 +60614,7 @@ var render = function() {
                   _c("div", { staticClass: "form-group row border" }, [
                     _c("div", { staticClass: "col-md-9" }, [
                       _c("div", { staticClass: "form-group" }, [
-                        _vm._m(5),
+                        _vm._m(6),
                         _vm._v(" "),
                         _c("p", {
                           domProps: { textContent: _vm._s(_vm.proveedor) }
@@ -60485,7 +60632,7 @@ var render = function() {
                             "table table-bordered table-striped table-sm"
                         },
                         [
-                          _vm._m(6),
+                          _vm._m(7),
                           _vm._v(" "),
                           _vm.arrayDetalle.length
                             ? _c(
@@ -60532,7 +60679,7 @@ var render = function() {
                                       }
                                     },
                                     [
-                                      _vm._m(7),
+                                      _vm._m(8),
                                       _vm._v(" "),
                                       _c("td", [
                                         _vm._v("$" + _vm._s(_vm.total_compra))
@@ -60542,7 +60689,7 @@ var render = function() {
                                 ],
                                 2
                               )
-                            : _c("tbody", [_vm._m(8)])
+                            : _c("tbody", [_vm._m(9)])
                         ]
                       )
                     ])
@@ -60733,7 +60880,7 @@ var render = function() {
                       staticClass: "table table-bordered table-striped table-sm"
                     },
                     [
-                      _vm._m(9),
+                      _vm._m(10),
                       _vm._v(" "),
                       _c(
                         "tbody",
@@ -60888,6 +61035,15 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Condición")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "" } }, [
+      _vm._v("Proveedor"),
+      _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
     ])
   },
   function() {
@@ -62168,9 +62324,7 @@ var render = function() {
                         "div",
                         { staticClass: "form-group" },
                         [
-                          _c("label", { attrs: { for: "" } }, [
-                            _vm._v("Cliente(*)")
-                          ]),
+                          _vm._m(2),
                           _vm._v(" "),
                           _c("v-select", {
                             attrs: {
@@ -62438,7 +62592,7 @@ var render = function() {
                             "table table-bordered table-striped table-sm"
                         },
                         [
-                          _vm._m(2),
+                          _vm._m(3),
                           _vm._v(" "),
                           _vm.arrayDetalle.length
                             ? _c(
@@ -62581,7 +62735,7 @@ var render = function() {
                                       }
                                     },
                                     [
-                                      _vm._m(3),
+                                      _vm._m(4),
                                       _vm._v(" "),
                                       _c("td", [
                                         _vm._v(
@@ -62597,7 +62751,7 @@ var render = function() {
                                 ],
                                 2
                               )
-                            : _c("tbody", [_vm._m(4)])
+                            : _c("tbody", [_vm._m(5)])
                         ]
                       )
                     ])
@@ -62642,7 +62796,7 @@ var render = function() {
                   _c("div", { staticClass: "form-group row border" }, [
                     _c("div", { staticClass: "col-md-9" }, [
                       _c("div", { staticClass: "form-group" }, [
-                        _vm._m(5),
+                        _vm._m(6),
                         _vm._v(" "),
                         _c("p", {
                           domProps: { textContent: _vm._s(_vm.cliente) }
@@ -62660,7 +62814,7 @@ var render = function() {
                             "table table-bordered table-striped table-sm"
                         },
                         [
-                          _vm._m(6),
+                          _vm._m(7),
                           _vm._v(" "),
                           _vm.arrayDetalle.length
                             ? _c(
@@ -62709,7 +62863,7 @@ var render = function() {
                                       }
                                     },
                                     [
-                                      _vm._m(7),
+                                      _vm._m(8),
                                       _vm._v(" "),
                                       _c("td", [
                                         _vm._v(
@@ -62725,7 +62879,7 @@ var render = function() {
                                 ],
                                 2
                               )
-                            : _c("tbody", [_vm._m(8)])
+                            : _c("tbody", [_vm._m(9)])
                         ]
                       )
                     ])
@@ -62916,7 +63070,7 @@ var render = function() {
                       staticClass: "table table-bordered table-striped table-sm"
                     },
                     [
-                      _vm._m(9),
+                      _vm._m(10),
                       _vm._v(" "),
                       _c(
                         "tbody",
@@ -63071,6 +63225,15 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Condición")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "" } }, [
+      _vm._v("Cliente"),
+      _c("span", { staticStyle: { color: "red" } }, [_vm._v("(*Ingrese)")])
     ])
   },
   function() {

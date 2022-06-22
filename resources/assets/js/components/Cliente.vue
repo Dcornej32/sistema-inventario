@@ -106,7 +106,7 @@
                         <div class="modal-body">
                             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                    <label class="col-md-3 form-control-label" for="text-input">Nombre<span style="color:red;">(*Ingrese)</span></label>
                                     <div class="col-md-9">
                                         <input type="text" v-model="nombre" class="form-control" placeholder="Ej. Juan Pérez">
                                     </div>
@@ -123,7 +123,7 @@
                                     </div>
                                 </div>
                                  <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Número</label>
+                                    <label class="col-md-3 form-control-label" for="text-input">Número Documento</label>
                                     <div class="col-md-9">
                                         <input type="text" v-model="numero_documento" class="form-control" placeholder="Ej. 000000000">
                                     </div>
@@ -157,6 +157,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
+                            <p>Si seleciona tipo de documento, es obligatorio que ingrese el Número de Documento.</p>
                             <button type="button" class="btn btn-dark" @click="cerrarModal()">Cerrar</button>
                             <button type="button" v-if="tipoAccion==1" class="btn verde" @click="registrarPersona()">Guardar</button>
                             <button type="button" v-if="tipoAccion==2" class="btn verde" @click="actualizarPersona()">Actualizar</button>

@@ -52,7 +52,7 @@
                             <tbody>
                              <!-- Hasta aca empieza la vista de  la tabla de vistas de categorias -->
 
-                                <tr v-for="producto  in arrayProducto" :key="producto.id">
+                                <tr v-for="producto  in arrayProducto" :key="producto.id" >
                                     <td>
                                         <button type="button"  @click="abrirModal('producto','actualizar',producto)" class="btn btn-warning btn-sm" >
                                           <i class="icon-pencil"></i>
@@ -125,7 +125,7 @@
                             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                    <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                    <label class="col-md-3 form-control-label">Nombre<span style="color:red;">(*Ingrese)</span></label>
                                         <div>
                                             <input type="text" v-model="nombre" class="form-control" placeholder="Nombre del Producto">
                                             <!-- Se eliminar la siguiente linea de codigo -->
@@ -142,7 +142,7 @@
                                 </div>
                              <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label class="col-md-6 form-control-label" for="text-input">Precio Actual</label>
+                                    <label class="col-md-6 form-control-label">Precio Actual<span style="color:red;">(*Ingrese)</span></label>
                                     <div>
                                         <input type="number" v-model="precio_actual"  class="form-control" placeholder="Precio '10.99'">
                                          <!-- Se eliminar la siguiente linea de codigo -->
@@ -150,7 +150,7 @@
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label class="col-md-3 form-control-label" for="text-input">Stock</label>
+                                    <label class="col-md-3 form-control-label">Stock<span style="color:red;">(*Ingrese)</span></label>
                                     <div>
                                         <input type="number" v-model="stock" class="form-control" placeholder="Stock '100'">
                                          <!-- Se eliminar la siguiente linea de codigo -->
@@ -159,7 +159,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label class="col-md-3 form-control-label" for="text-input">SKU</label>
+                                    <label class="col-md-3 form-control-label" >SKU<span style="color:red;">(*Ingrese)</span></label>
                                     <div>
                                         <input type="text" v-model="codigo" class="form-control" placeholder="Código 'sv000000'">
                                         <barcode :value="codigo" :options="{ format: 'EAN-13' }"> </barcode>
@@ -168,7 +168,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="col-md-3 form-control-label" for="text-input">Categorías</label>
+                                    <label class="col-md-3 form-control-label">Categorías<span style="color:red;">(*Seleccione)</span></label>
                                     <div>
                                         <select class="form-control" v-model="idcategorias" > 
                                             <option value="0" disabled> Seleccione </option>
