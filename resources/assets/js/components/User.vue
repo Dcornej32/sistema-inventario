@@ -153,7 +153,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="col-md-3 form-control-label" for="text-input">Número Documento</label>
+                                        <label class="col-md-3 form-control-label" for="text-input">Número</label>
                                         <div>
                                             <input type="text" v-model="numero_documento" class="form-control" placeholder="Ej. 000000000">
                                         </div>

@@ -56832,7 +56832,7 @@ var render = function() {
                             staticClass: "col-md-3 form-control-label",
                             attrs: { for: "text-input" }
                           },
-                          [_vm._v("Número Documento")]
+                          [_vm._v("Número")]
                         ),
                         _vm._v(" "),
                         _c("div", [
