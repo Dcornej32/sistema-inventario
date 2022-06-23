@@ -46534,7 +46534,7 @@ var content = __webpack_require__(61);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("3aed04c7", content, false, {});
+var update = __webpack_require__(4)("29c0b732", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47617,7 +47617,7 @@ var content = __webpack_require__(67);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("cf5dedfa", content, false, {});
+var update = __webpack_require__(4)("e508153a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -51773,7 +51773,7 @@ var content = __webpack_require__(108);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("47fc4540", content, false, {});
+var update = __webpack_require__(4)("ccd03600", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -53119,7 +53119,7 @@ var content = __webpack_require__(113);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("cc4af172", content, false, {});
+var update = __webpack_require__(4)("4a0d26e7", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -53486,8 +53486,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.errorPersona = 0, this.errorMostrarMsjPersona = [];
             if (this.nombre == '' || this.nombre == null) {
                 this.errorMostrarMsjPersona.push("El nombre de la empresa no puede estar vacío, Ej. Hewlett Packard");
-            } else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre)) {
-                this.errorMostrarMsjPersona.push("El nombre de la empresa no debe contener números");
             } else if (!/^[A-Z]/.test(this.nombre)) {
                 this.errorMostrarMsjPersona.push("El nombre de la empresa debe iniciar con una letra mayúscula");
             } else if (this.direccion == '' || this.direccion == null) {
@@ -54646,7 +54644,7 @@ var content = __webpack_require__(118);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("c211b290", content, false, {});
+var update = __webpack_require__(4)("d9fc0350", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -55654,7 +55652,7 @@ var content = __webpack_require__(123);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("2c3246de", content, false, {});
+var update = __webpack_require__(4)("7736f8f1", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57302,7 +57300,7 @@ var content = __webpack_require__(128);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("679a5012", content, false, {});
+var update = __webpack_require__(4)("3a3c0f97", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -57655,8 +57653,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             if (this.nombre == '' || this.nombre == null) {
                 this.errorMostrarMsjInformacion.push("El nombre de la empresa no puede estar vacío, Ej. Hewlett Packard");
-            } else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre)) {
-                this.errorMostrarMsjInformacion.push("El nombre de la empresa no debe contener números");
             } else if (!/^[A-Z]/.test(this.nombre)) {
                 this.errorMostrarMsjInformacion.push("El nombre de la empresa debe iniciar con una letra mayúscula");
             } else if (this.direccion == '' || this.direccion == null) {
@@ -58604,7 +58600,7 @@ var content = __webpack_require__(133);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("6ea99425", content, false, {});
+var update = __webpack_require__(4)("2c3f9bc5", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -61214,7 +61210,7 @@ var content = __webpack_require__(141);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("cbf813c4", content, false, {});
+var update = __webpack_require__(4)("13be7a7e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -63404,7 +63400,7 @@ var content = __webpack_require__(146);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("333c411b", content, false, {});
+var update = __webpack_require__(4)("f6beae8a", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -64334,7 +64330,7 @@ var content = __webpack_require__(151);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(4)("1bb1f6d4", content, false, {});
+var update = __webpack_require__(4)("1e521b34", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
