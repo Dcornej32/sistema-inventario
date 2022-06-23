@@ -340,9 +340,6 @@
             {
                 this.errorMostrarMsjPersona.push("El nombre de la empresa no puede estar vacío, Ej. Hewlett Packard");
             }
-            else if (!/^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(this.nombre)){
-                this.errorMostrarMsjPersona.push("El nombre de la empresa no debe contener números");
-            }
             else if (!/^[A-Z]/.test(this.nombre)){
                 this.errorMostrarMsjPersona.push("El nombre de la empresa debe iniciar con una letra mayúscula");
             }
