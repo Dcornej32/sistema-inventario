@@ -47864,6 +47864,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -50906,12 +50911,15 @@ var render = function() {
               _c("i", { staticClass: "icon-doc" }),
               _vm._v(" Reporte\n                    ")
             ]
-          ),
-          _vm._v(" "),
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-header" }, [
           _c(
             "button",
             {
               staticClass: "btn btn-danger",
+              staticStyle: { "margin-bottom": "12px" },
               attrs: { type: "button" },
               on: {
                 click: function($event) {
@@ -50929,6 +50937,7 @@ var render = function() {
             "button",
             {
               staticClass: "btn btn-success",
+              staticStyle: { "margin-bottom": "12px" },
               attrs: { type: "button" },
               on: {
                 click: function($event) {
@@ -63585,6 +63594,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -63761,13 +63773,14 @@ var render = function() {
         "div",
         { staticClass: "card" },
         [
+          _vm._m(1),
+          _vm._v(" "),
           _c("div", { staticClass: "card-header" }, [
-            _c("i", { staticClass: "fa fa-align-justify" }),
-            _vm._v("Reportes de  Entradas\n\n                  "),
             _c(
               "button",
               {
                 staticClass: "btn btn-secondary",
+                staticStyle: { "margin-bottom": "12px" },
                 attrs: { type: "button" },
                 on: {
                   click: function($event) {
@@ -63785,6 +63798,7 @@ var render = function() {
               "button",
               {
                 staticClass: "btn btn-success",
+                staticStyle: { "margin-bottom": "12px" },
                 attrs: { type: "button" },
                 on: {
                   click: function($event) {
@@ -63918,7 +63932,7 @@ var render = function() {
                           "table table-responsive table-borderless table-sm"
                       },
                       [
-                        _vm._m(1),
+                        _vm._m(2),
                         _vm._v(" "),
                         _c(
                           "tbody",
@@ -64080,7 +64094,7 @@ var render = function() {
                   _c("div", { staticClass: "form-group row border" }, [
                     _c("div", { staticClass: "col-md-9" }, [
                       _c("div", { staticClass: "form-group" }, [
-                        _vm._m(2),
+                        _vm._m(3),
                         _vm._v(" "),
                         _c("p", {
                           domProps: { textContent: _vm._s(_vm.proveedor) }
@@ -64098,7 +64112,7 @@ var render = function() {
                             "table table-bordered table-striped table-sm"
                         },
                         [
-                          _vm._m(3),
+                          _vm._m(4),
                           _vm._v(" "),
                           _vm.arrayDetalle.length
                             ? _c(
@@ -64145,7 +64159,7 @@ var render = function() {
                                       }
                                     },
                                     [
-                                      _vm._m(4),
+                                      _vm._m(5),
                                       _vm._v(" "),
                                       _c("td", [
                                         _vm._v("$" + _vm._s(_vm.total_compra))
@@ -64155,7 +64169,7 @@ var render = function() {
                                 ],
                                 2
                               )
-                            : _c("tbody", [_vm._m(5)])
+                            : _c("tbody", [_vm._m(6)])
                         ]
                       )
                     ])
@@ -64196,6 +64210,15 @@ var staticRenderFns = [
       _c("li", { staticClass: "breadcrumb-item" }, [
         _c("a", { attrs: { href: "/" } }, [_vm._v("Escritorio")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("i", { staticClass: "fa fa-align-justify" }),
+      _vm._v("Reportes de  Entradas\n\n                   \n               ")
     ])
   },
   function() {
@@ -64369,6 +64392,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_select__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_select_dist_vue_select_css__);
+//
+//
+//
+//
 //
 //
 //
@@ -64692,13 +64719,14 @@ var render = function() {
         "div",
         { staticClass: "card" },
         [
+          _vm._m(1),
+          _vm._v(" "),
           _c("div", { staticClass: "card-header" }, [
-            _c("i", { staticClass: "fa fa-align-justify" }),
-            _vm._v(" Reportes  de Salidas\n                    "),
             _c(
               "button",
               {
                 staticClass: "btn btn-secondary",
+                staticStyle: { "margin-bottom": "12px" },
                 attrs: { type: "button" },
                 on: {
                   click: function($event) {
@@ -64716,6 +64744,7 @@ var render = function() {
               "button",
               {
                 staticClass: "btn btn-success",
+                staticStyle: { "margin-bottom": "12px" },
                 attrs: { type: "button" },
                 on: {
                   click: function($event) {
@@ -64847,7 +64876,7 @@ var render = function() {
                           "table table-responsive table-borderless table-sm"
                       },
                       [
-                        _vm._m(1),
+                        _vm._m(2),
                         _vm._v(" "),
                         _c(
                           "tbody",
@@ -65004,7 +65033,7 @@ var render = function() {
                   _c("div", { staticClass: "form-group row border" }, [
                     _c("div", { staticClass: "col-md-9" }, [
                       _c("div", { staticClass: "form-group" }, [
-                        _vm._m(2),
+                        _vm._m(3),
                         _vm._v(" "),
                         _c("p", {
                           domProps: { textContent: _vm._s(_vm.cliente) }
@@ -65022,7 +65051,7 @@ var render = function() {
                             "table table-bordered table-striped table-sm"
                         },
                         [
-                          _vm._m(3),
+                          _vm._m(4),
                           _vm._v(" "),
                           _vm.arrayDetalle.length
                             ? _c(
@@ -65069,7 +65098,7 @@ var render = function() {
                                       }
                                     },
                                     [
-                                      _vm._m(4),
+                                      _vm._m(5),
                                       _vm._v(" "),
                                       _c("td", [
                                         _vm._v(
@@ -65084,7 +65113,7 @@ var render = function() {
                                 ],
                                 2
                               )
-                            : _c("tbody", [_vm._m(5)])
+                            : _c("tbody", [_vm._m(6)])
                         ]
                       )
                     ])
@@ -65125,6 +65154,15 @@ var staticRenderFns = [
       _c("li", { staticClass: "breadcrumb-item" }, [
         _c("a", { attrs: { href: "/" } }, [_vm._v("Escritorio")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("i", { staticClass: "fa fa-align-justify" }),
+      _vm._v(" Reportes  de Salidas\n                    \n               ")
     ])
   },
   function() {

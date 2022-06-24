@@ -10,12 +10,16 @@
                 <div class="card">
                     <div class="card-header">
                         <i class="fa fa-align-justify"></i> Reportes  de Salidas
-                         <button type="button"  @click="cargarPdf_Dia()"  class="btn btn-secondary">
+                         
+                    </div>
+                    <div class="card-header">
+                    <button type="button"  @click="cargarPdf_Dia()"  class="btn btn-secondary" style="margin-bottom: 12px">
                             <i class="icon-doc"></i>&nbsp;Reporte Por Día
                         </button>
-                         <button type="button"  @click="cargarPdf_Mes()" class="btn btn-success">
+                         <button type="button"  @click="cargarPdf_Mes()" class="btn btn-success" style="margin-bottom: 12px">
                             <i class="icon-doc"></i>&nbsp;Reporte Por Mes
                         </button>
+
                     </div>
                     <!-- Listado -->
                     <template v-if="listado==1">

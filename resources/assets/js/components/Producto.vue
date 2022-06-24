@@ -15,13 +15,18 @@
                         <button type="button"  @click="cargarPdf()" class="btn btn-info">
                             <i class="icon-doc"></i>&nbsp;Reporte
                         </button>
-                        <button type="button"  @click="cargarPdf_Stock()" class="btn btn-danger">
+                       
+
+                    </div>
+                    <div class="card-header">
+                        <button type="button"  @click="cargarPdf_Stock()" class="btn btn-danger" style="margin-bottom: 12px">
                             <i class="icon-doc"></i>&nbsp;Menor Stock
-                        </button>
-                        <button type="button"  @click="cargarPdf_Mes()" class="btn btn-success">
+                        </button >
+                        
+                        <button type="button"  @click="cargarPdf_Mes()" class="btn btn-success" style="margin-bottom: 12px">
                             <i class="icon-doc"></i>&nbsp;Reporte Mensual
                         </button>
-
+                        
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
