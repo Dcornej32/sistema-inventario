@@ -55,7 +55,7 @@
                         <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-book-open"></i> Ayuda<span class="badge badge-danger">PDF</span></a>
                         <ul class="nav-dropdown-items">
                             <li  class="nav-item">
-                                <a class="nav-link" href="#" onclick="window.open('http://127.0.0.1:8000/manuales/manual_almacenero.pdf');">
+                                <a class="nav-link" href="#" onclick="window.open('http://127.0.0.1:8000/manuales/Manual_Almacenero.pdf');">
                                 <i class="icon-book-open"></i>Manual-Almacenero </a>
                             </li>
                         </ul>
