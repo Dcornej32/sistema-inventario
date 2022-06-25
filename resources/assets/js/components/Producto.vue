@@ -57,7 +57,7 @@
                             <tbody>
                              <!-- Hasta aca empieza la vista de  la tabla de vistas de categorias -->
 
-                                <tr v-for="producto  in arrayProducto" :key="producto.id" >
+                                <tr v-for="producto  in arrayProducto" :key="producto.id" v-bind:style="producto.stock<=5?'color:red':'color:black'">
                                     <td>
                                         <button type="button"  @click="abrirModal('producto','actualizar',producto)" class="btn btn-warning btn-sm" >
                                           <i class="icon-pencil"></i>
